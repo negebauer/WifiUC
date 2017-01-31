@@ -1,19 +1,13 @@
 import React from 'react'
 import {View, Text, Button, ScrollView, ActivityIndicator} from 'react-native'
-import Base, {Styles} from '../Base'
+import Base, {Styles, Debug} from '../Base'
 import Login from './Login'
-import Session from '../../utils/session'
+import Session, {err as SessionError} from '../../utils/session'
+
+import * as Keychain from 'react-native-keychain'
 
 const navigationOptions = {
-  title: 'Wifi UC',
-  header: ({state, setParams}) => ({right: (
-      <View style={Styles.containerHorizontal}>
-        <Text>test</Text>
-        <Text>test</Text>
-        <Button title='logout' onPress={() => setParams({login: true})}/>
-        <Button title='logout' onPress={() => setParams({login: true})}/>
-      </View>
-    )})
+  title: 'Wifi UC'
 }
 
 export default class Home extends Base {
@@ -23,41 +17,51 @@ export default class Home extends Base {
     super(props)
     const state = {
       login: false,
-      username: '',
-      password: '',
+      session: null,
       ready: false
     }
     this.addState(state)
   }
 
   componentDidMount() {
-    Session.exists((username, password, login) => this.setState({username, password, login, ready: true}), this.loginCheck)
+    Session.load().then(session => this.setState({
+      session,
+      login: !session
+    }, this.login))
   }
 
-  loginCheck = () => {
-    if (this.state.login) {
-      this.navigate('Login')
-    }
+  login = () => {
+    this.state.session.login().then(() => this.setState({ready: true})).catch(error => {
+      switch (error.id) {
+        case SessionError.network:
+          this.setState({error: 'No hay conexión a internet', ready: true})
+        case SessionError.credentials:
+          this.setState({login: true, loginText: 'Credenciales incorrectas\nIngresa tus credenciales nuevamente', ready: true})
+        default:
+          break
+      }
+    })
   }
 
-  loginSuccess = (username, password) => this.setState({username, password, login: false})
-
-  loginCancel = () => this.setState({login: false})
+  loginSuccess = (session) => this.setState({
+    session,
+    login: false,
+    loginText: null
+  }, () => this.logRender('Home'))
 
   render() {
+    this.logRender('Home')
     if (!this.state.ready) {
       return <ActivityIndicator style={Styles.containerCentered}/>
     }
     if (this.state.login) {
-      return <ScrollView><Login loginSuccess={this.logged} loginCancel={this.state.username && this.loginCancel}/></ScrollView>
+      return <ScrollView><Login loginSuccess={this.loginSuccess} text={this.state.loginText}/></ScrollView>
     }
     return (
       <ScrollView style={Styles.container}>
         <Text>Hello, Chat App!</Text>
         <Button title='Login' onPress={() => this.setState({login: true})}/>
-        <View>
-          {Object.keys(this.state).map(k => <Text key={k}>{`${k}: ${this.state[k]}`}</Text>)}
-        </View>
+        <Debug state={this.state}/>
       </ScrollView>
     )
   }

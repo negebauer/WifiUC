@@ -9,6 +9,11 @@ export default class Fetcher {
   }
 
   static get(path, form = false) {
+    if (Project.isDev) {
+      console.log(`GET ${path}`)
+      console.log('headers')
+      console.log(Fetcher.headers(form))
+    }
     return fetch(path, {headers: Fetcher.headers(form)})
   }
 

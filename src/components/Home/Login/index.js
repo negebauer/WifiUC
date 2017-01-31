@@ -1,8 +1,8 @@
 import React from 'react'
 import {View, ActivityIndicator, StyleSheet, Text, Button} from 'react-native'
-import * as Keychain from 'react-native-keychain'
 import FormHelper from 'tcomb-form-native'
 import Base, {Styles} from '../../Base'
+import Session from '../../../utils/session'
 
 const navigationOptions = {
   title: 'Login'
@@ -34,11 +34,22 @@ const formOptions = {
 export default class Login extends Base {
   static navigationOptions = navigationOptions
 
+  constructor(props) {
+    super(props)
+    const state = {
+      text: this.props.text || '',
+      loging: false,
+      shouldReload: false
+    }
+    this.addState(state)
+    Session.logout()
+  }
+
   onChange = (user) => {
     this.setState({user})
   }
 
-  onPress = () => {
+  loginCheck = () => {
     var user = this.refs.form.getValue()
     if (!user) {
       return this.setState({text: 'Faltan datos'})
@@ -49,42 +60,33 @@ export default class Login extends Base {
     this.setState({
       loging: true,
       text: ''
-    }, this.saveCredentials)
+    }, this.login)
   }
 
-  saveCredentials = () => {
+  login = () => {
     const {username, password} = {
       ...this.state.user
     }
-    Keychain.setGenericPassword(username, password).then(() => {
-      this.login(username, password)
+    Session.save(username, password).then(() => {
+      const session = new Session(username, password)
+      session.login().then(() => {
+        this.setState({
+          loging: false
+        }, () => this.props.loginSuccess(session))
+      }).catch(error => this.setState({loging: false, text: error.message}))
     })
   }
 
-  login = (username, password) => {
-    this.props.loginSuccess(username, password) // TODO: EJALE
-    // const session = new Session(username, password)
-    // session.login().then((logged, text) => {
-    //   this.setState({
-    //     loging: false
-    //   }, () => Actions.pop({
-    //     refresh: {
-    //       shouldReload: true
-    //     }
-    //   }))
-    // }).catch(error => this.setState({loging: false, text: error}))
-  }
-
   render() {
+    this.logRender('Login')
     return (
       <View style={Styles.container}>
         <Form ref='form' type={UCUser} options={formOptions} value={this.state.user} onChange={this.onChange}/>
         <View>
-          {!this.state.loging && <Button title='Ingresar' onPress={this.onPress}/>}
+          {!this.state.loging && <Button title='Ingresar' onPress={this.loginCheck}/>}
           {this.state.loging && <ActivityIndicator/>}
         </View>
         <Text style={Styles.textCentered}>{this.state.text}</Text>
-        {this.props.loginCancel && <Button title='Cancelar' onPress={this.props.loginCancel}/>}
       </View>
     )
   }

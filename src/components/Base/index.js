@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {View, StyleSheet} from 'react-native'
+import {View, StyleSheet, Text} from 'react-native'
 import Project from '../../utils/project'
 import styles from './styles'
 
@@ -32,12 +32,49 @@ export default class Base extends Component {
 
   addState = (state) => this.state = Object.assign(this.state, state)
 
-  logRender = () => {
+  logRender = (name = 'Base') => {
     if (!Project.isDev) {
       return
     }
-    // console.log(name)
+    console.log(name)
     console.log(this.state)
     console.log(this.props)
   }
+
+}
+
+export class Debug extends Base {
+
+  static styles = StyleSheet.create({
+    debug: {
+      margin: 20,
+      padding: 20,
+      flexDirection: 'column',
+      alignSelf: 'stretch',
+      alignItems: 'center',
+      justifyContent: 'flex-end',
+      backgroundColor: 'chocolate'
+    },
+    text: {
+      color: 'white'
+    }
+  })
+
+  static container = Debug.styles.debug
+  static text = Debug.styles.text
+
+  debugRender = (state) => Object.keys(state).map(k => this.debugRenderValue(k, state))
+
+  debugRenderValue = (key, object) => {
+    const value = object[key]
+    if (typeof value === 'function') {
+      return null
+    }
+    if (value && typeof value === 'object') {
+      return Object.keys(value).map(k => this.debugRenderValue(k, value))
+    }
+    return <Text style={Debug.text} key={key}>{`${key}: ${value}`}</Text>
+  }
+
+  render = () => Project.isDev && <View style={Debug.container}>{this.debugRender(this.props.state)}</View>
 }
