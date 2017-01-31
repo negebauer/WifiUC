@@ -15,6 +15,8 @@ export default class New extends Base {
     this.addState(state)
   }
 
+  componentWillReceiveProps(nextProps) {}
+
   render() {
     return (
       <View></View>

@@ -1,11 +1,15 @@
 import React, {Component} from 'react'
-import {View} from 'react-native'
+import {View, StyleSheet} from 'react-native'
+import Project from '../../utils/project'
+import styles from './styles'
+
+export {styles as Styles}
 
 export default class Base extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: 'Base'
+      // name: 'Base'
     }
   }
 
@@ -19,10 +23,20 @@ export default class Base extends Component {
     return params
   }
 
+  get dispatch() {
+    const {dispatch} = this.props.navigation
+    return dispatch
+  }
+
+  params = (props = this.props) => props.navigation.state
+
   addState = (state) => this.state = Object.assign(this.state, state)
 
-  logRender = (name = this.state.className) => {
-    console.log(name)
+  logRender = () => {
+    if (!Project.isDev) {
+      return
+    }
+    // console.log(name)
     console.log(this.state)
     console.log(this.props)
   }
