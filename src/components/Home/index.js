@@ -6,7 +6,14 @@ import Session from '../../utils/session'
 
 const navigationOptions = {
   title: 'Wifi UC',
-  header: ({state, setParams}) => ({left: (<Button title='logout' onPress={() => setParams({login: true})}/>)})
+  header: ({state, setParams}) => ({right: (
+      <View style={Styles.containerHorizontal}>
+        <Text>test</Text>
+        <Text>test</Text>
+        <Button title='logout' onPress={() => setParams({login: true})}/>
+        <Button title='logout' onPress={() => setParams({login: true})}/>
+      </View>
+    )})
 }
 
 export default class Home extends Base {
@@ -24,15 +31,17 @@ export default class Home extends Base {
   }
 
   componentDidMount() {
-    goLogin = () => {
-      if (this.state.login) {
-        this.navigate('Login')
-      }
+    Session.exists((username, password, login) => this.setState({username, password, login, ready: true}), this.loginCheck)
+  }
+
+  loginCheck = () => {
+    if (this.state.login) {
+      this.navigate('Login')
     }
-    Session.exists((username, password, login) => this.setState({username, password, login, ready: true}), goLogin)
   }
 
   loginSuccess = (username, password) => this.setState({username, password, login: false})
+
   loginCancel = () => this.setState({login: false})
 
   render() {
