@@ -82,7 +82,7 @@ export default class Home extends Base {
         <Text>Hello, Chat App!</Text>
         <Button title='Login' onPress={() => this.setState({login: true})}/>
         <Devices session={this.state.session}/>
-        <Debug state={this.state}/>
+        <Debug state={this.state} name='Home'/>
       </ScrollView>
     )
   }

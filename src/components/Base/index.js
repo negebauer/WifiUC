@@ -76,5 +76,6 @@ export class Debug extends Base {
     return <Text style={Debug.text} key={key}>{`${key}: ${value}`}</Text>
   }
 
-  render = () => Project.isDev && <View style={Debug.container}>{this.debugRender(this.props.state)}</View>
+  render = () => Project.isDev && <View style={Debug.container}>
+    <Text>{this.props.name}</Text>{this.debugRender(this.props.state)}</View>
 }

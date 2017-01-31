@@ -30,15 +30,16 @@ export default class Devices extends Base {
       const macs = activeDevices.map(d => d.mac)
       const notActive = (d) => macs.indexOf(d.mac) === -1
       const devices = activeDevices.concat(devicesOld.filter(notActive))
-      storage.save({key: 'devices', rawData: devices})
+      DevicesManager.save(devices)
       this.setState({devices: devices, loaded: true, error: ''})
     }).catch(error => this.setState({error: error.message}))
   }
 
   render() {
+    this.logRender('Devices')
     return (
       <View>
-        <Debug state={this.state}/>
+        <Debug state={this.state} name='Devices'/>
       </View>
     )
   }
