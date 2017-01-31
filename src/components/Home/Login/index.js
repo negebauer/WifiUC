@@ -4,10 +4,6 @@ import FormHelper from 'tcomb-form-native'
 import Base, {Styles, Debug} from '../../Base'
 import Session from '../../../utils/session'
 
-const navigationOptions = {
-  title: 'Login'
-}
-
 const Form = FormHelper.form.Form
 UCUserStruct = {
   username: FormHelper.String,
@@ -32,7 +28,6 @@ const formOptions = {
 }
 
 export default class Login extends Base {
-  static navigationOptions = navigationOptions
 
   constructor(props) {
     super(props)
