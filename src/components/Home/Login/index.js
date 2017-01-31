@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, ActivityIndicator, StyleSheet, Text, Button} from 'react-native'
 import FormHelper from 'tcomb-form-native'
-import Base, {Styles} from '../../Base'
+import Base, {Styles, Debug} from '../../Base'
 import Session from '../../../utils/session'
 
 const navigationOptions = {
@@ -87,6 +87,7 @@ export default class Login extends Base {
           {this.state.loging && <ActivityIndicator/>}
         </View>
         <Text style={Styles.textCentered}>{this.state.text}</Text>
+        <Debug state={this.state}/>
       </View>
     )
   }
