@@ -1,4 +1,3 @@
-# Hepburn
 language: objective-c
 osx_image: xcode8
 xcode_sdk: iphonesimulator9.0
@@ -17,8 +16,5 @@ before_install:
   - gem install cocoapods
   - pod install --project-directory=ios
 
-before_script:
-  - npm run compile:test
-
 script:
-  - npm test
+  - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios
