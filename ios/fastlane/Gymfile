@@ -1,0 +1,3 @@
+scheme 'WifiUC'
+provisioning_profile_path 'AppStore_com.negebauer.Wifi-UC.mobileprovision'
+clean true

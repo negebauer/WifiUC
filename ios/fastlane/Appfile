@@ -1,0 +1,8 @@
+app_identifier 'com.negebauer.Wifi-UC' # The bundle identifier of your app
+apple_id 'negebauer@uc.cl' # Your Apple email address
+
+team_id 'BJJKE72WM4'  # Developer Portal Team ID
+itc_team_id '118110410'
+
+# you can even provide different app identifiers, Apple IDs and team names per lane:
+# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md
