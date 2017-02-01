@@ -1,10 +1,6 @@
 fastlane_version '2.13.0'
 
-# default_platform :ios
-
 before_all do
-  version = ENV['version']
-  puts "Current version: #{version}"
   cocoapods
 end
 
@@ -18,22 +14,18 @@ desc 'Submit a new Beta Build to Apple TestFlight'
 lane :beta do
   gym
   pilot
-  # sh 'your_script.sh'
-  # You can also use other beta testing services here (run `fastlane actions`)
 end
 
 desc 'Deploy a new version to the App Store'
 lane :release do
-  # snapshot
-  gym # Build your app - more options available
+  gym
   deliver
 end
 
-# You can define as many lanes as you want
 after_all do |lane|
-  # TODO
+
 end
 
 error do |lane, exception|
-  # TODO
+
 end
