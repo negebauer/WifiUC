@@ -18,3 +18,5 @@ fastlane $deploy
 # echo "Android deploy: Running fastlane $deploy"
 # cd ../android
 # fastlane $deploy
+
+git push --tags

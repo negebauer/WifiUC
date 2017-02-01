@@ -8,7 +8,7 @@
     "deploy": "scripts/deploy.sh",
     "icon": "yo rn-toolbox:assets --icon assets/icon.png",
     "postversion": "react-native-version",
-    "build": "react-native-version -b; git commit -a 'Bump build'"
+    "build": "react-native-version -b; git commit -am \"Bump build\""
   },
   "dependencies": {
     "buffer": "^5.0.2",
