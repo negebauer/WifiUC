@@ -1,6 +1,6 @@
 import Url from '../../utils/url'
 import Fetcher from '../../utils/fetcher'
-import Device from './device'
+import Device from './Device/device'
 let cheerio = require('cheerio')
 
 const storageKey = 'devices'
@@ -42,4 +42,56 @@ export default class Devices {
       return devices
     })
   }
+
+  static validate = (response, retry) => {
+    return response.text().then(html => {
+      console.log('Device edit response')
+      console.log(html)
+      let $ = cheerio.load(html)
+      if (!$('.exito').length) {
+        if (html.indexOf('CAS') !== -1) {
+          return retry()
+        }
+        console.log('throw!')
+        console.log('errro')
+        console.log($('.error').text())
+        throw {message: $('.error').text()}
+      }
+    })
+  }
+
+  static addDevice = (session, device) => {
+    const retry = () => Devices.addDevice(device, session)
+    return session.login().then(() => {
+      const body = {
+        mac: device.mac,
+        nombreDispositivo: device.name
+      }
+      return Fetcher.post(Url.add, body, true).then(res => Devices.validate(res, retry))
+    })
+  }
+
+  static removeDevice = (session, device) => {
+    const retry = () => Devices.removeDevice(device)
+    return session.login().then(_ => {
+      const body = {
+        mac: device.mac
+      }
+      return Fetcher.post(Url.remove, body, true).then(res => Devices.validate(res, retry))
+    })
+  }
+
+  static editDevice = (session, deviceOld, deviceNew) => {
+    const retry = () => Devices.editDevice(deviceOld, deviceNew)
+    return session.login().then(() => {
+      const body = {
+        macAntes: deviceOld.mac,
+        macDespues: deviceNew.mac,
+        nombreDispositivoAntes: deviceOld.name,
+        nombreDispositivoDespues: deviceNew.name
+      }
+      return Fetcher.post(Url.edit, body, true).then(res => Devices.validate(res, retry))
+    })
+  }
+
 }

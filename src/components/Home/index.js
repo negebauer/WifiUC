@@ -79,8 +79,8 @@ export default class Home extends Base {
     }
     return (
       <ScrollView style={Styles.container}>
-        <Text>Hello, Chat App!</Text>
-        <Button title='Login' onPress={() => this.setState({login: true})}/>
+        {/* <Text>Hello, Chat App!</Text> */}
+        {/* <Button title='Login' onPress={() => this.setState({login: true})}/> */}
         <Devices session={this.state.session}/>
         <Debug state={this.state} name='Home'/>
       </ScrollView>
