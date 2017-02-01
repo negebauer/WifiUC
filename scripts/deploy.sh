@@ -2,17 +2,17 @@ echo 'Checking git status...'
 # if [ ! -z  $(git status --porcelain) ]; then echo 'Git repository dirty. Clean it'; exit; fi
 echo 'Git clean!'
 
-echo 'Bump major, minor, patch or none:'
+echo 'Bump major, minor, patch or none\n$ \c'
 read bump
-if [ ! "$bump" == 'none' ]; then version=$(npm version $bump); echo "Version bumped to $version"; fi
+if [ ! "$bump" == 'none' ] && [ ! "$bump" == "" ]; then version=$(npm version $bump); echo "Version bumped to $version"; else echo 'No bump'; fi
 
-git diff android/app/build.gradle
-# python scripts/bump.py
-# export a=4
-# echo "version $version $a"
+echo 'Deploy alpha beta store\n$ \c'
+read deploy
 
+echo 'iOS deploy'
+cd ios
+fastlane $deploy
 
-# if [ -f /var/log/messages ]
-#   then
-#     echo "/var/log/messages exists."
-# fi
+# echo 'Android deploy'
+# cd ../android
+# fastlane $deploy

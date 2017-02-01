@@ -6,6 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "deploy": "scripts/deploy.sh",
+    "icon": "yo rn-toolbox:assets --icon assets/icon.png",
     "postversion": "react-native-version"
   },
   "dependencies": {
