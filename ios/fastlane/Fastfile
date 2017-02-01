@@ -3,6 +3,8 @@ fastlane_version '2.13.0'
 # default_platform :ios
 
 before_all do
+  version = ENV['version']
+  puts "Current version: #{version}"
   cocoapods
 end
 
