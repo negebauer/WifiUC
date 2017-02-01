@@ -1,5 +1,5 @@
 echo 'Checking git status...'
-# if [ ! -z  $(git status --porcelain) ]; then echo 'Git repository dirty. Clean it'; exit; fi
+if [ ! -z  $(git status --porcelain) ]; then echo 'Git repository dirty. Clean it'; exit; fi
 echo 'Git clean!'
 
 echo 'Bump major, minor, patch or none (default)\n$ \c'
