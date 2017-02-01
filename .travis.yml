@@ -8,8 +8,7 @@ cache:
     - ios/Pods
 
 before_install:
-  - brew install node
-  - brew install watchman
+  - brew reinstall node
   - npm install
   - npm install -g react-native-cli
   - gem install cocoapods
