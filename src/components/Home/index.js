@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  View,
-  Text,
-  Button,
-  ScrollView,
-  ActivityIndicator,
-  AsyncStorage
-} from 'react-native'
-import Storage from 'react-native-storage'
+import {View, Text, Button, ScrollView, ActivityIndicator} from 'react-native'
 import Base, {Styles, Debug} from '../Base'
 import Login from './Login'
 import Devices from '../Devices'
@@ -30,17 +22,6 @@ export default class Home extends Base {
       ready: false
     }
     this.addState(state)
-  }
-
-  componentWillMount() {
-    const config = {
-      size: 1000,
-      storageBackend: AsyncStorage,
-      defaultExpires: null,
-      enableCache: true
-    }
-    const storage = new Storage(config)
-    global.storage = storage
   }
 
   componentDidMount() {
