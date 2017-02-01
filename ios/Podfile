@@ -7,9 +7,4 @@ target 'WifiUC' do
 
   # Pods for WifiUC
 
-  target 'WifiUCTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

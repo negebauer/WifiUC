@@ -7,90 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		837093B14B88A5D058D8295EC0A646FF /* Pods-WifiUCTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0A877356AFFD71591314444BD0743 /* Pods-WifiUCTests-dummy.m */; };
-		A6F891EE08DD57539A292EA94B976661 /* Pods-WifiUC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8991178D734AFBB1665FD8A162CE77 /* Pods-WifiUC-dummy.m */; };
-		E7F258F95141E4A3DBD4CEE1B6CABCC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		EB3374429784B613B54686EE68888563 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		7CDCFD94015657C20360CD2CDB0EA9F5 /* Pods-WifiUC-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0AA3B1B8C24EA09EA32FDA8F8BFBAF /* Pods-WifiUC-dummy.m */; };
+		B5F1850AAD16E55B8C04DAF1A71BD579 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		01628CEE3BA625A3580067DC7568C266 /* Pods-WifiUCTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WifiUCTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		02E40402F12FF1996EA818B778C3A5D9 /* Pods-WifiUC-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WifiUC-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0DA0A877356AFFD71591314444BD0743 /* Pods-WifiUCTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WifiUCTests-dummy.m"; sourceTree = "<group>"; };
-		4F889F81A4C85384E2C2F5E948FB01D5 /* libPods-WifiUCTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WifiUCTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B8991178D734AFBB1665FD8A162CE77 /* Pods-WifiUC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WifiUC-dummy.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9E3465737DE9B4944A2AD1B36A8CA235 /* libPods-WifiUC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WifiUC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3870BCE6AA051F50DAF89B21F8F86B7 /* Pods-WifiUCTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WifiUCTests-resources.sh"; sourceTree = "<group>"; };
-		A9B567326C24224B78D666BD99D43E5D /* Pods-WifiUCTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WifiUCTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		ACB65FD8F482AD663AC13BB7747D70D7 /* Pods-WifiUC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WifiUC.debug.xcconfig"; sourceTree = "<group>"; };
-		B0AD7B87561E57D6F793A55DCE365133 /* Pods-WifiUCTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WifiUCTests-frameworks.sh"; sourceTree = "<group>"; };
-		B451B5CA4A6292DECB95E27F6D27A4E1 /* Pods-WifiUC-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WifiUC-acknowledgements.plist"; sourceTree = "<group>"; };
-		CB144209BAB3FA082AC8437CAFBFB73A /* Pods-WifiUC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WifiUC.release.xcconfig"; sourceTree = "<group>"; };
+		30E40412CEABC4C2228CE8A50535D9EA /* libPods-WifiUC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-WifiUC.a"; path = "libPods-WifiUC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F507381153B57CF504D7D6A973D1593 /* Pods-WifiUC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WifiUC.release.xcconfig"; sourceTree = "<group>"; };
+		607A36AA59EAFCE754DB7C264F9891FA /* Pods-WifiUC-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WifiUC-frameworks.sh"; sourceTree = "<group>"; };
+		6ED729498CF73A93D4CE83B119619B60 /* Pods-WifiUC-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WifiUC-acknowledgements.plist"; sourceTree = "<group>"; };
+		6FDDF91DB0D938BB78645242861A0F0B /* Pods-WifiUC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WifiUC.debug.xcconfig"; sourceTree = "<group>"; };
+		7733002437151B15C38C15C44F832623 /* Pods-WifiUC-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WifiUC-resources.sh"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BA0AA3B1B8C24EA09EA32FDA8F8BFBAF /* Pods-WifiUC-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WifiUC-dummy.m"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		CBEB5AAD8AF4E1E1E4133182606FBE34 /* Pods-WifiUC-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WifiUC-frameworks.sh"; sourceTree = "<group>"; };
-		ECD6314D044F9436A9099A46574A2D72 /* Pods-WifiUCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WifiUCTests.debug.xcconfig"; sourceTree = "<group>"; };
-		F9C79C6BF77403EC38F6DFAF2C75FF07 /* Pods-WifiUCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WifiUCTests.release.xcconfig"; sourceTree = "<group>"; };
-		FD7337C3D58A61AC1417FCA9ED514602 /* Pods-WifiUC-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-WifiUC-resources.sh"; sourceTree = "<group>"; };
+		EF1D1CE929A9BC43787E0C0F4DB80EFE /* Pods-WifiUC-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WifiUC-acknowledgements.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3A1552C1625F0140FF84586014BF9B85 /* Frameworks */ = {
+		52F2345BE7E81875AE81E30977197B45 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7F258F95141E4A3DBD4CEE1B6CABCC7 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CC296BAD07A020C3B440A4C3DC8A1304 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB3374429784B613B54686EE68888563 /* Foundation.framework in Frameworks */,
+				B5F1850AAD16E55B8C04DAF1A71BD579 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27EFAAC97AFD8F3C6FE57F93E58FAC01 /* Products */ = {
+		1D54E139B9440F8C965BCF8F65E76D19 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9E3465737DE9B4944A2AD1B36A8CA235 /* libPods-WifiUC.a */,
-				4F889F81A4C85384E2C2F5E948FB01D5 /* libPods-WifiUCTests.a */,
+				FD4B50871ADDC63302042AB9366F9095 /* Pods-WifiUC */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		30A7F1C21E75D2C624D641CF8E735416 /* Pods-WifiUC */ = {
-			isa = PBXGroup;
-			children = (
-				02E40402F12FF1996EA818B778C3A5D9 /* Pods-WifiUC-acknowledgements.markdown */,
-				B451B5CA4A6292DECB95E27F6D27A4E1 /* Pods-WifiUC-acknowledgements.plist */,
-				6B8991178D734AFBB1665FD8A162CE77 /* Pods-WifiUC-dummy.m */,
-				CBEB5AAD8AF4E1E1E4133182606FBE34 /* Pods-WifiUC-frameworks.sh */,
-				FD7337C3D58A61AC1417FCA9ED514602 /* Pods-WifiUC-resources.sh */,
-				ACB65FD8F482AD663AC13BB7747D70D7 /* Pods-WifiUC.debug.xcconfig */,
-				CB144209BAB3FA082AC8437CAFBFB73A /* Pods-WifiUC.release.xcconfig */,
-			);
-			name = "Pods-WifiUC";
-			path = "Target Support Files/Pods-WifiUC";
-			sourceTree = "<group>";
-		};
-		4192DD497049A1163BC555168B06F1E3 /* Pods-WifiUCTests */ = {
-			isa = PBXGroup;
-			children = (
-				A9B567326C24224B78D666BD99D43E5D /* Pods-WifiUCTests-acknowledgements.markdown */,
-				01628CEE3BA625A3580067DC7568C266 /* Pods-WifiUCTests-acknowledgements.plist */,
-				0DA0A877356AFFD71591314444BD0743 /* Pods-WifiUCTests-dummy.m */,
-				B0AD7B87561E57D6F793A55DCE365133 /* Pods-WifiUCTests-frameworks.sh */,
-				A3870BCE6AA051F50DAF89B21F8F86B7 /* Pods-WifiUCTests-resources.sh */,
-				ECD6314D044F9436A9099A46574A2D72 /* Pods-WifiUCTests.debug.xcconfig */,
-				F9C79C6BF77403EC38F6DFAF2C75FF07 /* Pods-WifiUCTests.release.xcconfig */,
-			);
-			name = "Pods-WifiUCTests";
-			path = "Target Support Files/Pods-WifiUCTests";
+			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
 		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
@@ -106,8 +57,8 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				27EFAAC97AFD8F3C6FE57F93E58FAC01 /* Products */,
-				F6088D45EA00B5511FDAD85FB0971F83 /* Targets Support Files */,
+				EF112CFA14AE24D35DC5683AF461DDDB /* Products */,
+				1D54E139B9440F8C965BCF8F65E76D19 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,24 +70,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F6088D45EA00B5511FDAD85FB0971F83 /* Targets Support Files */ = {
+		EF112CFA14AE24D35DC5683AF461DDDB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30A7F1C21E75D2C624D641CF8E735416 /* Pods-WifiUC */,
-				4192DD497049A1163BC555168B06F1E3 /* Pods-WifiUCTests */,
+				30E40412CEABC4C2228CE8A50535D9EA /* libPods-WifiUC.a */,
 			);
-			name = "Targets Support Files";
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD4B50871ADDC63302042AB9366F9095 /* Pods-WifiUC */ = {
+			isa = PBXGroup;
+			children = (
+				EF1D1CE929A9BC43787E0C0F4DB80EFE /* Pods-WifiUC-acknowledgements.markdown */,
+				6ED729498CF73A93D4CE83B119619B60 /* Pods-WifiUC-acknowledgements.plist */,
+				BA0AA3B1B8C24EA09EA32FDA8F8BFBAF /* Pods-WifiUC-dummy.m */,
+				607A36AA59EAFCE754DB7C264F9891FA /* Pods-WifiUC-frameworks.sh */,
+				7733002437151B15C38C15C44F832623 /* Pods-WifiUC-resources.sh */,
+				6FDDF91DB0D938BB78645242861A0F0B /* Pods-WifiUC.debug.xcconfig */,
+				3F507381153B57CF504D7D6A973D1593 /* Pods-WifiUC.release.xcconfig */,
+			);
+			name = "Pods-WifiUC";
+			path = "Target Support Files/Pods-WifiUC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8E6514DEAC25D48C70D88BAEC4F278C3 /* Pods-WifiUC */ = {
+		D44B8769AD119C1C075E0771A393D111 /* Pods-WifiUC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96745E6E4F5A29EE42596F41197A50DA /* Build configuration list for PBXNativeTarget "Pods-WifiUC" */;
+			buildConfigurationList = 917955DB19474A2001F60C5945AC964C /* Build configuration list for PBXNativeTarget "Pods-WifiUC" */;
 			buildPhases = (
-				70687116E0CEA88B2E855CC9F86C1FF5 /* Sources */,
-				CC296BAD07A020C3B440A4C3DC8A1304 /* Frameworks */,
+				31598AA605BF488EF3888CE600BF28C4 /* Sources */,
+				52F2345BE7E81875AE81E30977197B45 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,23 +109,7 @@
 			);
 			name = "Pods-WifiUC";
 			productName = "Pods-WifiUC";
-			productReference = 9E3465737DE9B4944A2AD1B36A8CA235 /* libPods-WifiUC.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		CD5C4756F8C7FA6820FC0080740AF26F /* Pods-WifiUCTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 97B9CAA9AAE51C5A1E8A3F4A9BBFDFFC /* Build configuration list for PBXNativeTarget "Pods-WifiUCTests" */;
-			buildPhases = (
-				22DDA3508F7EB3BEE3567C600913B79D /* Sources */,
-				3A1552C1625F0140FF84586014BF9B85 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-WifiUCTests";
-			productName = "Pods-WifiUCTests";
-			productReference = 4F889F81A4C85384E2C2F5E948FB01D5 /* libPods-WifiUCTests.a */;
+			productReference = 30E40412CEABC4C2228CE8A50535D9EA /* libPods-WifiUC.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -180,30 +129,21 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 27EFAAC97AFD8F3C6FE57F93E58FAC01 /* Products */;
+			productRefGroup = EF112CFA14AE24D35DC5683AF461DDDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8E6514DEAC25D48C70D88BAEC4F278C3 /* Pods-WifiUC */,
-				CD5C4756F8C7FA6820FC0080740AF26F /* Pods-WifiUCTests */,
+				D44B8769AD119C1C075E0771A393D111 /* Pods-WifiUC */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		22DDA3508F7EB3BEE3567C600913B79D /* Sources */ = {
+		31598AA605BF488EF3888CE600BF28C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837093B14B88A5D058D8295EC0A646FF /* Pods-WifiUCTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		70687116E0CEA88B2E855CC9F86C1FF5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A6F891EE08DD57539A292EA94B976661 /* Pods-WifiUC-dummy.m in Sources */,
+				7CDCFD94015657C20360CD2CDB0EA9F5 /* Pods-WifiUC-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,52 +194,6 @@
 			};
 			name = Debug;
 		};
-		264085FA54C5AEF7865331B23DA03A60 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = ACB65FD8F482AD663AC13BB7747D70D7 /* Pods-WifiUC.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		410B53B3236A294DC7DD1E17E4E0551B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB144209BAB3FA082AC8437CAFBFB73A /* Pods-WifiUC.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		44CDBB6D11DE06DB64D6268622BDC47E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -340,9 +234,9 @@
 			};
 			name = Release;
 		};
-		E8C770E01675F003F6FBFFCB029F22A1 /* Debug */ = {
+		63A10350E6C759500609CEF1251F185E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECD6314D044F9436A9099A46574A2D72 /* Pods-WifiUCTests.debug.xcconfig */;
+			baseConfigurationReference = 6FDDF91DB0D938BB78645242861A0F0B /* Pods-WifiUC.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -363,9 +257,9 @@
 			};
 			name = Debug;
 		};
-		EDA691D7534B657692294C687744A8BB /* Release */ = {
+		E35F1E6A9121BCCFF9AF661C0F6A723F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9C79C6BF77403EC38F6DFAF2C75FF07 /* Pods-WifiUCTests.release.xcconfig */;
+			baseConfigurationReference = 3F507381153B57CF504D7D6A973D1593 /* Pods-WifiUC.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -398,20 +292,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96745E6E4F5A29EE42596F41197A50DA /* Build configuration list for PBXNativeTarget "Pods-WifiUC" */ = {
+		917955DB19474A2001F60C5945AC964C /* Build configuration list for PBXNativeTarget "Pods-WifiUC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				264085FA54C5AEF7865331B23DA03A60 /* Debug */,
-				410B53B3236A294DC7DD1E17E4E0551B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		97B9CAA9AAE51C5A1E8A3F4A9BBFDFFC /* Build configuration list for PBXNativeTarget "Pods-WifiUCTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E8C770E01675F003F6FBFFCB029F22A1 /* Debug */,
-				EDA691D7534B657692294C687744A8BB /* Release */,
+				63A10350E6C759500609CEF1251F185E /* Debug */,
+				E35F1E6A9121BCCFF9AF661C0F6A723F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
