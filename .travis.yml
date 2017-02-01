@@ -8,11 +8,10 @@ cache:
     - ios/Pods
 
 before_install:
-  - brew update
-  - brew reinstall xctool
-  - brew reinstall watchman
+  - brew install node
+  - brew install watchman
   - npm install
-  - gem install xcpretty
+  - npm install -g react-native-cli
   - gem install cocoapods
   - pod install --project-directory=ios
 
