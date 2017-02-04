@@ -56,7 +56,7 @@ export default class Home extends Base {
       return <ActivityIndicator style={Styles.containerCentered}/>
     }
     if (this.state.login) {
-      return <ScrollView><Login loginSuccess={this.loginSuccess} text={this.state.loginText}/></ScrollView>
+      return <ScrollView style={Styles.container}><Login loginSuccess={this.loginSuccess} text={this.state.loginText}/></ScrollView>
     }
     return (
       <ScrollView style={Styles.container}>

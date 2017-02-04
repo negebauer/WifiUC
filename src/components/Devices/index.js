@@ -56,8 +56,7 @@ export default class Devices extends Base {
             <Text>Cargando dispositivos</Text>
           </View>
         </View>}
-        {this.state.loaded && <Options style={styles.messages}/>
-}
+        {this.state.loaded && <Options style={styles.messages}/>}
         <View>
           {this.state.devices.map(device => <Device key={device.mac} device={device} update={this.updateDevice} session={this.props.session} loaded={this.state.loaded}/>)}
         </View>
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderColor: 'black',
     borderBottomWidth: 0.5,
-    padding: 12
+    paddingBottom: 16
   },
   loading: {
     flexDirection: 'row',

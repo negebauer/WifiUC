@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, ActivityIndicator, StyleSheet, Text, Button} from 'react-native'
+import {View, ActivityIndicator, Text, Button} from 'react-native'
 import FormHelper from 'tcomb-form-native'
 import Base, {Styles, Debug} from '../../Base'
 import Session from '../../../utils/session'
@@ -75,7 +75,7 @@ export default class Login extends Base {
   render() {
     this.logRender('Login')
     return (
-      <View style={Styles.container}>
+      <View>
         <Form ref='form' type={UCUser} options={formOptions} value={this.state.user} onChange={this.onChange}/>
         <View>
           {!this.state.loging && <Button title='Ingresar' onPress={this.loginCheck}/>}
