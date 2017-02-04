@@ -5,14 +5,12 @@ xcode_sdk: iphonesimulator9.0
 cache:
   directories:
     - node_modules
-    - ios/Pods
 
 before_install:
   - brew reinstall node
   - npm install
   - npm install -g react-native-cli
   - gem install cocoapods
-  - pod install --project-directory=ios
 
 script:
   - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios
