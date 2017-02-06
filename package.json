@@ -6,7 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "deploy": "scripts/deploy.sh",
-    "icon": "yo rn-toolbox:assets --icon assets/icon.png; python scripts/icon.py",
+    "icon": "python scripts/icon.py",
     "postversion": "react-native-version",
     "build": "react-native-version -b; git commit -am \"Bump build\"",
     "ios": "react-native run-ios --simulator 'iPhone 7'"
