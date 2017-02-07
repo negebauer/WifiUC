@@ -23,7 +23,7 @@ end
 
 desc 'Submit a new Alpha Build to Apple TestFlight'
 lane :alpha do
-  # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
+  badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
   build
   pilot
 end
