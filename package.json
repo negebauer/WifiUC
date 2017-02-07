@@ -10,7 +10,8 @@
     "postversion": "react-native-version",
     "build": "react-native-version -b; git commit -am \"Bump build\"",
     "ios": "react-native run-ios --simulator 'iPhone 7'",
-    "metadata": "scripts/metadata.sh"
+    "metadata": "scripts/metadata.sh",
+    "fastlane": "cd ios; fastlane; cd ../android; fastlane"
   },
   "dependencies": {
     "buffer": "^5.0.2",
