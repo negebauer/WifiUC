@@ -25,12 +25,16 @@ desc 'Submit a new Alpha Build to Apple TestFlight'
 lane :alpha do
   badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
   build
+  sh 'git checkout ../WifiUC/Images.xcassets/'
+  sh 'git checkout ../Watch/Assets.xcassets/'
   pilot
 end
 
 desc 'Submit a new Beta Build to Apple TestFlight'
 lane :beta do
   badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
+  sh 'git checkout ../WifiUC/Images.xcassets/'
+  sh 'git checkout ../Watch/Assets.xcassets/'
   build
   pilot
 end
