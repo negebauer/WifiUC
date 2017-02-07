@@ -47,6 +47,7 @@ lane :metadata do
     app_icon: ENV['ICON'],
     apple_watch_app_icon: ENV['ICON_WATCH'],
     force: true,
+    app_version: ENV['VERSION'],
   )
 end
 
