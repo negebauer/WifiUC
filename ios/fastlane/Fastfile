@@ -5,7 +5,6 @@ import '../../scripts/Fastfile'
 
 before_all do
   # cocoapods
-  puts ENV['ICON']
 end
 
 desc 'Build app'
@@ -16,6 +15,7 @@ lane :build do
 end
 
 lane :distribute do
+  mynotification('Distributing TestFlight version...', 'Distributing')
   config = FastlaneCore::Configuration.create(Pilot::Options.available_options, {})
   config[:distribute_external] = false
   Pilot::BuildManager.new.distribute(config)
@@ -24,24 +24,34 @@ end
 desc 'Submit a new Alpha Build to Apple TestFlight'
 lane :alpha do
   badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
+  mynotification('Building alpha version...', 'Building')
   build
   sh 'git checkout ../WifiUC/Images.xcassets/'
   sh 'git checkout ../Watch/Assets.xcassets/'
+  mynotification('Uploading alpha version...', 'Uploading')
   pilot
+  distribute
+  mynotification('Finished uploading alpha version', 'Done')
 end
 
 desc 'Submit a new Beta Build to Apple TestFlight'
 lane :beta do
   badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
+  mynotification('Building beta version...', 'Building')
+  build
   sh 'git checkout ../WifiUC/Images.xcassets/'
   sh 'git checkout ../Watch/Assets.xcassets/'
-  build
+  mynotification('Uploading beta version...', 'Uploading')
   pilot
+  distribute
+  mynotification('Finished uploading beta version', 'Done')
 end
 
 desc 'Deploy a new version to the App Store'
 lane :release do
+  mynotification('Building App Store version', 'Building')
   build
+  mynotification('Uploading App Store version', 'Uploading')
   deliver(
     skip_screenshots: true,
     skip_metadata: true,
@@ -49,10 +59,12 @@ lane :release do
     force: true,
     automatic_release: true,
   )
+  mynotification('Finished uploading App Store version', 'Done')
 end
 
 desc 'Upload metada and screenshots'
 lane :metadata do
+  mynotification('Uploading metadata', 'Uploading')
   deliver(
     skip_binary_upload: true,
     skip_screenshots: false,
@@ -63,6 +75,7 @@ lane :metadata do
     force: true,
     app_version: VERSION,
   )
+  mynotification('Finished uploading metadata', 'Done')
 end
 
 after_all do |lane|

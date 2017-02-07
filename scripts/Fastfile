@@ -15,5 +15,5 @@ APPETIZE_PUBLIC_KEY_RELEASE = 'r8rm9guzxwmy9e3x3bxxjqa7jr'
 APPETIZE_TOKEN = 'tok_httkabj29qvy7tamee5ab55dpm'
 
 def mynotification(message, subtitle = 'fastlane')
-    notification(title: title, subtitle: subtitle, sound: 'Purr', message: message, app_icon: ICON, activate: 'com.apple.terminal', content_image: '')
+    notification(title: 'WifiUC', subtitle: subtitle, sound: 'Purr', message: message, app_icon: ICON, activate: 'com.apple.terminal', content_image: '')
 end
