@@ -1,6 +1,6 @@
 {
   "name": "WifiUC",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -10,8 +10,8 @@
     "postversion": "react-native-version",
     "build": "react-native-version -b; git commit -am \"Bump build\"",
     "ios": "react-native run-ios --simulator 'iPhone 7'",
-    "metadata": "scripts/metadata.sh",
-    "fastlane": "cd ios; fastlane; cd ../android; fastlane"
+    "fastlane": "cd ios; fastlane; cd ../android; fastlane",
+    "metadata": "cd ios; fastlane metadata; cd ../android; fastlane metadata"
   },
   "dependencies": {
     "buffer": "^5.0.2",

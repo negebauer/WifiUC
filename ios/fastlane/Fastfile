@@ -1,4 +1,7 @@
-fastlane_version '2.13.0'
+require 'pilot'
+require 'fastlane_core'
+
+import '../../scripts/Fastfile'
 
 before_all do
   # cocoapods
@@ -8,19 +11,26 @@ end
 desc 'Build app'
 lane :build do
   gym(
-  scheme: 'WifiUC',
-  # provisioning_profile_path: 'AppStore_com.negebauer.Wifi-UC.mobileprovision'
+    scheme: 'WifiUC',
   )
+end
+
+lane :distribute do
+  config = FastlaneCore::Configuration.create(Pilot::Options.available_options, {})
+  config[:distribute_external] = false
+  Pilot::BuildManager.new.distribute(config)
 end
 
 desc 'Submit a new Alpha Build to Apple TestFlight'
 lane :alpha do
+  # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
   build
   pilot
 end
 
 desc 'Submit a new Beta Build to Apple TestFlight'
 lane :beta do
+  # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
   build
   pilot
 end
@@ -47,7 +57,7 @@ lane :metadata do
     app_icon: ENV['ICON'],
     apple_watch_app_icon: ENV['ICON_WATCH'],
     force: true,
-    app_version: ENV['VERSION'],
+    app_version: VERSION,
   )
 end
 

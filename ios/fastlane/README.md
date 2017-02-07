@@ -33,6 +33,21 @@ xcode-select --install
 fastlane build
 ```
 Build app
+### test
+```
+fastlane test
+```
+
+### distribute
+```
+fastlane distribute
+```
+
+### external
+```
+fastlane external
+```
+Upload to external services
 ### alpha
 ```
 fastlane alpha
