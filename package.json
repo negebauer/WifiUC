@@ -11,7 +11,8 @@
     "build": "react-native-version -b; git commit -am \"Bump build\"",
     "ios": "react-native run-ios --simulator 'iPhone 7'",
     "fastlane": "cd ios; fastlane; cd ../android; fastlane",
-    "metadata": "cd ios; fastlane metadata; cd ../android; fastlane metadata"
+    "metadata": "cd ios; fastlane metadata; cd ../android; fastlane metadata",
+    "distribute": "cd ios; fastlane distribute; cd ../android; fastlane distribute"
   },
   "dependencies": {
     "buffer": "^5.0.2",
