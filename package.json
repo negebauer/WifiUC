@@ -9,7 +9,8 @@
     "icon": "python scripts/icon.py",
     "postversion": "react-native-version",
     "build": "react-native-version -b; git commit -am \"Bump build\"",
-    "ios": "react-native run-ios --simulator 'iPhone 7'"
+    "ios": "react-native run-ios --simulator 'iPhone 7'",
+    "metadata": "scripts/metadata.sh"
   },
   "dependencies": {
     "buffer": "^5.0.2",
