@@ -17,8 +17,7 @@ end
 desc 'Build and sign apk'
 lane :build do
   gradle(
-    task: 'assemble',
-    build_type: 'Release'
+    task: 'assembleRelease',
   )
 end
 
