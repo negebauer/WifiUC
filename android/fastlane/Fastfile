@@ -6,6 +6,7 @@ before_all do
 end
 
 def upload(track = 'beta')
+  mynotification("Uploading... #{track}", 'Uploading')
   supply(
     track: track,
     skip_upload_metadata: true,
@@ -16,6 +17,7 @@ end
 
 desc 'Build and sign apk'
 lane :build do
+  mynotification('Building...', 'Building')
   gradle(
     task: 'assembleRelease',
   )
@@ -34,18 +36,21 @@ desc 'Submit a new Alpha Build to Crashlytics Beta'
 lane :alpha do
   build
   upload('alpha')
+  mynotification('Finished uploading alpha version', 'Done')
 end
 
 desc 'Submit a new Beta Build to Crashlytics Beta'
 lane :beta do
   build
   upload('beta')
+  mynotification('Finished uploading beta version', 'Done')
 end
 
 desc 'Deploy a new version to the Google Play'
 lane :deploy do
   build
   upload('production')
+  mynotification('Finished uploading Google Play version', 'Done')
 end
 
 desc 'Upload metada and screenshots'
