@@ -13,9 +13,22 @@ lane :build do
   )
 end
 
+lane :distribute do
+  puts 'Doesn\'t do anything'
+end
+
 desc 'Runs all the tests'
 lane :test do
   gradle(task: 'test')
+end
+
+desc 'Submit a new Alpha Build to Crashlytics Beta'
+lane :alpha do
+  build
+  crashlytics(
+    api_token: CRASHLYTICS_API_TOKEN,
+    build_secret: CRASHLYTICS_BUILD_SECRET
+  )
 end
 
 desc 'Submit a new Beta Build to Crashlytics Beta'

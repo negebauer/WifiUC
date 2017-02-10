@@ -14,6 +14,7 @@ lane :build do
   )
 end
 
+desc 'Distribute the latest uploaded build to internal testers'
 lane :distribute do
   mynotification('Distributing TestFlight version...', 'Distributing')
   config = FastlaneCore::Configuration.create(Pilot::Options.available_options, {})
