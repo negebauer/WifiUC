@@ -4,7 +4,7 @@ require 'fastlane_core'
 import '../../scripts/Fastfile'
 
 before_all do
-  # cocoapods
+  BUILD = get_build_number
 end
 
 desc 'Build app'

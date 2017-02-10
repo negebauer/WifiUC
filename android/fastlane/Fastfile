@@ -1,0 +1,49 @@
+import '../../scripts/Fastfile'
+
+before_all do
+  CRASHLYTICS_API_TOKEN = 'd6c5fb7c298d35bbea50ef09cd0d44e1c06d1401'
+  CRASHLYTICS_BUILD_SECRET = 'fad6fff8529401e43667089948e7545d9a7d2a6563fe0ebddfbf00bf3d3105b3'
+end
+
+desc 'Build and sign apk'
+lane :build do
+  gradle(
+    task: 'assemble',
+    build_type: 'Release'
+  )
+end
+
+desc 'Runs all the tests'
+lane :test do
+  gradle(task: 'test')
+end
+
+desc 'Submit a new Beta Build to Crashlytics Beta'
+lane :beta do
+  build
+  crashlytics(
+    api_token: CRASHLYTICS_API_TOKEN,
+    build_secret: CRASHLYTICS_BUILD_SECRET
+  )
+end
+
+desc 'Deploy a new version to the Google Play'
+lane :deploy do
+  build
+  supply
+end
+
+desc 'Upload metada and screenshots'
+lane :metadata do
+  supply(
+    skip_upload_apk: true
+  )
+end
+
+after_all do |lane|
+
+end
+
+error do |lane, exception|
+
+end

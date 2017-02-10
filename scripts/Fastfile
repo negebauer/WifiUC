@@ -1,8 +1,7 @@
-fastlane_version '2.13.0'
+fastlane_version '2.14.2'
 
 # Let's set some variables
 VERSION = ENV['npm_package_version']
-BUILD = get_build_number
 
 ICON = '../assets/icon.png'
 ICON_WATCH = '../assets/icon.png'

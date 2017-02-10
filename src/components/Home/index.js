@@ -25,12 +25,12 @@ export default class Home extends Base {
   }
 
   componentDidMount() {
-    Session.load().then(this.login)
+    Session.load().then(this.login).catch(this.loginRequest)
   }
 
   login = (session) => {
     if (!session) {
-      return this.setState({ready: true, login: true})
+      this.loginRequest()
     }
     session.login().then(() => this.setState({ready: true, session})).catch(error => {
       switch (error.id) {
@@ -42,6 +42,10 @@ export default class Home extends Base {
           break
       }
     })
+  }
+
+  loginRequest = () => {
+    return this.setState({ready: true, login: true})
   }
 
   loginSuccess = (session) => this.setState({
