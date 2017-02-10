@@ -1,2 +1,2 @@
-json_key_file "/Users/Nico/Downloads/Google Play Android Developer-2b6767dac79c.json" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+json_key_file "/Users/Nico/Downloads/a045b7c7260c3e1ca56d9a734da4076bda01c530" # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
 package_name "com.negebauer.wifiuc" # e.g. com.krausefx.app

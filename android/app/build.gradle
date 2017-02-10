@@ -104,7 +104,7 @@ android {
         applicationId "com.negebauer.wifiuc"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 48
+        versionCode 49
         versionName "1.2.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"

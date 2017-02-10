@@ -1,8 +1,17 @@
 import '../../scripts/Fastfile'
 
 before_all do
-  CRASHLYTICS_API_TOKEN = 'd6c5fb7c298d35bbea50ef09cd0d44e1c06d1401'
-  CRASHLYTICS_BUILD_SECRET = 'fad6fff8529401e43667089948e7545d9a7d2a6563fe0ebddfbf00bf3d3105b3'
+  CRASHLYTICS_API_TOKEN = 'd6c5fb7c298d35bbea50ef09cd0d44e1c06d1401'.freeze
+  CRASHLYTICS_BUILD_SECRET = 'fad6fff8529401e43667089948e7545d9a7d2a6563fe0ebddfbf00bf3d3105b3'.freeze
+end
+
+def upload(track = 'beta')
+  supply(
+    track: track,
+    skip_upload_metadata: true,
+    skip_upload_images: true,
+    skip_upload_screenshots: true,
+  )
 end
 
 desc 'Build and sign apk'
@@ -25,25 +34,19 @@ end
 desc 'Submit a new Alpha Build to Crashlytics Beta'
 lane :alpha do
   build
-  crashlytics(
-    api_token: CRASHLYTICS_API_TOKEN,
-    build_secret: CRASHLYTICS_BUILD_SECRET
-  )
+  upload('alpha')
 end
 
 desc 'Submit a new Beta Build to Crashlytics Beta'
 lane :beta do
   build
-  crashlytics(
-    api_token: CRASHLYTICS_API_TOKEN,
-    build_secret: CRASHLYTICS_BUILD_SECRET
-  )
+  upload('beta')
 end
 
 desc 'Deploy a new version to the Google Play'
 lane :deploy do
   build
-  supply
+  upload('production')
 end
 
 desc 'Upload metada and screenshots'
@@ -54,9 +57,7 @@ lane :metadata do
 end
 
 after_all do |lane|
-
 end
 
 error do |lane, exception|
-
 end
