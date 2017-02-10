@@ -37,7 +37,7 @@ Build app
 ```
 fastlane distribute
 ```
-
+Distribute the latest uploaded build to internal testers
 ### alpha
 ```
 fastlane alpha

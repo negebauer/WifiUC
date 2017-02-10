@@ -33,11 +33,21 @@ xcode-select --install
 fastlane build
 ```
 Build and sign apk
+### distribute
+```
+fastlane distribute
+```
+
 ### test
 ```
 fastlane test
 ```
 Runs all the tests
+### alpha
+```
+fastlane alpha
+```
+Submit a new Alpha Build to Crashlytics Beta
 ### beta
 ```
 fastlane beta
