@@ -1,2 +1,2 @@
-json_key_file 'google_credentials.json' # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
+json_key_file 'fastlane/google_credentials.json' # Path to the json secret file - Follow https://github.com/fastlane/supply#setup to get one
 package_name 'com.negebauer.wifiuc' # e.g. com.krausefx.app
