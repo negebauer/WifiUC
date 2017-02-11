@@ -10,7 +10,7 @@ export default class Devices {
 
   static convertDevicesToData = (devicesToSave) => {
     const data = {}
-    const devices = devicesToSave.split()
+    const devices = JSON.parse(JSON.stringify(devicesToSave))
     devices.forEach(device => device.active = false)
     devices.forEach(device => data[device.mac] = device)
     return data
