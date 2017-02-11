@@ -17,33 +17,23 @@ export default class Devices extends Base {
   }
 
   loadDevicesLocal = () => {
-    DevicesManager.loadLocal().then(devices => this.setState({
-      devices: devices.map(d => d.clean())
+    DevicesManager.loadDevicesLocal().then(devices => this.setState({
+      devices
     }, this.loadDevicesRemote)).catch(this.loadDevicesRemote)
   }
 
   loadDevicesRemote = () => {
-    DevicesManager.loadRemote(this.props.session).then(activeDevices => {
+    DevicesManager.loadDevicesRemote(this.props.session).then(activeDevices => {
       const devicesOld = this.state.devices
       const macs = activeDevices.map(d => d.mac)
       const notActive = (d) => macs.indexOf(d.mac) === -1
       const devices = activeDevices.concat(devicesOld.filter(notActive))
-      DevicesManager.save(devices)
-      this.setState({devices, loaded: true, error: ''})
+      this.setState({
+        devices,
+        loaded: true,
+        error: ''
+      }, () => DevicesManager.saveDevices(devices))
     }).catch(error => this.setState({error: error.message}))
-  }
-
-  saveDevices = () => {
-    DevicesManager.save(this.state.devices)
-  }
-
-  updateDevice = (device) => {
-    const devices = this.state.devices
-    devices[devices.map(d => d.mac).indexOf(device.mac)] = device
-    this.saveDevices(devices)
-    this.setState({
-      devices
-    }, this.saveDevices)
   }
 
   render() {
@@ -58,7 +48,7 @@ export default class Devices extends Base {
         </View>}
         {this.state.loaded && <Options style={styles.messages}/>}
         <View>
-          {this.state.devices.map(device => <Device key={device.mac} device={device} update={this.updateDevice} session={this.props.session} loaded={this.state.loaded}/>)}
+          {this.state.devices.map(device => <Device key={device.mac} device={device} session={this.props.session} loaded={this.state.loaded}/>)}
         </View>
         <Debug state={this.state} name='Devices'/>
       </ScrollView>
