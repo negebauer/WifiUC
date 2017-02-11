@@ -8,8 +8,9 @@ export default class Devices {
 
   static convertDataToDevices = (data) => Object.keys(data).map(mac => data[mac])
 
-  static convertDevicesToData = (devices) => {
+  static convertDevicesToData = (devicesToSave) => {
     const data = {}
+    const devices = devicesToSave.split()
     devices.forEach(device => device.active = false)
     devices.forEach(device => data[device.mac] = device)
     return data

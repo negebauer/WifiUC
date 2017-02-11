@@ -45,7 +45,7 @@ export default class Login extends Base {
   }
 
   loginCheck = () => {
-    var user = this.refs.form.getValue()
+    let user = this.refs.form.getValue()
     if (!user) {
       return this.setState({text: 'Faltan datos'})
     }

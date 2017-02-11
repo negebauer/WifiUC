@@ -36,6 +36,16 @@ export default class Devices extends Base {
     }).catch(error => this.setState({error: error.message}))
   }
 
+  addDevice = (device) => {
+    const devices = this.state.devices
+    console.log('devices')
+    console.log(devices)
+    devices.push(device)
+    this.setState({
+      devices
+    }, () => DevicesManager.saveDevice(device))
+  }
+
   render() {
     this.logRender('Devices')
     return (
@@ -46,7 +56,8 @@ export default class Devices extends Base {
             <Text>Cargando dispositivos</Text>
           </View>
         </View>}
-        {this.state.loaded && <Options style={styles.messages}/>}
+        {this.state.loaded && <Options style={styles.messages} devices={this.state.devices} addDevice={this.addDevice}/>}
+        <View style={styles.separator}/>
         <View>
           {this.state.devices.map(device => <Device key={device.mac} device={device} session={this.props.session} loaded={this.state.loaded}/>)}
         </View>
@@ -57,8 +68,7 @@ export default class Devices extends Base {
 }
 
 const styles = StyleSheet.create({
-  messages: {
-    alignItems: 'center',
+  separator: {
     borderColor: 'black',
     borderBottomWidth: 0.5,
     paddingBottom: 16
