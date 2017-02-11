@@ -6,7 +6,7 @@ before_all do
 end
 
 def upload(track = 'beta')
-  mynotification("Uploading... #{track}", 'Uploading')
+  mynotification("Uploading #{track}...", 'Uploading')
   supply(
     track: track,
     skip_upload_metadata: true,
