@@ -24,11 +24,11 @@ end
 
 desc 'Submit a new Alpha Build to Apple TestFlight'
 lane :alpha do
-  badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
+  # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
   mynotification('Building alpha version...', 'Building')
   build
-  sh 'git checkout ../WifiUC/Images.xcassets/'
-  sh 'git checkout ../Watch/Assets.xcassets/'
+  # sh 'git checkout ../WifiUC/Images.xcassets/'
+  # sh 'git checkout ../Watch/Assets.xcassets/'
   mynotification('Uploading alpha version...', 'Uploading')
   pilot
   distribute
@@ -37,11 +37,11 @@ end
 
 desc 'Submit a new Beta Build to Apple TestFlight'
 lane :beta do
-  badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
+  # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
   mynotification('Building beta version...', 'Building')
   build
-  sh 'git checkout ../WifiUC/Images.xcassets/'
-  sh 'git checkout ../Watch/Assets.xcassets/'
+  # sh 'git checkout ../WifiUC/Images.xcassets/'
+  # sh 'git checkout ../Watch/Assets.xcassets/'
   mynotification('Uploading beta version...', 'Uploading')
   pilot
   distribute
