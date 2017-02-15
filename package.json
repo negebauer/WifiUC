@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
+    "lint": "eslint --fix *.js",
     "deploy": "scripts/deploy.sh",
     "icon": "python scripts/icon.py",
     "postversion": "react-native-version",
@@ -33,8 +34,15 @@
     "tcomb-form-native": "^0.6.4"
   },
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
+    "eslint": "^3.15.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "eslint-plugin-react-native": "^2.2.1",
     "fetch-mock": "^5.9.3",
     "jest": "18.1.0",
     "react-test-renderer": "~15.4.0"

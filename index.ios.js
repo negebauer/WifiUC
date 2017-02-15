@@ -1,3 +1,3 @@
-import React, {Component} from 'react'
-import {AppRegistry} from 'react-native'
+/* eslint no-unused-vars: 0 */
+
 import WifiUC from './src/'

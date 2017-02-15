@@ -17,6 +17,8 @@ before_install:
 before_script:
   - echo 'Check tests'
   - npm run test
+  - echo 'Lint'
+  - npm run lint
 
 script:
   - echo 'Check if we can generate the bundles'
