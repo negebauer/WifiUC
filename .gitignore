@@ -2,7 +2,6 @@ main.jsbundle
 main.jsbundle.meta
 .env
 *.pyc
-o_*.command
 
 # fastlane
 */fastlane/report.xml
