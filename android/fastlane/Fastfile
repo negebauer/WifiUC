@@ -3,10 +3,11 @@ import '../../scripts/Fastfile'
 before_all do
   CRASHLYTICS_API_TOKEN = 'd6c5fb7c298d35bbea50ef09cd0d44e1c06d1401'.freeze
   CRASHLYTICS_BUILD_SECRET = 'fad6fff8529401e43667089948e7545d9a7d2a6563fe0ebddfbf00bf3d3105b3'.freeze
+  PLATFORM = 'Android'
 end
 
 def upload(track = 'beta')
-  mynotification("Uploading #{track}...", 'Uploading')
+  mynotification("Uploading #{track}...")
   supply(
     track: track,
     skip_upload_metadata: true,
@@ -17,7 +18,7 @@ end
 
 desc 'Build and sign apk'
 lane :build do
-  mynotification('Building...', 'Building')
+  mynotification('Building...')
   gradle(
     task: 'assembleRelease',
   )
@@ -36,21 +37,21 @@ desc 'Submit a new Alpha Build to Crashlytics Beta'
 lane :alpha do
   build
   upload('alpha')
-  mynotification('Finished uploading alpha version', 'Done')
+  mynotification('Finished uploading alpha version')
 end
 
 desc 'Submit a new Beta Build to Crashlytics Beta'
 lane :beta do
   build
   upload('beta')
-  mynotification('Finished uploading beta version', 'Done')
+  mynotification('Finished uploading beta version')
 end
 
 desc 'Deploy a new version to the Google Play'
 lane :deploy do
   build
   upload('production')
-  mynotification('Finished uploading Google Play version', 'Done')
+  mynotification('Finished uploading Google Play version')
 end
 
 desc 'Upload metada and screenshots'

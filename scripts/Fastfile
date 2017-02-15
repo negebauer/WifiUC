@@ -3,6 +3,8 @@ fastlane_version '2.14.2'
 # Let's set some variables
 VERSION = ENV['npm_package_version']
 
+PLATFORM = 'iOS'
+
 ICON = '../assets/icon.png'
 ICON_WATCH = '../assets/icon.png'
 ICON_ALPHA = '../assets/icon_alpha.png'
@@ -13,6 +15,6 @@ APPETIZE_PUBLIC_KEY_DEBUG = 'mne2j5h0c3485dnw1t7gcjvju8'
 APPETIZE_PUBLIC_KEY_RELEASE = 'r8rm9guzxwmy9e3x3bxxjqa7jr'
 APPETIZE_TOKEN = 'tok_httkabj29qvy7tamee5ab55dpm'
 
-def mynotification(message, subtitle = 'fastlane')
-    notification(title: 'WifiUC', subtitle: subtitle, sound: 'Purr', message: message, app_icon: ICON, activate: 'com.apple.terminal', content_image: '')
+def mynotification(message)
+    notification(title: 'WifiUC', subtitle: PLATFORM, sound: 'Purr', message: message, app_icon: ICON, activate: 'com.apple.terminal', content_image: '')
 end

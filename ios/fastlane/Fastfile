@@ -5,6 +5,7 @@ import '../../scripts/Fastfile'
 
 before_all do
   BUILD = get_build_number
+  PLATFORM = 'iOS'
 end
 
 desc 'Build app'
@@ -16,7 +17,7 @@ end
 
 desc 'Distribute the latest uploaded build to internal testers'
 lane :distribute do
-  mynotification('Distributing TestFlight version...', 'Distributing')
+  mynotification('Distributing TestFlight version...')
   config = FastlaneCore::Configuration.create(Pilot::Options.available_options, {})
   config[:distribute_external] = false
   Pilot::BuildManager.new.distribute(config)
@@ -25,34 +26,34 @@ end
 desc 'Submit a new Alpha Build to Apple TestFlight'
 lane :alpha do
   # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
-  mynotification('Building alpha version...', 'Building')
+  mynotification('Building alpha version...')
   build
   # sh 'git checkout ../WifiUC/Images.xcassets/'
   # sh 'git checkout ../Watch/Assets.xcassets/'
-  mynotification('Uploading alpha version...', 'Uploading')
+  mynotification('Uploading alpha version...')
   pilot
   distribute
-  mynotification('Finished uploading alpha version', 'Done')
+  mynotification('Finished uploading alpha version')
 end
 
 desc 'Submit a new Beta Build to Apple TestFlight'
 lane :beta do
   # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
-  mynotification('Building beta version...', 'Building')
+  mynotification('Building beta version...')
   build
   # sh 'git checkout ../WifiUC/Images.xcassets/'
   # sh 'git checkout ../Watch/Assets.xcassets/'
-  mynotification('Uploading beta version...', 'Uploading')
+  mynotification('Uploading beta version...')
   pilot
   distribute
-  mynotification('Finished uploading beta version', 'Done')
+  mynotification('Finished uploading beta version')
 end
 
 desc 'Deploy a new version to the App Store'
 lane :release do
-  mynotification('Building App Store version', 'Building')
+  mynotification('Building App Store version')
   build
-  mynotification('Uploading App Store version', 'Uploading')
+  mynotification('Uploading App Store version')
   deliver(
     skip_screenshots: true,
     skip_metadata: true,
@@ -60,12 +61,12 @@ lane :release do
     force: true,
     automatic_release: true,
   )
-  mynotification('Finished uploading App Store version', 'Done')
+  mynotification('Finished uploading App Store version')
 end
 
 desc 'Upload metada and screenshots'
 lane :metadata do
-  mynotification('Uploading metadata', 'Uploading')
+  mynotification('Uploading metadata')
   deliver(
     skip_binary_upload: true,
     skip_screenshots: false,
@@ -76,7 +77,7 @@ lane :metadata do
     force: true,
     app_version: VERSION,
   )
-  mynotification('Finished uploading metadata', 'Done')
+  mynotification('Finished uploading metadata')
 end
 
 after_all do |lane|
