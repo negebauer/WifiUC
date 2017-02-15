@@ -10,5 +10,9 @@ import renderer from 'react-test-renderer'
 
 it('logins', () => {
   const session = new Session(WIFIUC_USER, WIFIUC_PASS)
-  return session.login()
+  return session.login().then(session => {
+    if (!session) {
+      throw {message: 'Could\'t create session'}
+    }
+  })
 })

@@ -1,8 +1,5 @@
 {
-  "presets": [
-    "stage-2",
-    "react-native"
-  ],
+  "presets": ["react-native"],
   "plugins": [
     "transform-class-properties"
   ]
