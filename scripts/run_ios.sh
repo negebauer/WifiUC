@@ -1,3 +1,3 @@
 simulator='iPhone 7'
 
-react-native run-ios --simulator $simulator
+react-native run-ios --simulator "$simulator"
