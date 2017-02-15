@@ -14,7 +14,7 @@
     "fastlane": "cd ios; fastlane; cd ../android; fastlane",
     "metadata": "cd ios; fastlane metadata; cd ../android; fastlane metadata",
     "distribute": "cd ios; fastlane distribute; cd ../android; fastlane distribute",
-    "generate_env": "./scripts/env.sh"
+    "generate_env": "./scripts/generate_env.sh"
   },
   "dependencies": {
     "buffer": "^5.0.2",
