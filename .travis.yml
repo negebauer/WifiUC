@@ -28,4 +28,7 @@ script:
   - npm run build
 
 deploy:
-  - npm run deploy none beta
+  provider: script
+  script: scripts/deploy.sh none beta
+  on:
+    branch: develop
