@@ -10,6 +10,7 @@ end
 
 desc 'Build app'
 lane :build do
+  mynotification('Building...')
   gym(
     scheme: 'WifiUC',
   )
@@ -26,7 +27,6 @@ end
 desc 'Submit a new Alpha Build to Apple TestFlight'
 lane :alpha do
   # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
-  mynotification('Building alpha version...')
   build
   # sh 'git checkout ../WifiUC/Images.xcassets/'
   # sh 'git checkout ../Watch/Assets.xcassets/'
@@ -39,7 +39,6 @@ end
 desc 'Submit a new Beta Build to Apple TestFlight'
 lane :beta do
   # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
-  mynotification('Building beta version...')
   build
   # sh 'git checkout ../WifiUC/Images.xcassets/'
   # sh 'git checkout ../Watch/Assets.xcassets/'
@@ -51,7 +50,6 @@ end
 
 desc 'Deploy a new version to the App Store'
 lane :release do
-  mynotification('Building App Store version')
   build
   mynotification('Uploading App Store version')
   deliver(
