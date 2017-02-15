@@ -47,7 +47,7 @@ export default class Device extends Base {
     }, () => DeviceUtil.toggle(this.props.session, this.state.device).then(this.toggleSuccess).catch(this.toggleError))
   }
 
-  toggleSuccess = (active) => {
+  toggleSuccess = active => {
     const device = this.state.device
     device.active = active
     this.setState({device, toggling: false})

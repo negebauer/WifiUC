@@ -1,3 +1,5 @@
+/* eslint react/prop-types: 0 */
+
 import React, {Component} from 'react'
 import {View, StyleSheet, Text} from 'react-native'
 import Project from '../../utils/project'
@@ -30,7 +32,7 @@ export default class Base extends Component {
 
   params = (props = this.props) => props.navigation.state
 
-  addState = (state) => this.state = Object.assign(this.state, state)
+  addState = state => this.state = Object.assign(this.state, state)
 
   logRender = (name = 'Base') => {
     if (!Project.isDev) {
@@ -63,7 +65,7 @@ export class Debug extends Base {
   static container = Debug.styles.debug
   static text = Debug.styles.text
 
-  debugRender = (state) => Object.keys(state).map(k => this.debugRenderValue(k, state))
+  debugRender = state => Object.keys(state).map(k => this.debugRenderValue(k, state))
 
   debugRenderValue = (key, object) => {
     const value = object[key]

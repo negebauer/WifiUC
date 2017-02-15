@@ -45,7 +45,7 @@ export default class Login extends Base {
     Session.logout()
   }
 
-  onChange = (user) => {
+  onChange = user => {
     this.setState({user})
   }
 

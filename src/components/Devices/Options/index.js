@@ -48,7 +48,7 @@ export default class Options extends Base {
     this.addState(state)
   }
 
-  onDeviceChange = (device) => this.setState({device})
+  onDeviceChange = device => this.setState({device})
 
   addDevice = () => {
     let device = this.refs.form.getValue()

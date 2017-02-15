@@ -1,0 +1,23 @@
+machine:
+  environment:
+    CI: true
+  xcode:
+    version: "8.2"
+dependencies:
+  pre:
+    - scripts/ci_dependencies.sh
+  cache_directories:
+    - node_modules
+test:
+  pre:
+    - npm run lint
+  override:
+    - npm run test
+  post:
+    - scripts/ci_bundle.sh
+
+deployment:
+  staging:
+    branch: dev
+    commands:
+      - scripts/ci_deploy.sh

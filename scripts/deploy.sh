@@ -1,3 +1,6 @@
+source scripts/const.sh
+source scripts/funcs.sh
+
 echo 'Checking git status...'
 if [ ! -z  $(git status --porcelain) ]; then echo 'Git repository dirty. Clean it'; exit; fi
 echo 'Git clean!'
@@ -16,16 +19,12 @@ else
   read deploy
 fi
 
-if [ "$deploy" == '' ]; then deploy="beta"; fi
+if [ "$bump" == 'none' ]; then
+  npm run bump_build
+else
+  npm version $bump
+fi
 
-if [ ! "$bump" == 'none' ] && [ ! "$bump" == '' ]; then version=$(npm version $bump); echo "Version bumped to $version"; else npm run bump_build; echo 'Bump build only'; fi
-
-echo "iOS deploy: Running fastlane $deploy"
-cd ios
-fastlane $deploy
-
-echo "Android deploy: Running fastlane $deploy"
-cd ../android
-fastlane $deploy
+deploy_fastlane $deploy
 
 git push --tags

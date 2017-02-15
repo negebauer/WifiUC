@@ -1,17 +1,40 @@
 {
+    "parser": "babel-eslint",
     "env": {
         "es6": true,
         "node": true
     },
     "extends": [
-      "eslint:recommended",
       "plugin:react/recommended",
       "plugin:react-native/all"
     ],
     "parserOptions": {
+        "ecmaVersion": 8,
         "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
+          "arrowFunctions": true,
+          "binaryLiterals": true,
+          "blockBindings": true,
+          "classes": true,
+          "defaultParams": true,
+          "destructuring": true,
+          "experimentalObjectRestSpread": true,
+          "restParams": true,
+          "forOf": true,
+          "generators": true,
+          "modules": true,
+          "objectLiteralComputedProperties": true,
+          "objectLiteralDuplicateProperties": true,
+          "objectLiteralShorthandMethods": true,
+          "objectLiteralShorthandProperties": true,
+          "octalLiterals": true,
+          "regexUFlag": true,
+          "regexYFlag": true,
+          "spread": true,
+          "superInFunctions": true,
+          "templateStrings": true,
+          "unicodeCodePointEscapes": true,
+          "globalReturn": true,
+          "jsx": true
         },
         "sourceType": "module"
     },
@@ -22,7 +45,10 @@
     "rules": {
         "indent": [
             "error",
-            2
+            2,
+            {
+              "SwitchCase": 1
+            }
         ],
         "linebreak-style": [
             "error",
@@ -35,6 +61,12 @@
         "semi": [
             "error",
             "never"
-        ]
+        ],
+        "arrow-parens": [
+          "error",
+          "as-needed"
+        ],
+        "react-native/no-color-literals": "off",
+        "react/display-name": "off"
     }
 }

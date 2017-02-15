@@ -5,7 +5,7 @@ let cheerio = require('cheerio')
 
 export default class Device {
 
-  static formattedMac = (mac) => mac.toUpperCase().match(/.{1,2}/g).join(':')
+  static formattedMac = mac => mac.toUpperCase().match(/.{1,2}/g).join(':')
 
   static toggle = (session, device) => {
     switch (device.active) {

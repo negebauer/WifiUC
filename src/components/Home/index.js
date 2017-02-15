@@ -28,7 +28,7 @@ export default class Home extends Base {
     Session.load().then(this.login).catch(this.loginRequest)
   }
 
-  login = (session) => {
+  login = session => {
     if (!session) {
       this.loginRequest()
     }
@@ -48,7 +48,7 @@ export default class Home extends Base {
     return this.setState({ready: true, login: true})
   }
 
-  loginSuccess = (session) => this.setState({
+  loginSuccess = session => this.setState({
     session,
     login: false,
     loginText: null

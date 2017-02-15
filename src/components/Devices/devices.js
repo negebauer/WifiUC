@@ -6,9 +6,9 @@ const storageKey = 'devices'
 
 export default class Devices {
 
-  static convertDataToDevices = (data) => Object.keys(data).map(mac => data[mac])
+  static convertDataToDevices = data => Object.keys(data).map(mac => data[mac])
 
-  static convertDevicesToData = (devicesToSave) => {
+  static convertDevicesToData = devicesToSave => {
     const data = {}
     const devices = JSON.parse(JSON.stringify(devicesToSave))
     devices.forEach(device => device.active = false)
@@ -16,7 +16,7 @@ export default class Devices {
     return data
   }
 
-  static saveDevice = (device) => {
+  static saveDevice = device => {
     Devices.loadDataLocal().then(data => {
       device.active = false
       data[device.mac] = device
@@ -24,15 +24,15 @@ export default class Devices {
     })
   }
 
-  static saveData = (data) => storage.save({key: storageKey, rawData: data})
+  static saveData = data => storage.save({key: storageKey, rawData: data})
 
-  static saveDevices = (devices) => Devices.saveData(Devices.convertDevicesToData(devices))
+  static saveDevices = devices => Devices.saveData(Devices.convertDevicesToData(devices))
 
   static loadDataLocal = () => storage.load({key: storageKey, autoSync: false})
 
   static loadDevicesLocal = () => Devices.loadDataLocal().then(Devices.convertDataToDevices)
 
-  static loadDevicesRemote = (session) => {
+  static loadDevicesRemote = session => {
     return session.login().then(() => Fetcher.post(Url.getMacList)).then(response => response.text()).then(html => {
       if (html.split('listaRegMac').length === 1) {
         console.log('retry')

@@ -46,7 +46,7 @@ export default class Session {
     })
   }
 
-  loginCredentialsParse = (html) => {
+  loginCredentialsParse = html => {
     // Let's look for the credentials
     // console.log('loginCredentialsParse')
     // console.log(html)
@@ -55,7 +55,7 @@ export default class Session {
     } else if (html.indexOf('Session Expired') !== -1) {
       return this.login()
     }
-    const getParam = (param) => html.split(`<input type="hidden" name="${param}" value="`)[1].split('" />')[0]
+    const getParam = param => html.split(`<input type="hidden" name="${param}" value="`)[1].split('" />')[0]
     const body = {
       username: this.username,
       password: this.password,
@@ -66,7 +66,7 @@ export default class Session {
     return this.loginPost(body)
   }
 
-  loginPost = (body) => {
+  loginPost = body => {
     return Fetcher.post(Url.login, body, true).then(response => {
       // console.log('loginPost')
       // console.log(response)
@@ -74,7 +74,7 @@ export default class Session {
     })
   }
 
-  loginPostParse = (html) => {
+  loginPostParse = html => {
     // console.log('loginPostParse')
     // console.log(html)
     if (html.indexOf('UC Authentication Service') !== -1) {

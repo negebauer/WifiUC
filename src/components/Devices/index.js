@@ -26,7 +26,7 @@ export default class Devices extends Base {
     DevicesManager.loadDevicesRemote(this.props.session).then(activeDevices => {
       const devicesOld = this.state.devices
       const macs = activeDevices.map(d => d.mac)
-      const notActive = (d) => macs.indexOf(d.mac) === -1
+      const notActive = d => macs.indexOf(d.mac) === -1
       const devices = activeDevices.concat(devicesOld.filter(notActive))
       this.setState({
         devices,
@@ -36,7 +36,7 @@ export default class Devices extends Base {
     }).catch(error => this.setState({error: error.message}))
   }
 
-  addDevice = (device) => {
+  addDevice = device => {
     const devices = this.state.devices
     console.log('devices')
     console.log(devices)

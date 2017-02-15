@@ -1,7 +1,7 @@
 import Project from './project'
 
 export default class Fetcher {
-  static headers = (form) => {
+  static headers = form => {
     if (!form) {
       return {'Content-Type': 'application/json'}
     }
@@ -44,8 +44,8 @@ export default class Fetcher {
     Object.keys(body).forEach(key => {
       const encodedKey = encodeURIComponent(key)
       const encodedValue = encodeURIComponent(body[key])
-      formBodyData.push(encodedKey + "=" + encodedValue)
+      formBodyData.push(encodedKey + '=' + encodedValue)
     })
-    return formBodyData.join("&")
+    return formBodyData.join('&')
   }
 }

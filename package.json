@@ -5,11 +5,11 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint -o logs/lint.log --ignore-pattern '!node_modules/*' src/; cat logs/lint.log",
+    "lint": "eslint -o logs/lint.log --ignore-pattern '!node_modules/*' --fix src/; cat logs/lint.log",
     "deploy": "scripts/deploy.sh",
     "icon": "python scripts/icon.py",
     "postversion": "react-native-version",
-    "bump_build": "react-native-version -b; git commit -am \"Bump build\"",
+    "bump_build": "scripts/bump_build.sh",
     "ios": "scripts/run_ios.sh",
     "android": "scripts/run_android.sh",
     "both": "npm run android &>logs/run_android.log & npm run ios &>logs/run_ios.log & echo 'Just wait'",
@@ -23,8 +23,9 @@
     "buffer": "^5.0.2",
     "cheerio": "^0.22.0",
     "events": "^1.1.1",
-    "react": "~15.4.0",
-    "react-native": "0.41.2",
+    "react": "^15.4.2",
+    "react-native": "^0.41.2",
+    "react-native-cli": "^2.0.1",
     "react-native-dotenv": "0.0.3",
     "react-native-keychain": "^1.1.0",
     "react-native-storage": "^0.1.4",
@@ -36,7 +37,10 @@
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "babel-jest": "18.0.0",
+    "babel-plugin-transform-class-properties": "^6.23.0",
     "babel-preset-react-native": "1.9.1",
+    "babel-preset-stage-1": "^6.22.0",
+    "babel-preset-stage-2": "^6.22.0",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -63,8 +67,7 @@
       "^React$": "./node_modules/react"
     },
     "modulePathIgnorePatterns": [
-      "./node_modules/react-native/Libraries/react-native/",
-      "./node_modules/react-native/packager/"
+      "./node_modules/react-native/Libraries/react-native/"
     ],
     "transformIgnorePatterns": [
       "./node_modules/(?!()?)"
