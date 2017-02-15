@@ -67,7 +67,8 @@
       "^React$": "./node_modules/react"
     },
     "modulePathIgnorePatterns": [
-      "./node_modules/react-native/Libraries/react-native/"
+      "./node_modules/react-native/Libraries/react-native/",
+      "./node_modules/react-native/packager"
     ],
     "transformIgnorePatterns": [
       "./node_modules/(?!()?)"
