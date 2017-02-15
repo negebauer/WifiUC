@@ -1,6 +1,7 @@
 import React from 'react'
 import {View, ActivityIndicator, Text, Button} from 'react-native'
 import FormHelper from 'tcomb-form-native'
+import {USER, PASS} from 'react-native-dotenv'
 import Base, {Styles, Debug} from '../../Base'
 import Session from '../session'
 
@@ -34,7 +35,11 @@ export default class Login extends Base {
     const state = {
       text: this.props.text || '',
       loging: false,
-      shouldReload: false
+      shouldReload: false,
+      user: {
+        username: USER,
+        password: PASS
+      }
     }
     this.addState(state)
     Session.logout()
