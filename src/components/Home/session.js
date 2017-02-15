@@ -37,8 +37,8 @@ export default class Session {
 
   loginCredentialsGenerate = () => {
     return Fetcher.get(Url.login, true).then(response => {
-      console.log('loginCredentialsGenerate')
-      console.log(response)
+      // console.log('loginCredentialsGenerate')
+      // console.log(response)
       if (response.url === Url.logged) {
         return this.loginRender()
       }
@@ -48,8 +48,8 @@ export default class Session {
 
   loginCredentialsParse = (html) => {
     // Let's look for the credentials
-    console.log('loginCredentialsParse')
-    console.log(html)
+    // console.log('loginCredentialsParse')
+    // console.log(html)
     if (!html) {
       throw {message: 'No se pudo conectar\nRevisa tu conexión a internet', id: err.network}
     } else if (html.indexOf('Session Expired') !== -1) {
@@ -68,15 +68,15 @@ export default class Session {
 
   loginPost = (body) => {
     return Fetcher.post(Url.login, body, true).then(response => {
-      console.log('loginPost')
-      console.log(response)
+      // console.log('loginPost')
+      // console.log(response)
       return response.text().then(this.loginPostParse)
     })
   }
 
   loginPostParse = (html) => {
-    console.log('loginPostParse')
-    console.log(html)
+    // console.log('loginPostParse')
+    // console.log(html)
     if (html.indexOf('UC Authentication Service') !== -1) {
       throw {message: 'No se pudo conectar\nRevisa tus credenciales', id: err.credentials}
     }

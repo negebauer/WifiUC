@@ -1,5 +1,6 @@
 import 'react-native'
 import React from 'react'
+require('isomorphic-fetch')
 import Home from './'
 import Session from './session'
 import {USER, PASS} from 'react-native-dotenv'

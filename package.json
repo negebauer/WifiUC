@@ -35,13 +35,17 @@
   "devDependencies": {
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
+    "fetch-mock": "^5.9.3",
     "jest": "18.1.0",
     "react-test-renderer": "~15.4.0"
   },
   "jest": {
     "haste": {
       "defaultPlatform": "ios",
-      "platforms": ["android", "ios", "native"],
+      "platforms": [
+        "android",
+        "ios"
+      ],
       "providesModuleNodeModules": [
         "react-native"
       ]
@@ -55,12 +59,14 @@
       "./node_modules/react-native/packager/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|tcomb-form-native|react-native-keychain)"
+      "./node_modules/(?!()?)"
     ],
     "setupFiles": [
       "./node_modules/react-native/jest/setup.js"
     ],
-    "testEnvironment": "node",
-    "preset": "react-native"
+    "preset": "react-native",
+    "globals": {
+      "__DEV__": true
+    }
   }
 }

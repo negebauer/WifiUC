@@ -14,6 +14,10 @@ before_install:
   - npm run generate_env $USER $PASS
   - sudo gem update fastlane
 
+before_script:
+  - echo 'Check tests'
+  - npm run test
+
 script:
   - echo 'Check if we can generate the bundles'
   - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios
