@@ -7,7 +7,7 @@ npm run generate_env $WIFIUC_USER $WIFIUC_PASS
 
 # Android
 brew install android-sdk
-(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk --no-ui --filter platform-tools,android-23,build-tools-23.0.1
+(while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk --no-ui --filter platform-tools,android-24,build-tools-25.0.2
 security add-generic-password -a android_keystore -l android_keystore -s android_keystore -w $WIFIUC_ANDROID_KEYSTORE
 
 # Deploy
