@@ -1,8 +1,10 @@
 machine:
   environment:
     CI: true
+    GYM_CODE_SIGNING_IDENTITY: 'iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)'
+    ANDROID_HOME: /usr/local/opt/android-sdk
   xcode:
-    version: "8.2"
+    version: '8.2'
 dependencies:
   pre:
     - scripts/ci_dependencies.sh
