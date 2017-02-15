@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/negebauer/WifiUC.svg?branch=master)](https://travis-ci.org/negebauer/WifiUC)
+[![Build Status](https://travis-ci.org/negebauer/WifiUC.svg?branch=dev)](https://travis-ci.org/negebauer/WifiUC)
 
 
 ## Testing
