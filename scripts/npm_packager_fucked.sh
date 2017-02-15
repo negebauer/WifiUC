@@ -1,4 +1,5 @@
 sudo killall node
+lsof -n -i4TCP:8081 | awk 'NR>1 {print $2}' | xargs kill
 react init project
 git revert
 rm -rf node_modules/react-native/packager/packager.sh --reset-cache
