@@ -1,7 +1,9 @@
 main.jsbundle
 main.jsbundle.meta
 .env
+.env.*
 *.pyc
+*.log
 
 # fastlane
 */fastlane/report.xml
@@ -43,6 +45,7 @@ local.properties
 #
 node_modules/
 npm-debug.log
+yarn-error.log
 
 # BUCK
 buck-out/

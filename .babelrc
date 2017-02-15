@@ -1,8 +1,6 @@
 {
   "presets": [
     "react-native",
-    "react-native-dotenv",
-    "es2015",
-    "jest"
+    "react-native-dotenv"
   ]
 }
