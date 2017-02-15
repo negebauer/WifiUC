@@ -9,3 +9,8 @@ Or
 
 - Run `npm run generate_env`
 - Replace the `USER` and `PASS` fields in the generated `.env` file with your username and password
+
+And then just
+```bash
+npm test
+```
