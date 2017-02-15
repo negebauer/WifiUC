@@ -24,3 +24,6 @@ script:
   - react-native bundle --dev false --entry-file index.android.js --bundle-output android/main.jsbundle --platform android
   - echo 'Check if we can build the ipa and apk'
   - npm run build
+
+deploy:
+  - npm run deploy none beta
