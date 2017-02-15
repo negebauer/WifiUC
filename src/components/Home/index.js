@@ -3,7 +3,7 @@ import {View, Text, Button, ScrollView, ActivityIndicator} from 'react-native'
 import Base, {Styles, Debug} from '../Base'
 import Login from './Login'
 import Devices from '../Devices'
-import Session, {err as SessionError} from '../../utils/session'
+import Session, {err as SessionError} from './session'
 
 import * as Keychain from 'react-native-keychain'
 

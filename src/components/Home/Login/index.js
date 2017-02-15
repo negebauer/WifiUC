@@ -2,7 +2,7 @@ import React from 'react'
 import {View, ActivityIndicator, Text, Button} from 'react-native'
 import FormHelper from 'tcomb-form-native'
 import Base, {Styles, Debug} from '../../Base'
-import Session from '../../../utils/session'
+import Session from '../session'
 
 const Form = FormHelper.form.Form
 UCUserStruct = {
