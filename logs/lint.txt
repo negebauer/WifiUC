@@ -1,0 +1,64 @@
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Base/index.js[24m
+  [2m31:10[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Base/styles.js[24m
+  [2m1:8[22m  [31merror[39m  'React' is defined but never used  [2mno-unused-vars[22m
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Devices/Device/device.js[24m
+  [2m8:23[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Devices/Device/index.js[24m
+  [2m36:10[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Devices/devices.js[24m
+  [2m9:31[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Devices/index.js[24m
+  [2m19:20[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Devices/Options/index.js[24m
+  [2m51:18[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Home/index.js[24m
+  [2m15:28[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Home/index.spec.js[24m
+   [2m2:8[22m  [31merror[39m  'React' is defined but never used     [2mno-unused-vars[22m
+   [2m4:8[22m  [31merror[39m  'Home' is defined but never used      [2mno-unused-vars[22m
+   [2m9:8[22m  [31merror[39m  'renderer' is defined but never used  [2mno-unused-vars[22m
+  [2m11:1[22m  [31merror[39m  'it' is not defined                   [2mno-undef[22m
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Home/Login/index.js[24m
+  [2m48:12[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/components/Home/session.js[24m
+  [2m18:15[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/components/New/index.js[24m
+  [2m10:28[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/index.js[24m
+  [2m1:8[22m   [31merror[39m  'React' is defined but never used      [2mno-unused-vars[22m
+  [2m1:16[22m  [31merror[39m  'Component' is defined but never used  [2mno-unused-vars[22m
+
+[4m/Users/Nico/Documents/wifiuc/src/index.spec.js[24m
+  [2m2:8[22m   [31merror[39m  'React' is defined but never used  [2mno-unused-vars[22m
+  [2m3:1[22m   [31merror[39m  'beforeAll' is not defined         [2mno-undef[22m
+  [2m5:1[22m   [31merror[39m  'it' is not defined                [2mno-undef[22m
+  [2m5:32[22m  [31merror[39m  'expect' is not defined            [2mno-undef[22m
+
+[4m/Users/Nico/Documents/wifiuc/src/utils/fetcher.js[24m
+  [2m4:18[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/utils/format.js[24m
+  [2m2:21[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/utils/project.js[24m
+  [2m2:16[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[4m/Users/Nico/Documents/wifiuc/src/utils/url.js[24m
+  [2m2:22[22m  [31merror[39m  Parsing error: Unexpected token =
+
+[31m[1m✖ 25 problems (25 errors, 0 warnings)
+[22m[39m

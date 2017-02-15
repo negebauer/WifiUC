@@ -8,7 +8,7 @@
 Or
 
 - Run `npm run generate_env`
-- Replace the `USER` and `PASS` fields in the generated `.env` file with your username and password
+- Replace the `WIFIUC_USER` and `WIFIUC_PASS` fields in the generated `.env` file with your username and password
 
 And then just
 ```bash

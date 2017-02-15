@@ -11,7 +11,7 @@ before_install:
   - npm install
   - npm install -g react-native-cli
   # - gem install cocoapods
-  - npm run generate_env $USER $PASS
+  - npm run generate_env $WIFIUC_USER $WIFIUC_PASS
   - sudo gem update fastlane
 
 before_script:

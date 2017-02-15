@@ -5,8 +5,8 @@ if [ ! -z  $1 ]; then user=$1; fi
 if [ ! -z  $2 ]; then pass=$2; fi
 
 env=(
-USER=$user
-PASS=$pass
+WIFIUC_USER=$user
+WIFIUC_PASS=$pass
 )
 
 rm .env

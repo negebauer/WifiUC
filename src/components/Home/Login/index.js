@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, ActivityIndicator, Text, Button} from 'react-native'
 import FormHelper from 'tcomb-form-native'
-import {USER, PASS} from 'react-native-dotenv'
+import {WIFIUC_USER, WIFIUC_PASS} from 'react-native-dotenv'
 import Base, {Styles, Debug} from '../../Base'
 import Session from '../session'
 
@@ -37,8 +37,8 @@ export default class Login extends Base {
       loging: false,
       shouldReload: false,
       user: {
-        username: USER,
-        password: PASS
+        username: WIFIUC_USER,
+        password: WIFIUC_PASS
       }
     }
     this.addState(state)
