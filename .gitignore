@@ -1,9 +1,8 @@
 main.jsbundle
 main.jsbundle.meta
 .env
-
-# scripts
 *.pyc
+o_*.command
 
 # fastlane
 */fastlane/report.xml
