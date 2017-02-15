@@ -13,7 +13,8 @@
     "android": "scripts/run_android.sh",
     "fastlane": "cd ios; fastlane; cd ../android; fastlane",
     "metadata": "cd ios; fastlane metadata; cd ../android; fastlane metadata",
-    "distribute": "cd ios; fastlane distribute; cd ../android; fastlane distribute"
+    "distribute": "cd ios; fastlane distribute; cd ../android; fastlane distribute",
+    "env": "./scripts/env.sh"
   },
   "dependencies": {
     "buffer": "^5.0.2",

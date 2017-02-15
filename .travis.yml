@@ -11,6 +11,7 @@ before_install:
   - npm install
   - npm install -g react-native-cli
   - gem install cocoapods
+  - npm run generate_env
 
 script:
   - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios

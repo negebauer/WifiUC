@@ -3,4 +3,5 @@
 
 ## Testing
 
-Duplicate the .env_copy as .env and fill the fields to run test
+- Run `npm run generate_env`
+- Replace the `USER` and `PASS` fields in the generated `.env` file with your username and password
