@@ -9,8 +9,8 @@
     "icon": "python scripts/icon.py",
     "postversion": "react-native-version",
     "build": "react-native-version -b; git commit -am \"Bump build\"",
-    "ios": "react-native run-ios --simulator 'iPhone 7'",
-    "android": "echo 'run emulator @reactnative then react-native run-android'",
+    "ios": "scripts/run_ios.sh",
+    "android": "scripts/run_android.sh",
     "fastlane": "cd ios; fastlane; cd ../android; fastlane",
     "metadata": "cd ios; fastlane metadata; cd ../android; fastlane metadata",
     "distribute": "cd ios; fastlane distribute; cd ../android; fastlane distribute"
