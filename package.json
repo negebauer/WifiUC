@@ -3,6 +3,7 @@
   "version": "1.3.1",
   "private": true,
   "scripts": {
+    "postinstall": "rm node_modules/*/.babelrc; rn-nodeify --install fs,stream,process,path,events,buffer --hack",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "lint": "eslint -o logs/lint.log --ignore-pattern '!node_modules/*' --fix src/; cat logs/lint.log",
@@ -20,19 +21,26 @@
     "generate_env": "./scripts/generate_env.sh"
   },
   "dependencies": {
-    "buffer": "^5.0.2",
+    "asyncstorage-down": "^3.1.1",
+    "buffer": "^4.9.1",
     "cheerio": "^0.22.0",
     "events": "^1.1.1",
+    "path": "^0.12.7",
+    "path-browserify": "0.0.0",
+    "process": "^0.11.9",
     "react": "^15.4.2",
     "react-native": "^0.41.2",
     "react-native-cli": "^2.0.1",
     "react-native-dotenv": "0.0.3",
     "react-native-keychain": "^1.1.0",
+    "react-native-level-fs": "^3.0.0",
     "react-native-storage": "^0.1.4",
     "react-native-vector-icons": "^4.0.0",
     "react-navigation": "^1.0.0-beta.1",
-    "stream": "0.0.2",
-    "tcomb-form-native": "^0.6.4"
+    "readable-stream": "^1.0.33",
+    "stream-browserify": "^1.0.0",
+    "tcomb-form-native": "^0.6.4",
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
@@ -49,7 +57,8 @@
     "eslint-plugin-react-native": "^2.2.1",
     "fetch-mock": "^5.9.3",
     "jest": "18.1.0",
-    "react-test-renderer": "~15.4.0"
+    "react-test-renderer": "~15.4.0",
+    "rn-nodeify": "github:mvayngrib/rn-nodeify"
   },
   "jest": {
     "haste": {
@@ -80,5 +89,25 @@
     "globals": {
       "__DEV__": true
     }
+  },
+  "react-native": {
+    "path": "path-browserify",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
+  },
+  "browser": {
+    "path": "path-browserify",
+    "fs": "react-native-level-fs",
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
   }
 }
