@@ -1,4 +1,4 @@
-package com.wifiuc;
+package com.negebauer.wifiuc;
 
 import android.app.Application;
 import android.util.Log;

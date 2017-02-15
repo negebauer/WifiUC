@@ -1,4 +1,4 @@
-package com.wifiuc;
+package com.negebauer.wifiuc;
 
 import com.facebook.react.ReactActivity;
 
