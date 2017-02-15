@@ -10,7 +10,7 @@ it('works?', () => {
     res()
   })
 })
-
-it('renders correctly', () => {
-  const tree = renderer.create(<Home/>);
-})
+//
+// it('renders correctly', () => {
+//   const tree = renderer.create(<Home/>);
+// })
