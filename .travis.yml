@@ -10,9 +10,12 @@ before_install:
   - brew reinstall node
   - npm install
   - npm install -g react-native-cli
-  - gem install cocoapods
+  # - gem install cocoapods
   - npm run generate_env $USER $PASS
 
 script:
+  - echo 'Check if we can generate the bundles'
   - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios
   - react-native bundle --dev false --entry-file index.android.js --bundle-output android/main.jsbundle --platform android
+  - echo 'Check if we can build the ipa and apk'
+  - npm run build
