@@ -1,6 +1,3 @@
-Travis:
-[![Build Status](https://travis-ci.org/negebauer/WifiUC.svg?branch=dev)](https://travis-ci.org/negebauer/WifiUC)
-CircleCI:
 [![CircleCI](https://circleci.com/gh/negebauer/WifiUC/tree/dev.svg?style=svg)](https://circleci.com/gh/negebauer/WifiUC/tree/dev)
 
 ## Testing
