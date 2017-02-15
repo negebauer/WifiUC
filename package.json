@@ -6,7 +6,7 @@
     "postinstall": "rm node_modules/*/.babelrc; rn-nodeify --install fs,stream,process,path,events,buffer --hack",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "lint": "eslint -o logs/lint.log --ignore-pattern '!node_modules/*' --fix src/; cat logs/lint.log",
+    "lint": "touch logs/lint.log; eslint -o logs/lint.log --ignore-pattern '!node_modules/*' --fix src/; cat logs/lint.log",
     "deploy": "scripts/deploy.sh",
     "icon": "python scripts/icon.py",
     "postversion": "react-native-version",
