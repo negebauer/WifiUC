@@ -1,6 +1,5 @@
 machine:
   environment:
-    CI: true
     GYM_CODE_SIGNING_IDENTITY: 'iPhone Distribution: Nicolas Gebauer (BJJKE72WM4)'
     ANDROID_HOME: /usr/local/opt/android-sdk
     XCODE_PROJECT: ios/WifiUC.xcodeproj
@@ -31,9 +30,9 @@ test:
     - npm run test
   post:
     # Bundle iOS
-    - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/build/main.jsbundle --platform ios
+    - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios
     # Bundle Android
-    - react-native bundle --dev false --entry-file index.android.js --bundle-output android/build/main.jsbundle --platform android
+    - react-native bundle --dev false --entry-file index.android.js --bundle-output android/main.jsbundle --platform android
 
 deployment:
   staging:

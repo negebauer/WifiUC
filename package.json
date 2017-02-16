@@ -13,10 +13,10 @@
     "ios": "scripts/run_ios.sh",
     "android": "scripts/run_android.sh",
     "both": "npm run android &>logs/run_android.log & npm run ios &>logs/run_ios.log & echo 'Just wait'",
-    "fastlane": "cd ios; fastlane; cd ../android; fastlane",
-    "metadata": "cd ios; fastlane metadata; cd ../android; fastlane metadata",
-    "distribute": "cd ios; fastlane distribute; cd ../android; fastlane distribute",
-    "build": "cd ios; fastlane build; cd ../android; fastlane build",
+    "fastlane": "(cd ios && fastlane); (cd android && fastlane)",
+    "metadata": "(cd ios && fastlane metadata); (cd android && fastlane metadata)",
+    "distribute": "(cd ios && fastlane distribute); (cd android && fastlane distribute)",
+    "build": "(cd ios && fastlane build); (cd ../android && fastlane build)",
     "generate_env": "./scripts/generate_env.sh"
   },
   "dependencies": {

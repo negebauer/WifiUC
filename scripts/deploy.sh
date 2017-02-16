@@ -32,6 +32,5 @@ fi
 
 deploy_fastlane $deploy
 
-
 ./scripts/generate_env.sh $WIFIUC_USER $WIFIUC_PASS
 git push --tags

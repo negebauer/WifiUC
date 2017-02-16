@@ -81,8 +81,8 @@ export default class Session {
   }
 
   loginPostParse = html => {
-    console.log('loginPostParse')
-    console.log(html)
+    // console.log('loginPostParse')
+    // console.log(html)
     if (html.indexOf('UC Authentication Service') !== -1) {
       throw {message: 'No se pudo conectar\nRevisa tus credenciales', id: err.credentials}
     }
