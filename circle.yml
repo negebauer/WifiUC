@@ -38,4 +38,5 @@ deployment:
     branch: dev
     commands:
       # For now try to build
-      - npm run build
+      # - (cd ios && fastlane build)
+      # - (cd android && fastlane build)
