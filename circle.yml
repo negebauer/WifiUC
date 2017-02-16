@@ -41,3 +41,7 @@ deployment:
       # - (cd ios && fastlane build)
       # - (cd android && fastlane build)
       - echo 'TODO'
+
+general:
+  artifacts:
+    - logs/
