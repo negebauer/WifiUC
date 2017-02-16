@@ -1,7 +1,7 @@
 machine:
   environment:
-    CI: 'true'
-    GYM_CODE_SIGNING_IDENTITY: 'iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)'
+    CI: true
+    GYM_CODE_SIGNING_IDENTITY: 'iPhone Distribution: Nicolas Gebauer (BJJKE72WM4)'
     ANDROID_HOME: /usr/local/opt/android-sdk
     XCODE_PROJECT: ios/WifiUC.xcodeproj
     XCODE_SCHEME: 'WifiUC'
