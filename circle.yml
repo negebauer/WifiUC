@@ -40,3 +40,4 @@ deployment:
       # For now try to build
       # - (cd ios && fastlane build)
       # - (cd android && fastlane build)
+      - echo 'TODO'
