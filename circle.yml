@@ -2,11 +2,12 @@ machine:
   environment:
     CI: true
     GYM_CODE_SIGNING_IDENTITY: 'iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)'
-    ANDROID_HOME: /usr/local/opt/android-sdk
-    XCODE_PROJECT: ios/WifiUC.xcodeproj
+    ANDROID_HOME: '/usr/local/opt/android-sdk'
+    XCODE_PROJECT: 'ios/WifiUC.xcodeproj'
     XCODE_SCHEME: 'WifiUC'
   xcode:
     version: '8.2'
+
 dependencies:
   pre:
     - # React native stuff
@@ -21,6 +22,7 @@ dependencies:
     - sudo gem update fastlane
   cache_directories:
     - node_modules
+
 test:
   pre:
     - npm run lint
@@ -31,6 +33,7 @@ test:
     - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/build/main.jsbundle --platform ios
     # Bundle Android
     - react-native bundle --dev false --entry-file index.android.js --bundle-output android/build/main.jsbundle --platform android
+
 deployment:
   staging:
     branch: dev
