@@ -6,9 +6,6 @@ import '../../scripts/Fastfile'
 before_all do
   BUILD = get_build_number
   PLATFORM = 'iOS'
-
-  GYM_CODE_SIGNING_IDENTITY = ENV['GYM_CODE_SIGNING_IDENTITY']
-  GYM_CODE_SIGNING_IDENTITY = 'iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)' unless GYM_CODE_SIGNING_IDENTITY
 end
 
 desc 'Build app'
@@ -16,7 +13,6 @@ lane :build do
   mynotification('Building...')
   gym(
     scheme: 'WifiUC',
-    codesigning_identity: GYM_CODE_SIGNING_IDENTITY
   )
 end
 
@@ -31,6 +27,7 @@ end
 desc 'Submit a new Alpha Build to Apple TestFlight'
 lane :alpha do
   # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
+  match(type: 'development')
   build
   # sh 'git checkout ../WifiUC/Images.xcassets/'
   # sh 'git checkout ../Watch/Assets.xcassets/'
@@ -43,6 +40,7 @@ end
 desc 'Submit a new Beta Build to Apple TestFlight'
 lane :beta do
   # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
+  match(type: 'development')
   build
   # sh 'git checkout ../WifiUC/Images.xcassets/'
   # sh 'git checkout ../Watch/Assets.xcassets/'
@@ -54,6 +52,7 @@ end
 
 desc 'Deploy a new version to the App Store'
 lane :release do
+  match(type: 'appstore')
   build
   mynotification('Uploading App Store version')
   deliver(
