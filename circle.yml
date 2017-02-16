@@ -15,10 +15,10 @@ dependencies:
     - npm install
     - npm install -g react-native-cli
     - npm run generate_env $WIFIUC_USER $WIFIUC_PASS
-    - # Android
+    # Android
     - (while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk --no-ui --filter platform-tools,android-24,build-tools-25.0.2
     - security add-generic-password -a android_keystore -l android_keystore -s android_keystore -w $WIFIUC_ANDROID_KEYSTORE
-    - # Fastlane
+    # Fastlane
     - sudo gem update fastlane
   cache_directories:
     - node_modules
@@ -29,14 +29,14 @@ test:
   override:
     - npm run test
   post:
-    - # Bundle iOS
+    # Bundle iOS
     - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/build/main.jsbundle --platform ios
-    - # Bundle Android
+    # Bundle Android
     - react-native bundle --dev false --entry-file index.android.js --bundle-output android/build/main.jsbundle --platform android
 
 deployment:
   staging:
     branch: dev
     commands:
-      - # For now try to build
+      # For now try to build
       - npm run build
