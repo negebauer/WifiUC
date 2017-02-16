@@ -10,7 +10,7 @@ machine:
 
 dependencies:
   pre:
-    - # React native stuff
+    # React native stuff
     - brew reinstall node
     - npm install
     - npm install -g react-native-cli
