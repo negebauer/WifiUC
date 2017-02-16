@@ -1,7 +1,6 @@
 import React from 'react'
 import {View, ActivityIndicator, Text, Button} from 'react-native'
 import FormHelper from 'tcomb-form-native'
-import {WIFIUC_USER, WIFIUC_PASS} from 'react-native-dotenv'
 import Base, {Styles, Debug} from '../../Base'
 import Session from '../session'
 
@@ -37,12 +36,12 @@ export default class Login extends Base {
       loging: false,
       shouldReload: false,
       user: {
-        username: WIFIUC_USER,
-        password: WIFIUC_PASS
+        username: '',
+        password: ''
       }
     }
     this.addState(state)
-    Session.logout()
+    Session.logout().then(Session.clear)
   }
 
   onChange = user => {

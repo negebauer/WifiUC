@@ -5,21 +5,37 @@ machine:
     ANDROID_HOME: /usr/local/opt/android-sdk
   xcode:
     version: '8.2'
+
 dependencies:
   pre:
-    - scripts/ci_dependencies.sh
+    - # React native stuff
+    - brew reinstall node
+    - npm install
+    - npm install -g react-native-cli
+    - npm run postinstall
+    - npm run generate_env $WIFIUC_USER $WIFIUC_PASS
+    - # Android
+    - (while sleep 3; do echo "y"; done) | $ANDROID_HOME/tools/android update sdk --no-ui --filter platform-tools,android-24,build-tools-25.0.2
+    - security add-generic-password -a android_keystore -l android_keystore -s android_keystore -w $WIFIUC_ANDROID_KEYSTORE
+    - # Fastlane
+    - sudo gem update fastlane
   cache_directories:
     - node_modules
+
 test:
   pre:
     - npm run lint
   override:
     - npm run test
   post:
-    - scripts/ci_bundle.sh
+    # Bundle iOS
+    - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/build/main.jsbundle --platform ios
+    # Bundle Android
+    - react-native bundle --dev false --entry-file index.android.js --bundle-output android/build/main.jsbundle --platform android
 
 deployment:
   staging:
     branch: dev
     commands:
-      - scripts/ci_deploy.sh
+      # For now try to build
+      - npm run build

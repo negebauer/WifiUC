@@ -1,5 +1,10 @@
-source scripts/const.sh
+source scripts/env.sh
 source scripts/funcs.sh
+source .env
+rm .env
+
+bump=$BUMP
+deploy=$DEPLOY
 
 echo 'Checking git status...'
 if [ ! -z  $(git status --porcelain) ]; then echo 'Git repository dirty. Clean it'; exit; fi
@@ -27,4 +32,6 @@ fi
 
 deploy_fastlane $deploy
 
+
+./scripts/generate_env.sh $WIFIUC_USER $WIFIUC_PASS
 git push --tags

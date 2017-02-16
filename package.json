@@ -20,14 +20,18 @@
     "generate_env": "./scripts/generate_env.sh"
   },
   "dependencies": {
+    "buffer": "^5.0.5",
     "cheerio": "^0.22.0",
+    "events": "^1.1.1",
     "react": "^15.4.2",
     "react-native": "^0.41.2",
     "react-native-cli": "^2.0.1",
-    "react-native-dotenv": "0.0.3",
+    "react-native-config": "^0.3.1",
     "react-native-keychain": "^1.1.0",
+    "react-native-storage": "^0.1.5",
     "react-native-vector-icons": "^4.0.0",
     "react-navigation": "^1.0.0-beta.1",
+    "stream": "0.0.2",
     "tcomb-form-native": "^0.6.4"
   },
   "devDependencies": {
@@ -40,7 +44,34 @@
     "jest": "18.1.0",
     "react-test-renderer": "~15.4.0"
   },
-	"jest": {
-		"preset": "react-native"
-	}
+  "jest": {
+    "haste": {
+      "defaultPlatform": "ios",
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "providesModuleNodeModules": [
+        "react-native"
+      ]
+    },
+    "moduleNameMapper": {
+      "^[./a-zA-Z0-9$_-]+\\.(bmp|gif|jpg|jpeg|png|psd|svg|webp)$": "RelativeImageStub",
+      "^React$": "./node_modules/react"
+    },
+    "modulePathIgnorePatterns": [
+      "./node_modules/react-native/Libraries/react-native/",
+      "./node_modules/react-native/packager"
+    ],
+    "transformIgnorePatterns": [
+      "./node_modules/(?!()?)"
+    ],
+    "setupFiles": [
+      "./node_modules/react-native/jest/setup.js"
+    ],
+    "preset": "react-native",
+    "globals": {
+      "__DEV__": true
+    }
+  }
 }

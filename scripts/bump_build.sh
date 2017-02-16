@@ -1,4 +1,4 @@
-source scripts/const.sh
+source scripts/env.sh
 
 react-native-version -b
-git commit -am $message_bump_build
+git commit -am $MESSAGE_BUMP_BUILD

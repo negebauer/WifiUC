@@ -10,11 +10,6 @@ WIFIUC_PASS=$pass
 )
 
 rm .env
-rm .env.development
-rm .env.production
-
-touch .env.development
-touch .env.production
 
 for data in ${env[@]}; do
   echo $data >> .env

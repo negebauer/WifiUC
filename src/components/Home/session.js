@@ -29,7 +29,13 @@ export default class Session {
     return Keychain.setGenericPassword(username, password)
   }
 
-  static logout = () => Keychain.resetGenericPassword().catch(err => {}) && Fetcher.post(Url.logout)
+  static logout = () => {
+    Fetcher.post(Url.logout)
+  }
+
+  static clear = () => {
+    Keychain.resetGenericPassword()
+  }
 
   login = () => {
     return this.loginCredentialsGenerate()
@@ -75,8 +81,8 @@ export default class Session {
   }
 
   loginPostParse = html => {
-    // console.log('loginPostParse')
-    // console.log(html)
+    console.log('loginPostParse')
+    console.log(html)
     if (html.indexOf('UC Authentication Service') !== -1) {
       throw {message: 'No se pudo conectar\nRevisa tus credenciales', id: err.credentials}
     }
