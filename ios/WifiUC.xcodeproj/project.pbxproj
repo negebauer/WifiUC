@@ -1096,6 +1096,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = BJJKE72WM4;
 				IBSC_MODULE = Watch_Extension;
@@ -1108,7 +1109,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "93105cbb-f8f7-4142-a341-b09db98eb41d";
+				PROVISIONING_PROFILE = "2b28dab5-9b51-47eb-9f6f-8ce4fe1ae44f";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.negebauer.Wifi-UC.watchkitapp";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1141,7 +1142,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "393709ca-a073-446e-a62d-8e4e2f0c721c";
+				PROVISIONING_PROFILE = "4c854d4f-3ad2-4c9d-b194-08027a505ff0";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.negebauer.Wifi-UC.watchkitapp";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1159,16 +1160,18 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = BJJKE72WM4;
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "2121cf00-c6a7-4aa7-9b75-a4b3fa14b67c";
+				PROVISIONING_PROFILE = "b5b178dd-5339-4bac-8256-1660f8c19bbf";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.negebauer.Wifi-UC.watchkitapp.watchkitextension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = all;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1191,10 +1194,11 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "81ee3c44-9c4f-4453-8b12-e3a1654bf525";
+				PROVISIONING_PROFILE = "ed0edfcc-c2bc-4f74-a115-675faec59ed0";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.negebauer.Wifi-UC.watchkitapp.watchkitextension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				STRIP_STYLE = all;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -1212,7 +1216,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = BJJKE72WM4;
 				INFOPLIST_FILE = WifiUC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1221,7 +1225,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC";
 				PRODUCT_NAME = WifiUC;
-				PROVISIONING_PROFILE = "adbf36a9-c16f-4226-95bd-00d953f75751";
+				PROVISIONING_PROFILE = "838bc835-7e64-4ac7-98f8-db13e004a6f6";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.negebauer.Wifi-UC";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1234,10 +1238,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WifiUC/WifiUC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = BJJKE72WM4;
 				INFOPLIST_FILE = WifiUC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1246,7 +1251,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC";
 				PRODUCT_NAME = WifiUC;
-				PROVISIONING_PROFILE = "b01f711c-5b47-4987-93ee-4fe41fa8ef1d";
+				PROVISIONING_PROFILE = "4ad1eb4b-3205-4d65-910a-36e32cf1305c";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.negebauer.Wifi-UC";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
