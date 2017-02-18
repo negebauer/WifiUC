@@ -3,6 +3,10 @@ machine:
     GYM_CODE_SIGNING_IDENTITY: 'iPhone Distribution: Nicolas Gebauer (BJJKE72WM4)'
     ANDROID_HOME: /usr/local/opt/android-sdk
     XCODE_SCHEME: 'WifiUC'
+    GIT_COMMIT_MESSAGE: git log -1 --pretty=%B
+    GIT_COMMIT_ID: git log --format="%H" -n 1
+    GIT_COMMIT_TAG: git describe --tags --exact-match $GIT_COMMIT_ID
+    GIT_COMMIT_TAG_EMPTY: 'fatal: No names found, cannot describe anything.'
   xcode:
     version: '8.2'
 
@@ -45,6 +49,10 @@ deployment:
       # - (cd ios && fastlane build)
       # - (cd android && fastlane build)
       - echo 'TODO'
+      - echo "GIT_COMMIT_MESSAGE: $GIT_COMMIT_MESSAGE"
+      - echo "GIT_COMMIT_ID: $GIT_COMMIT_ID"
+      - echo "GIT_COMMIT_TAG: $GIT_COMMIT_TAG"
+      - echo "GIT_COMMIT_TAG_EMPTY: $GIT_COMMIT_TAG_EMPTY"
 
 general:
   artifacts:
