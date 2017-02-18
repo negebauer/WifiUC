@@ -16,12 +16,15 @@
 		03616C661E454E9F00BA762E /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03616C641E454E9F00BA762E /* Interface.storyboard */; };
 		03616C681E454E9F00BA762E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03616C671E454E9F00BA762E /* Assets.xcassets */; };
 		03616C6F1E454EA000BA762E /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 03616C6E1E454EA000BA762E /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		03616C761E454EA000BA762E /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03616C751E454EA000BA762E /* InterfaceController.swift */; };
 		03616C781E454EA000BA762E /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03616C771E454EA000BA762E /* ExtensionDelegate.swift */; };
 		03616C7A1E454EA000BA762E /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03616C791E454EA000BA762E /* NotificationController.swift */; };
 		03616C7C1E454EA000BA762E /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03616C7B1E454EA000BA762E /* ComplicationController.swift */; };
 		03616C7E1E454EA000BA762E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03616C7D1E454EA000BA762E /* Assets.xcassets */; };
 		03616C831E454EA000BA762E /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 03616C621E454E9F00BA762E /* Watch.app */; };
+		03B566451E5834C40010FE25 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B566441E5834C40010FE25 /* Device.swift */; };
+		03B566461E5834C40010FE25 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B566441E5834C40010FE25 /* Device.swift */; };
+		03B566481E5835790010FE25 /* DevicesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B566471E5835790010FE25 /* DevicesInterfaceController.swift */; };
+		03B5664A1E5837CB0010FE25 /* DeviceRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B566491E5837CB0010FE25 /* DeviceRowController.swift */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -298,12 +301,16 @@
 		03616C691E454E9F00BA762E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03616C6E1E454EA000BA762E /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03616C741E454EA000BA762E /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		03616C751E454EA000BA762E /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		03616C771E454EA000BA762E /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
 		03616C791E454EA000BA762E /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		03616C7B1E454EA000BA762E /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		03616C7D1E454EA000BA762E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03616C7F1E454EA000BA762E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		03B5663F1E58347B0010FE25 /* WifiUC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WifiUC-Bridging-Header.h"; sourceTree = "<group>"; };
+		03B566441E5834C40010FE25 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		03B566471E5835790010FE25 /* DevicesInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevicesInterfaceController.swift; sourceTree = "<group>"; };
+		03B566491E5837CB0010FE25 /* DeviceRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceRowController.swift; sourceTree = "<group>"; };
+		03B5664B1E5838EB0010FE25 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		0B97AA055CC84F31A2B33D62 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		0D58DF0372194D95AD020502 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -430,7 +437,8 @@
 		03616C721E454EA000BA762E /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				03616C751E454EA000BA762E /* InterfaceController.swift */,
+				03B566471E5835790010FE25 /* DevicesInterfaceController.swift */,
+				03B566491E5837CB0010FE25 /* DeviceRowController.swift */,
 				03616C771E454EA000BA762E /* ExtensionDelegate.swift */,
 				03616C791E454EA000BA762E /* NotificationController.swift */,
 				03616C7B1E454EA000BA762E /* ComplicationController.swift */,
@@ -455,6 +463,14 @@
 				03B290B31E557D7500E6BD4F /* libReactNativeConfig.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		03B566431E5834C40010FE25 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				03B566441E5834C40010FE25 /* Device.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		03BA3FFA1E423E10009C253D /* Products */ = {
@@ -486,6 +502,7 @@
 		13B07FAE1A68108700A75B9A /* WifiUC */ = {
 			isa = PBXGroup;
 			children = (
+				03B5663F1E58347B0010FE25 /* WifiUC-Bridging-Header.h */,
 				0328CD0B1E40495A00804A41 /* WifiUC.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -581,11 +598,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				03B5664B1E5838EB0010FE25 /* MyPlayground.playground */,
 				13B07FAE1A68108700A75B9A /* WifiUC */,
-				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				03B566431E5834C40010FE25 /* Shared */,
 				03616C631E454E9F00BA762E /* Watch */,
 				03616C721E454EA000BA762E /* Watch Extension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				A41F9FC7E8CB584BFD625BF9 /* Frameworks */,
 				66A18FA0D5A94456A4F89DDC /* Resources */,
 			);
@@ -689,6 +708,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = BJJKE72WM4;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -1038,8 +1058,10 @@
 			files = (
 				03616C7A1E454EA000BA762E /* NotificationController.swift in Sources */,
 				03616C7C1E454EA000BA762E /* ComplicationController.swift in Sources */,
+				03B566481E5835790010FE25 /* DevicesInterfaceController.swift in Sources */,
 				03616C781E454EA000BA762E /* ExtensionDelegate.swift in Sources */,
-				03616C761E454EA000BA762E /* InterfaceController.swift in Sources */,
+				03B5664A1E5837CB0010FE25 /* DeviceRowController.swift in Sources */,
+				03B566461E5834C40010FE25 /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,6 +1069,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03B566451E5834C40010FE25 /* Device.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -1210,6 +1233,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = WifiUC/WifiUC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 52;
@@ -1227,6 +1251,9 @@
 				PRODUCT_NAME = WifiUC;
 				PROVISIONING_PROFILE = "838bc835-7e64-4ac7-98f8-db13e004a6f6";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.negebauer.Wifi-UC";
+				SWIFT_OBJC_BRIDGING_HEADER = "WifiUC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1236,6 +1263,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = WifiUC/WifiUC.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
@@ -1253,6 +1281,8 @@
 				PRODUCT_NAME = WifiUC;
 				PROVISIONING_PROFILE = "4ad1eb4b-3205-4d65-910a-36e32cf1305c";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.negebauer.Wifi-UC";
+				SWIFT_OBJC_BRIDGING_HEADER = "WifiUC-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};

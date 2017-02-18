@@ -1,14 +1,71 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Devices-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller identifier="Devices" id="AgC-eL-Hgc" customClass="DevicesInterfaceController" customModule="Watch_Extension">
+                    <items>
+                        <group alignment="center" verticalAlignment="center" id="W1X-b2-TM7">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Primero tienes que inicar sesión en tu iPhone" textAlignment="center" numberOfLines="0" id="egt-vY-xzK">
+                                    <color key="textColor" red="0.1333333333" green="0.76470588240000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="20"/>
+                                </label>
+                            </items>
+                        </group>
+                        <table alignment="left" id="Dvo-4U-dTP" userLabel="Devices Table">
+                            <items>
+                                <tableRow identifier="DeviceRow" id="xjh-xV-BcA" customClass="DeviceRowController" customModule="Watch_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="zm5-qo-8hQ">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="AZx-Ik-JZe">
+                                                <color key="color" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </separator>
+                                            <group height="48" alignment="left" layout="vertical" id="bJu-kg-bVb">
+                                                <items>
+                                                    <group width="1" alignment="left" verticalAlignment="center" id="o6c-tB-qiz">
+                                                        <items>
+                                                            <label alignment="left" text="Macbook Pro" numberOfLines="0" id="ZTi-hN-ggG">
+                                                                <color key="textColor" red="0.1333333333" green="0.76470588240000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <fontDescription key="font" type="system" weight="medium" pointSize="18"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" verticalAlignment="center" id="pdV-2X-y1k">
+                                                        <items>
+                                                            <label alignment="left" text="CC-AA-CC-BB-AA-CC" id="tCZ-SX-3wF">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="font" type="system" weight="ultraLight" pointSize="10"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="active" destination="AZx-Ik-JZe" id="L5V-6W-9Dl"/>
+                                        <outlet property="mac" destination="tCZ-SX-3wF" id="VOd-p8-4ev"/>
+                                        <outlet property="name" destination="ZTi-hN-ggG" id="r3c-0m-d6b"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="devicesTable" destination="Dvo-4U-dTP" id="5wP-Ft-Lgt"/>
+                        <outlet property="loginMessage" destination="egt-vY-xzK" id="nFt-ta-LRa"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>
@@ -31,9 +88,10 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Watch" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.13333333333333333" green="0.76470588235294112" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
