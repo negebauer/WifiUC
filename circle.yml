@@ -49,10 +49,10 @@ deployment:
       # - (cd ios && fastlane build)
       # - (cd android && fastlane build)
       - echo 'TODO'
-      - echo "GIT_COMMIT_MESSAGE: $GIT_COMMIT_MESSAGE"
-      - echo "GIT_COMMIT_ID: $GIT_COMMIT_ID"
-      - echo "GIT_COMMIT_TAG: $GIT_COMMIT_TAG"
-      - echo "GIT_COMMIT_TAG_EMPTY: $GIT_COMMIT_TAG_EMPTY"
+      - echo GIT_COMMIT_MESSAGE: $GIT_COMMIT_MESSAGE
+      - echo GIT_COMMIT_ID: $GIT_COMMIT_ID
+      - echo GIT_COMMIT_TAG: $GIT_COMMIT_TAG
+      - echo GIT_COMMIT_TAG_EMPTY: $GIT_COMMIT_TAG_EMPTY
 
 general:
   artifacts:
