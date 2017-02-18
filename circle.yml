@@ -46,6 +46,7 @@ deployment:
   staging:
     branch: dev
     commands:
+      # Deploy to AppStore and Goggle Play to test
       # For now try to build
       # - (cd ios && fastlane build)
       # - (cd android && fastlane build)
@@ -54,6 +55,18 @@ deployment:
       - echo GIT_COMMIT_ID $GIT_COMMIT_ID
       - echo GIT_COMMIT_TAG $GIT_COMMIT_TAG
       - echo GIT_COMMIT_TAG_EMPTY $GIT_COMMIT_TAG_EMPTY
+      # Copy artifacts
+      # - cp ios/WifiUC.app.dSYM.zip $CIRCLE_ARTIFACTS
+      # - cp ios/WifiUC.ipa $CIRCLE_ARTIFACTS
+      # - cp ANDROID THINGY
+
+deployment:
+  release:
+    tag: /v*/
+    owner: negebauer
+    commands:
+      # Deploy to AppStore and Goggle Play as production
+      - echo 'TODO'
 
 general:
   artifacts:
