@@ -34,6 +34,8 @@ test:
     - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios
     # Bundle Android
     - react-native bundle --dev false --entry-file index.android.js --bundle-output android/main.jsbundle --platform android
+    # Run them both!
+    - npm run both
 
 deployment:
   staging:
