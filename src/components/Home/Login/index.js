@@ -41,7 +41,8 @@ export default class Login extends Base {
       }
     }
     this.addState(state)
-    Session.logout().then(Session.clear)
+    Session.logout()
+    Session.clear()
   }
 
   onChange = user => {
