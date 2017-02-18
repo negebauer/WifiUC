@@ -12,7 +12,7 @@
     "bump_build": "scripts/bump_build.sh",
     "ios": "scripts/run_ios.sh",
     "android": "scripts/run_android.sh",
-    "both": "npm run android &>logs/run_android.log & npm run ios &>logs/run_ios.log & echo 'Just wait'",
+    "both": "npm run android & npm run ios & echo 'Just wait'",
     "fastlane": "(cd ios && fastlane); (cd android && fastlane)",
     "metadata": "(cd ios && fastlane metadata); (cd android && fastlane metadata)",
     "distribute": "(cd ios && fastlane distribute); (cd android && fastlane distribute)",
