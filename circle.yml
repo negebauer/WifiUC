@@ -3,9 +3,9 @@ machine:
     GYM_CODE_SIGNING_IDENTITY: 'iPhone Distribution: Nicolas Gebauer (BJJKE72WM4)'
     ANDROID_HOME: /usr/local/opt/android-sdk
     XCODE_SCHEME: 'WifiUC'
-    GIT_COMMIT_MESSAGE: git log -1 --pretty=%B
-    GIT_COMMIT_ID: git log --format="%H" -n 1
-    GIT_COMMIT_TAG: git describe --tags --exact-match $GIT_COMMIT_ID
+    GIT_COMMIT_MESSAGE: $(git log -1 --pretty=%B)
+    GIT_COMMIT_ID: $(git log --format="%H" -n 1)
+    GIT_COMMIT_TAG: $(git describe --tags --exact-match $GIT_COMMIT_ID)
     GIT_COMMIT_TAG_EMPTY: 'fatal: No names found, cannot describe anything.'
   xcode:
     version: '8.2'
@@ -39,7 +39,8 @@ test:
     # Bundle Android
     - react-native bundle --dev false --entry-file index.android.js --bundle-output android/main.jsbundle --platform android
     # Run them both!
-    - npm run both
+    - npm run android
+    - npm run ios
 
 deployment:
   staging:
