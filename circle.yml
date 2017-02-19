@@ -44,8 +44,8 @@ deployment:
   development:
     branch: dev
     commands:
-      - deploy=$(scripts/git_deploy.sh) cd ios; fastlane $deploy
-      - deploy=$(scripts/git_deploy.sh) cd android; fastlane $deploy
+      - deploy=$(scripts/git_deploy.sh); cd ios; fastlane $deploy
+      - deploy=$(scripts/git_deploy.sh); cd android; fastlane $deploy
       - scripts/build_copy_artifacts.sh
   store:
     tag: /v[0-9]+(\.[0-9]+)*/
