@@ -1,6 +1,6 @@
 # Check git
 echo 'Checking git status...'
-if [ ! -z  $(git status --porcelain) ]; then echo 'Git repository dirty. Clean it'; exit; fi
+if [[ ! -z  $(git status --porcelain) ]]; then echo 'Git repository dirty. Clean it'; exit; fi
 echo 'Git clean!'
 echo ''
 
@@ -14,14 +14,14 @@ deploy_default='d'
 echo "production (p) or development (d) [default]$prompt"
 read deploy
 
-if [[ -z $deploy ]]; then deploy=deploy_default; fi
+if [[ -z $deploy ]]; then deploy=$deploy_default; fi
 
 commit='[deploy] ERROR'
 if [[ $deploy == 'd' ]]; then
   dev_default='b'
   echo "beta (b) [default] or alpha (a)$prompt"
   read dev
-  if [[ -z $dev ]]; then dev=dev_default; fi
+  if [[ -z $dev ]]; then dev=$dev_default; fi
   if [[ $dev == 'b' ]]; then
     commit='[deploy] beta'
   elif [[ $dev == 'a' ]]; then
@@ -36,7 +36,7 @@ elif [[ $deploy == 'p' ]]; then
   version_default='p'
   echo "major (M), minor (m), patch (p) [default]$prompt"
   read version
-  if [[ -z $version ]]; then version=version_default; fi
+  if [[ -z $version ]]; then version=$version_default; fi
   if [[ $version == 'M' ]]; then
     npm version major
   elif [[ $version == 'm' ]]; then
