@@ -19,6 +19,7 @@ dependencies:
     - echo y | android update sdk --no-ui --all --filter build-tools-23.0.1
     - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
     - security add-generic-password -a android_keystore -l android_keystore -s android_keystore -w $WIFIUC_ANDROID_KEYSTORE
+    - scripts/android_get_keystore.sh
     # Fastlane
     - sudo gem update fastlane
     - brew install imagemagick
