@@ -52,4 +52,5 @@ else
   exit
 fi
 
+git push
 git push --tags
