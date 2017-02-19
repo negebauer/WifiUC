@@ -38,11 +38,11 @@ elif [[ $deploy == 'p' ]]; then
   read version
   if [[ -z $version ]]; then version=$version_default; fi
   if [[ $version == 'M' ]]; then
-    npm version major
+    npm version major -m "[deploy] %s"
   elif [[ $version == 'm' ]]; then
-    npm version minor
+    npm version minor -m "[deploy] %s"
   elif [[ $version == 'p' ]]; then
-    npm version patch
+    npm version patch -m "[deploy] %s"
   else
     "Not a valid version ($version)"
     exit
