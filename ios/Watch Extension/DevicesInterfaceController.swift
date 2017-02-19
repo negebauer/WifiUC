@@ -7,33 +7,68 @@
 //
 
 import WatchKit
+import WatchConnectivity
 import Foundation
-
 
 class DevicesInterfaceController: WKInterfaceController {
   
   @IBOutlet var loginMessage: WKInterfaceLabel!
   @IBOutlet var devicesTable: WKInterfaceTable!
   
+  var session: WCSession?
   var devices = [Device]()
   
   override func awake(withContext context: Any?) {
     super.awake(withContext: context)
-    
-    guard let context = context as? [Device] else {
-      loginMessage.setHidden(false)
-      devicesTable.setHidden(true)
-      return
+    if WCSession.isSupported() {
+      print("Activating watch session")
+      self.session = WCSession.default()
+      self.session?.delegate = self
+      self.session?.activate()
     }
-    loginMessage.setHidden(true)
-    devicesTable.setHidden(false)
-    devices = context
-    devicesTable.setNumberOfRows(devices.count, withRowType: "DeviceRow")
-    
-    for index in 0..<devicesTable.numberOfRows {
-      guard let controller = devicesTable.rowController(at: index) as? DeviceRowController else { continue }
-      controller.device = devices[index]
-    }
+  }
+  
+//  override func awake(withContext context: Any?) {
+//    super.awake(withContext: context)
+//    
+//    guard let context = context as? [Device] else {
+//      loginMessage.setHidden(false)
+//      devicesTable.setHidden(true)
+//      return
+//    }
+//    loginMessage.setHidden(true)
+//    devicesTable.setHidden(false)
+//    devices = context
+//    devicesTable.setNumberOfRows(devices.count, withRowType: "DeviceRow")
+//    
+//    for index in 0..<devicesTable.numberOfRows {
+//      guard let controller = devicesTable.rowController(at: index) as? DeviceRowController else { continue }
+//      controller.device = devices[index]
+//    }
+//  }
+  
+//  receivedContext(
+  
+}
+
+extension DevicesInterfaceController: WCSessionDelegate {
+  
+  func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    // Unused
+  }
+  
+  func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
+    print("did receive application context", applicationContext)
+  }
+  
+  func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+    print("watch received message", message);
+    let text = message["text"] as! String
+    let timestamp : Double = (message["timestamp"] as! NSNumber).doubleValue
+//    self.label.setText(text)
+    let currentTimestamp: Double = Date().timeIntervalSince1970 * 1000
+    let elapsed : Double = currentTimestamp - timestamp
+    replyHandler(["elapsed":Int(elapsed), "timestamp": round(currentTimestamp)])
   }
   
 }
