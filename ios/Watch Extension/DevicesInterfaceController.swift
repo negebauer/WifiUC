@@ -12,11 +12,37 @@ import Foundation
 
 class DevicesInterfaceController: WKInterfaceController {
   
-  @IBOutlet var loginMessage: WKInterfaceLabel!
+  private enum Status: String {
+    case connecting = "Conectando"
+    case connected = "Conectado"
+    case noSession = "Inicia sesión en tu iPhone"
+    case noDevices = "Agrega dispositivos en tu iPhone"
+    
+    var hideDevices: Bool {
+      switch self {
+      case .connecting, .noSession, .noDevices:
+        return false
+      case .connected:
+        return true
+      }
+    }
+  }
+  
+  @IBOutlet var message: WKInterfaceLabel!
   @IBOutlet var devicesTable: WKInterfaceTable!
   
-  var session: WCSession?
-  var devices = [Device]()
+  private var session: WCSession?
+  private var devices = [Device]()
+  private var status: Status = .connecting {
+    didSet {
+      DispatchQueue.main.async {
+        let hideDevices = self.status.hideDevices
+        self.message.setText(self.status.rawValue)
+        self.message.setHidden(!hideDevices)
+        self.devicesTable.setHidden(hideDevices)
+      }
+    }
+  }
   
   override func awake(withContext context: Any?) {
     super.awake(withContext: context)
@@ -54,7 +80,7 @@ class DevicesInterfaceController: WKInterfaceController {
 extension DevicesInterfaceController: WCSessionDelegate {
   
   func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-    // Unused
+    print("activationDidCompleteWith activationState: \(activationState) error: \(error)")
   }
   
   func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
