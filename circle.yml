@@ -25,6 +25,7 @@ dependencies:
     - brew install imagemagick
   cache_directories:
     - node_modules
+    - $ANDROID_HOME
 
 test:
   pre:
