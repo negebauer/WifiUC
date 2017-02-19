@@ -6,8 +6,7 @@ PATH_ROOT = Dir.pwd.split('/')[0..-3].join('/')
 PATH_ANDROID = "#{PATH_ROOT}/android"
 PATH_IOS = "#{PATH_ROOT}/ios"
 
-VERSION = ENV['npm_package_version']
-VERSION = JSON.parse(File.read "#{PATH_ROOT}/package.json")['version'] unless VERSION
+VERSION = ENV['npm_package_version'] || JSON.parse(File.read "#{PATH_ROOT}/package.json")['version']
 
 ICON = '../assets/icon.png'
 ICON_WATCH = '../assets/icon.png'
