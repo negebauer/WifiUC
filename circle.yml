@@ -21,6 +21,7 @@ dependencies:
     - security add-generic-password -a android_keystore -l android_keystore -s android_keystore -w $WIFIUC_ANDROID_KEYSTORE
     # Fastlane
     - sudo gem update fastlane
+    - brew install imagemagick
   cache_directories:
     - node_modules
 
@@ -31,9 +32,9 @@ test:
     - npm run test
   post:
     # Bundle iOS
-    - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios
+    # - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios
     # Bundle Android
-    - react-native bundle --dev false --entry-file index.android.js --bundle-output android/main.jsbundle --platform android
+    # - react-native bundle --dev false --entry-file index.android.js --bundle-output android/main.jsbundle --platform android
     # Run them both!
     - npm run android
     - npm run ios
@@ -42,27 +43,27 @@ deployment:
   development:
     branch: dev
     commands:
-      # Deploy to AppStore and Goggle Play to test
-      # For now try to build
-      # - (cd ios && fastlane build)
-      # - (cd android && fastlane build)
-      - echo 'TODO'
-      # Copy artifacts
-      # - cp ios/WifiUC.app.dSYM.zip $CIRCLE_ARTIFACTS
-      # - cp ios/WifiUC.ipa $CIRCLE_ARTIFACTS
-      # - cp ANDROID THINGY
+      # iOS
+      - deploy=$(scripts/git_deploy.sh) cd ios; fastlane $deploy
+      - cp ios/WifiUC.app.dSYM.zip $CIRCLE_ARTIFACTS
+      - cp ios/WifiUC.ipa $CIRCLE_ARTIFACTS
+      # Android
+      - deploy=$(scripts/git_deploy.sh) cd android; fastlane $deploy
+      - scripts/ci/deploy_android.sh
+      - cp android/app/build/outputs/apk/app-release.apk $CIRCLE_ARTIFACTS
 
 deployment:
-  production:
+  store:
     tag: /v[0-9]+(\.[0-9]+)*/
     owner: negebauer
     commands:
-      # Deploy to AppStore and Goggle Play as production
-      - echo 'TODO'
-      # Copy artifacts
-      # - cp ios/WifiUC.app.dSYM.zip $CIRCLE_ARTIFACTS
-      # - cp ios/WifiUC.ipa $CIRCLE_ARTIFACTS
-      # - cp ANDROID THINGY
+      # iOS
+      - cd ios; fastlane store
+      - cp ios/WifiUC.app.dSYM.zip $CIRCLE_ARTIFACTS
+      - cp ios/WifiUC.ipa $CIRCLE_ARTIFACTS
+      # Android
+      - cd android; fastlane store
+      - cp android/app/build/outputs/apk/app-release.apk $CIRCLE_ARTIFACTS
 
 general:
   artifacts:

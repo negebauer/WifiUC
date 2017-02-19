@@ -28,6 +28,11 @@ xcode-select --install
 </tr>
 </table>
 # Available Actions
+### test
+```
+fastlane test
+```
+
 ### build
 ```
 fastlane build
@@ -38,11 +43,6 @@ Build and sign apk
 fastlane distribute
 ```
 
-### test
-```
-fastlane test
-```
-Runs all the tests
 ### alpha
 ```
 fastlane alpha
@@ -53,9 +53,9 @@ Submit a new Alpha Build to Crashlytics Beta
 fastlane beta
 ```
 Submit a new Beta Build to Crashlytics Beta
-### deploy
+### release
 ```
-fastlane deploy
+fastlane release
 ```
 Deploy a new version to the Google Play
 ### metadata

@@ -1,20 +1,22 @@
 fastlane_version '2.14.2'
+require 'json'
 
-# Let's set some variables
+# Fastlane always will be called either from '/ios' or '/android'
+PATH_ROOT = Dir.pwd.split('/')[0..-3].join('/')
+PATH_ANDROID = "#{PATH_ROOT}/android"
+PATH_IOS = "#{PATH_ROOT}/ios"
+
 VERSION = ENV['npm_package_version']
-
-PLATFORM = 'iOS'
+VERSION = JSON.parse(File.read "#{PATH_ROOT}/package.json")['version'] unless VERSION
 
 ICON = '../assets/icon.png'
 ICON_WATCH = '../assets/icon.png'
 ICON_ALPHA = '../assets/icon_alpha.png'
 
-SIMULATOR_ID = 'A29602E5-E651-460B-952C-423A861E18CB'
-
-APPETIZE_PUBLIC_KEY_DEBUG = 'mne2j5h0c3485dnw1t7gcjvju8'
-APPETIZE_PUBLIC_KEY_RELEASE = 'r8rm9guzxwmy9e3x3bxxjqa7jr'
-APPETIZE_TOKEN = 'tok_httkabj29qvy7tamee5ab55dpm'
-
 def mynotification(message)
     notification(title: 'WifiUC', subtitle: PLATFORM, sound: 'Purr', message: message, app_icon: ICON, activate: 'com.apple.terminal', content_image: '')
+end
+
+lane :none do
+  puts 'Do nothing'
 end

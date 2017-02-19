@@ -4,6 +4,13 @@ before_all do
   CRASHLYTICS_API_TOKEN = 'd6c5fb7c298d35bbea50ef09cd0d44e1c06d1401'.freeze
   CRASHLYTICS_BUILD_SECRET = 'fad6fff8529401e43667089948e7545d9a7d2a6563fe0ebddfbf00bf3d3105b3'.freeze
   PLATFORM = 'Android'
+  File.open "#{PATH_ANDROID}/app/build.gradle" do |gradle|
+    BUILD = gradle.find { |line| line =~ /versionCode/ }.strip.split(' ')[1]
+  end
+end
+
+def checkout_images()
+  sh "git checkout #{PATH_ANDROID}/app/src/main/res/"
 end
 
 def upload(track = 'beta')
@@ -28,27 +35,26 @@ lane :distribute do
   puts 'Doesn\'t do anything'
 end
 
-desc 'Runs all the tests'
-lane :test do
-  gradle(task: 'test')
-end
-
 desc 'Submit a new Alpha Build to Crashlytics Beta'
 lane :alpha do
+  badge(shield: "#{VERSION}-#{BUILD}-blue", alpha: true, dark: false, glob: '/app/src/main/res/**/*.png', shield_no_resize: true)
   build
+  checkout_images
   upload('alpha')
   mynotification('Finished uploading alpha version')
 end
 
 desc 'Submit a new Beta Build to Crashlytics Beta'
 lane :beta do
+  badge(shield: "#{VERSION}-#{BUILD}-blue", alpha: false, dark: true, glob: '/app/src/main/res/**/*.png', shield_no_resize: true)
   build
+  checkout_images
   upload('beta')
   mynotification('Finished uploading beta version')
 end
 
 desc 'Deploy a new version to the Google Play'
-lane :deploy do
+lane :store do
   build
   upload('production')
   mynotification('Finished uploading Google Play version')
