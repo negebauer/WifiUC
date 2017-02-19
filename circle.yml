@@ -15,10 +15,10 @@ dependencies:
     - npm run generate_env $WIFIUC_USER $WIFIUC_PASS
     # Android
     - brew install android-sdk
-    - echo y | android update sdk --no-ui --filter android-23
-    - echo y | android update sdk --no-ui --filter build-tools-23.0.1
-    - echo y | android update sdk --no-ui --filter extra-android-m2repository
-    - echo y | android update sdk --no-ui --filter platform-tools
+    - echo y | android update sdk --no-ui --all --filter android-23
+    - echo y | android update sdk --no-ui --all --filter build-tools-23.0.1
+    - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
+    - echo y | android update sdk --no-ui --all --filter platform-tools
     - security add-generic-password -a android_keystore -l android_keystore -s android_keystore -w $WIFIUC_ANDROID_KEYSTORE
     - scripts/android_get_keystore.sh
     # Fastlane
