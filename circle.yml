@@ -54,7 +54,3 @@ deployment:
       - cd ios; fastlane store
       - cd android; fastlane store
       - scripts/build_copy_artifacts.sh
-
-general:
-  artifacts:
-    - logs/
