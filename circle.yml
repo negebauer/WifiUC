@@ -52,7 +52,6 @@ deployment:
       - cp ios/WifiUC.ipa $CIRCLE_ARTIFACTS
       # Android
       - deploy=$(scripts/git_deploy.sh) cd android; fastlane $deploy
-      - scripts/ci/deploy_android.sh
       - cp android/app/build/outputs/apk/app-release.apk $CIRCLE_ARTIFACTS
 
 deployment:
