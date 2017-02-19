@@ -1,6 +1,6 @@
 git_url 'https://github.com/negebauer/certificates.git'
 
-type 'development' # The default type, can be: appstore, adhoc or development
+type 'appstore' # The default type, can be: appstore, adhoc or development
 
 app_identifier ['com.negebauer.Wifi-UC','com.negebauer.Wifi-UC.watchkitapp','com.negebauer.Wifi-UC.watchkitapp.watchkitextension']
 # username 'negebauer@uc.cl' # Your Apple Developer Portal username
