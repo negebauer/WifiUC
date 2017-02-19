@@ -35,22 +35,21 @@ test:
     - npm run test
   post:
     # Build signed apk and ipa. Don't build in here if it's a deploy
-    - deploy=$(scripts/git_deploy.sh); [[ $deploy == 'none' ]] && cd ios && fastlane match appstore
-    - deploy=$(scripts/git_deploy.sh); [[ $deploy == 'none' ]] && cd ios && fastlane build
-    - deploy=$(scripts/git_deploy.sh); [[ $deploy == 'none' ]] && cd android && fastlane build
-    - deploy=$(scripts/git_deploy.sh); [[ $deploy == 'none' ]] && scripts/build_copy_artifacts.sh
+    - cd ios; fastlane match appstore
+    - cd ios; fastlane build
+    - cd android; fastlane build
 
 deployment:
   development:
     branch: dev
     commands:
-      - deploy=$(scripts/git_deploy.sh); [[ -z $deploy == 'none' ]] && cd android && fastlane $deploy
-      - deploy=$(scripts/git_deploy.sh); [[ -z $deploy == 'none' ]] && cd ios && fastlane $deploy
-      - deploy=$(scripts/git_deploy.sh); [[ -z $deploy == 'none' ]] && scripts/build_copy_artifacts.sh
+      - deploy=$(scripts/git_deploy.sh); cd android; fastlane $deploy
+      - deploy=$(scripts/git_deploy.sh); cd ios; fastlane $deploy
+      - deploy=$(scripts/git_deploy.sh); scripts/build_copy_artifacts.sh
   store:
     tag: /v[0-9]+(\.[0-9]+)*/
     owner: negebauer
     commands:
-      - deploy=$(scripts/git_deploy.sh); [[ -z $deploy == 'none' ]] && cd android && fastlane store
-      - deploy=$(scripts/git_deploy.sh); [[ -z $deploy == 'none' ]] && cd ios && fastlane store
-      - deploy=$(scripts/git_deploy.sh); [[ -z $deploy == 'none' ]] && scripts/build_copy_artifacts.sh
+      - deploy=$(scripts/git_deploy.sh); cd android; fastlane store
+      - deploy=$(scripts/git_deploy.sh); cd ios; fastlane store
+      - deploy=$(scripts/git_deploy.sh); scripts/build_copy_artifacts.sh
