@@ -34,14 +34,7 @@ test:
   override:
     - npm run test
   post:
-    # Bundle iOS
-    # - react-native bundle --dev false --entry-file index.ios.js --bundle-output ios/main.jsbundle --platform ios
-    # Bundle Android
-    # - react-native bundle --dev false --entry-file index.android.js --bundle-output android/main.jsbundle --platform android
-    # Run them both!
-    # - npm run android
-    # - npm run ios
-    # Build them
+    # Build signed apk and ipa
     - cd ios; fastlane match appstore
     - cd ios; fastlane build
     - cd android; fastlane build
@@ -51,7 +44,6 @@ deployment:
   development:
     branch: dev
     commands:
-      # iOS
       - deploy=$(scripts/git_deploy.sh) cd ios; fastlane $deploy
       - deploy=$(scripts/git_deploy.sh) cd android; fastlane $deploy
       - scripts/build_copy_artifacts.sh
