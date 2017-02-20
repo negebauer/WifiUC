@@ -1,33 +1,17 @@
 import React, {Component} from 'react'
-import {AppRegistry, AsyncStorage} from 'react-native'
-import {StackNavigator} from 'react-navigation'
-import Storage from 'react-native-storage'
+import {AppRegistry} from 'react-native'
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import App from './components/App'
+import reducer from './reducers'
 
-import Home from './components/Home'
+const store = createStore(reducer)
 
-const configStorage = {
-  size: 1000,
-  storageBackend: AsyncStorage,
-  defaultExpires: null,
-  enableCache: true
-}
-const storage = new Storage(configStorage)
-global.storage = storage
-
-export const routes = {
-  Home: {
-    screen: Home
-  }
-}
-
-const configNavigator = {
-  initialRouteName: 'Home',
-  navigationOptions: {
-    title: 'Wifi UC',
-    header: {}
-  }
-}
-
-const WifiUC = StackNavigator(routes, configNavigator)
+const WifiUC = () => (
+  <Provider store={store}>
+    <App/>
+  </Provider>
+)
 
 AppRegistry.registerComponent('WifiUC', () => WifiUC)
+export default WifiUC
