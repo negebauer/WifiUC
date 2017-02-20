@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00A98D7E862F45088A8511C5 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 59DFBEE5A9834B468393791A /* EvilIcons.ttf */; };
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
@@ -46,7 +45,6 @@
 		A64FB1C343464F099A13DA97 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA72B5E33E354251BA3C5AAF /* MaterialIcons.ttf */; };
 		D339C986166041AC87E28BB6 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3394F04270984D978B5FE19E /* Entypo.ttf */; };
 		DBFA07344B7D4C4B87AB9F7A /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0D58DF0372194D95AD020502 /* MaterialCommunityIcons.ttf */; };
-		E2D3DABFF25646A491D3324C /* libRNKeychain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FF15EFD0F94A028B9F04DC /* libRNKeychain.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,13 +82,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 832C81801AAF6DEF007FA2F7;
 			remoteInfo = RCTVibration;
-		};
-		035B4E8C1E549EA4008C2C10 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FA3936094AAA45EEA498FF3F /* RNKeychain.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5D82366F1B0CE05B005A9EF3;
-			remoteInfo = RNKeychain;
 		};
 		03616C701E454EA000BA762E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -331,7 +322,6 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7C02238B3B994F7DA81FB188 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		85FF15EFD0F94A028B9F04DC /* libRNKeychain.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNKeychain.a; sourceTree = "<group>"; };
 		97800171251640A3AD8901C4 /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
 		BA72B5E33E354251BA3C5AAF /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		BC38DB2DF8E340CA8C8533C5 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
@@ -339,7 +329,6 @@
 		D4CBDA69B9594AD28150FB56 /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
 		E78C5CDA58064910967FE096 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		EB8DA24AD33A4948B305DAA8 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
-		FA3936094AAA45EEA498FF3F /* RNKeychain.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNKeychain.xcodeproj; path = "../node_modules/react-native-keychain/RNKeychain.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,7 +355,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				247FBA5E70034DF0A4DD8EBB /* libRNVectorIcons.a in Frameworks */,
-				E2D3DABFF25646A491D3324C /* libRNKeychain.a in Frameworks */,
 				9CD701A9077D4010ADFF09D8 /* libReactNativeConfig.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,14 +400,6 @@
 			isa = PBXGroup;
 			children = (
 				00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		035B4E701E549EA4008C2C10 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				035B4E8D1E549EA4008C2C10 /* libRNKeychain.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -580,7 +560,6 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				EB8DA24AD33A4948B305DAA8 /* RNVectorIcons.xcodeproj */,
-				FA3936094AAA45EEA498FF3F /* RNKeychain.xcodeproj */,
 				D4CBDA69B9594AD28150FB56 /* ReactNativeConfig.xcodeproj */,
 			);
 			name = Libraries;
@@ -708,7 +687,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = BJJKE72WM4;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 820;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -779,10 +758,6 @@
 					ProjectRef = D4CBDA69B9594AD28150FB56 /* ReactNativeConfig.xcodeproj */;
 				},
 				{
-					ProductGroup = 035B4E701E549EA4008C2C10 /* Products */;
-					ProjectRef = FA3936094AAA45EEA498FF3F /* RNKeychain.xcodeproj */;
-				},
-				{
 					ProductGroup = 03BA3FFA1E423E10009C253D /* Products */;
 					ProjectRef = EB8DA24AD33A4948B305DAA8 /* RNVectorIcons.xcodeproj */;
 				},
@@ -830,13 +805,6 @@
 			fileType = archive.ar;
 			path = libRCTVibration.a;
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		035B4E8D1E549EA4008C2C10 /* libRNKeychain.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNKeychain.a;
-			remoteRef = 035B4E8C1E549EA4008C2C10 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		03B290B31E557D7500E6BD4F /* libReactNativeConfig.a */ = {
@@ -1127,9 +1095,6 @@
 				INFOPLIST_FILE = Watch/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1161,9 +1126,6 @@
 				INFOPLIST_FILE = Watch/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
