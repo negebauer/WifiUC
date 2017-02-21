@@ -11,23 +11,33 @@ import {
 } from '../actions'
 
 const initialState = {
-  user: {
-    username: '',
-    password: '',
-    isLogged: false,
-    isLogging: false
-  },
-  devices: {
-    isLoading: false,
-    isFetching: false,
-    devices: {} // { id: {device} }
-  }
+  username: '',
+  password: '',
+  isUserLogged: false,
+  isUserLoggin: false,
+  isDevicesLoading: false,
+  isDevicesFetching: false,
+  devices: {} // { id: {device} }
 }
 
 const login = (state, action) => {
   return {
     ...state,
-    ...action.user
+    ...action.user,
+    isUserLogged: true
+  }
+}
+
+const logout = (state, action) => {
+  const logout = {
+    username: '',
+    password: '',
+    isUserLogged: false,
+    isUserLoggin: false
+  }
+  return {
+    ...state,
+    ...logout
   }
 }
 
@@ -36,10 +46,13 @@ const wifiuc = (state = initialState, action) => {
     case LOGIN:
       return {
         ...state,
-        user: login(state.user, action)
+        ...login(state, action)
       }
     case LOGOUT:
-      break
+      return {
+        ...state,
+        ...logout(state, action)
+      }
     case DEVICE_ACTIVATE:
       break
     case DEVICE_DEACTIVATE:
