@@ -2,6 +2,7 @@ import {combineReducers} from 'redux'
 import {
   LOGIN,
   LOGOUT,
+  USER_UPDATE,
   DEVICE_ACTIVATE,
   DEVICE_DEACTIVATE,
   DEVICE_ADD,
@@ -64,6 +65,11 @@ const wifiuc = (state = initialState, action) => {
       break
     case DEVICES_REFRESH:
       break
+    case USER_UPDATE:
+      return {
+        ...state,
+        ...action.user
+      }
   }
 }
 

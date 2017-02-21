@@ -2,6 +2,7 @@
 
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
+export const USER_UPDATE = 'USER_UPDATE'
 export const DEVICE_ACTIVATE = 'DEVICE_ACTIVATE'
 export const DEVICE_DEACTIVATE = 'DEVICE_DEACTIVATE'
 export const DEVICE_ADD = 'DEVICE_ADD'
@@ -17,6 +18,10 @@ export const login = user => {
 
 export const logout = user => {
   return {type: LOGOUT, user}
+}
+
+export const userUpdate = user => {
+  return {type: USER_UPDATE, user}
 }
 
 export const deviceActivate = mac => {
