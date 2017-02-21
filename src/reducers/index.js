@@ -23,8 +23,7 @@ const initialState = {
 const login = (state, action) => {
   return {
     ...state,
-    ...action.user,
-    isUserLogged: true
+    ...action.user
   }
 }
 
