@@ -12,7 +12,7 @@ dependencies:
     - brew reinstall node
     - npm install
     - npm install -g react-native-cli
-    - npm run generate_env $WIFIUC_USER $WIFIUC_PASS
+    - npm run generate_env
     # Android
     - brew install android-sdk
     - echo y | android update sdk --no-ui --all --filter android-23
@@ -32,7 +32,9 @@ test:
   pre:
     - npm run lint
   override:
+    - npm run generate_env $WIFIUC_USER $WIFIUC_PASS
     - npm run test
+    - npm run generate_env
   post:
     # Build signed apk and ipa. Don't build in here if it's a deploy
     - cd ios; fastlane match appstore
