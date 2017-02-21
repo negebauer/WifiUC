@@ -1,16 +1,8 @@
-/* Action types */
+// user
 
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const USER_UPDATE = 'USER_UPDATE'
-export const DEVICE_ACTIVATE = 'DEVICE_ACTIVATE'
-export const DEVICE_DEACTIVATE = 'DEVICE_DEACTIVATE'
-export const DEVICE_ADD = 'DEVICE_ADD'
-export const DEVICE_EDIT = 'DEVICE_EDIT'
-export const DEVICE_REMOVE = 'DEVICE_REMOVE'
-export const DEVICES_REFRESH = 'DEVICES_REFRESH'
-
-/* Action creators */
 
 export const login = user => {
   return {type: LOGIN, user}
@@ -23,6 +15,15 @@ export const logout = user => {
 export const userUpdate = user => {
   return {type: USER_UPDATE, user}
 }
+
+// devices
+
+export const DEVICE_ACTIVATE = 'DEVICE_ACTIVATE'
+export const DEVICE_DEACTIVATE = 'DEVICE_DEACTIVATE'
+export const DEVICE_ADD = 'DEVICE_ADD'
+export const DEVICE_EDIT = 'DEVICE_EDIT'
+export const DEVICE_REMOVE = 'DEVICE_REMOVE'
+export const DEVICES_REFRESH = 'DEVICES_REFRESH'
 
 export const deviceActivate = mac => {
   return {type: DEVICE_ACTIVATE, mac}
