@@ -1,23 +1,3 @@
-// user
-
-export const LOGIN = 'LOGIN'
-export const LOGOUT = 'LOGOUT'
-export const USER_UPDATE = 'USER_UPDATE'
-
-export const login = user => {
-  return {type: LOGIN, user}
-}
-
-export const logout = user => {
-  return {type: LOGOUT, user}
-}
-
-export const userUpdate = user => {
-  return {type: USER_UPDATE, user}
-}
-
-// devices
-
 export const DEVICE_ACTIVATE = 'DEVICE_ACTIVATE'
 export const DEVICE_DEACTIVATE = 'DEVICE_DEACTIVATE'
 export const DEVICE_ADD = 'DEVICE_ADD'
@@ -48,3 +28,30 @@ export const deviceRemove = mac => {
 export const devicesRefresh = () => {
   return {type: DEVICES_REFRESH}
 }
+
+const initialDevices = {
+  isLoading: false,
+  isFetching: false,
+  items: {} // { id: {device} }
+}
+
+const reducer = (state = initialDevices, action) => {
+  switch (action.type) {
+    case DEVICE_ACTIVATE:
+      return state
+    case DEVICE_DEACTIVATE:
+      return state
+    case DEVICE_ADD:
+      return state
+    case DEVICE_EDIT:
+      return state
+    case DEVICE_REMOVE:
+      return state
+    case DEVICES_REFRESH:
+      return state
+    default:
+      return state
+  }
+}
+
+export default reducer
