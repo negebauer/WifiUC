@@ -13,25 +13,25 @@ const device2 = {
 }
 
 describe('devices actions', () => {
-  it('deviceToggle should create DEVICE_TOGGLE action', () => {
-    expect(devices.deviceToggle(device1.mac, true)).toEqual({type: devices.DEVICE_TOGGLE, mac: device1.mac, active: true})
+  it('toggle should create TOGGLE action', () => {
+    expect(devices.toggle(device1.mac, true)).toEqual({type: devices.TOGGLE, mac: device1.mac, active: true})
   })
 
-  it('deviceAdd should create DEVICE_ADD action', () => {
-    expect(devices.deviceAdd(device1)).toEqual({type: devices.DEVICE_ADD, device: device1})
+  it('add should create ADD action', () => {
+    expect(devices.add(device1)).toEqual({type: devices.ADD, device: device1})
   })
 
-  it('deviceEditName should create DEVICE_EDIT_NAME action', () => {
-    expect(devices.deviceEditName(device1.mac, 'changed')).toEqual({type: devices.DEVICE_EDIT_NAME, mac: device1.mac, name: 'changed'})
+  it('editName should create EDIT_NAME action', () => {
+    expect(devices.editName(device1.mac, 'changed')).toEqual({type: devices.EDIT_NAME, mac: device1.mac, name: 'changed'})
   })
 
-  it('deviceRemove should create DEVICE_REMOVE action', () => {
-    expect(devices.deviceRemove(device1.mac)).toEqual({type: devices.DEVICE_REMOVE, mac: device1.mac})
+  it('remove should create REMOVE action', () => {
+    expect(devices.remove(device1.mac)).toEqual({type: devices.REMOVE, mac: device1.mac})
   })
 
-  it('devicesRefresh should create DEVICES_REFRESH action', () => {
-    expect(devices.devicesRefresh([device1, device2])).toEqual({
-      type: devices.DEVICES_REFRESH,
+  it('refresh should create REFRESH action', () => {
+    expect(devices.refresh([device1, device2])).toEqual({
+      type: devices.REFRESH,
       devices: [device1, device2]
     })
   })
@@ -42,10 +42,10 @@ describe('devices reducer', () => {
     expect(devices.default(undefined, {})).toEqual(devices.initialState)
   })
 
-  it('should handle DEVICE_TOGGLE', () => {
+  it('should handle TOGGLE', () => {
     expect(devices.default({
       [device1.mac]: device1
-    }, devices.deviceToggle(device1.mac, true))).toEqual({
+    }, devices.toggle(device1.mac, true))).toEqual({
       [device1.mac]: {
         ...device1,
         active: true
@@ -53,16 +53,16 @@ describe('devices reducer', () => {
     })
   })
 
-  it('should handle DEVICE_ADD', () => {
-    expect(devices.default({}, devices.deviceAdd(device1))).toEqual({
+  it('should handle ADD', () => {
+    expect(devices.default({}, devices.add(device1))).toEqual({
       [device1.mac]: device1
     })
   })
 
-  it('should handle DEVICE_EDIT_NAME', () => {
+  it('should handle EDIT_NAME', () => {
     expect(devices.default({
       [device1.mac]: device1
-    }, devices.deviceEditName(device1.mac, 'changed'))).toEqual({
+    }, devices.editName(device1.mac, 'changed'))).toEqual({
       [device1.mac]: {
         ...device1,
         name: 'changed'
@@ -70,14 +70,14 @@ describe('devices reducer', () => {
     })
   })
 
-  it('should handle DEVICE_REMOVE', () => {
+  it('should handle REMOVE', () => {
     expect(devices.default({
       [device1.mac]: device1
-    }, devices.deviceRemove(device1.mac))).toEqual({})
+    }, devices.remove(device1.mac))).toEqual({})
   })
 
-  it('should handle DEVICES_REFRESH', () => {
-    expect(devices.default({}, devices.devicesRefresh([device1, device2]))).toEqual({
+  it('should handle REFRESH', () => {
+    expect(devices.default({}, devices.refresh([device1, device2]))).toEqual({
       [device1.mac]: device1,
       [device2.mac]: device2
     })
