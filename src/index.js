@@ -25,12 +25,12 @@ store.dispatch(user.login({username: 'test', password: 'pass'}))
 store.dispatch(user.logout())
 store.dispatch(user.login({username: 'test2', password: 'pass2'}))
 
-store.dispatch(devices.deviceAdd({mac: 'AA-AA-AA-AA-AA-AA', name: 'device1'}))
-store.dispatch(devices.deviceAdd({mac: 'BB-BB-BB-BB-BB-BB', name: 'device2'}))
-store.dispatch(devices.deviceToggle('BB-BB-BB-BB-BB-BB', true))
-store.dispatch(devices.deviceRemove('AA-AA-AA-AA-AA-AA'))
-store.dispatch(devices.deviceEditName('BB-BB-BB-BB-BB-BB', 'changed'))
-store.dispatch(devices.devicesRefresh([
+store.dispatch(devices.add({mac: 'AA-AA-AA-AA-AA-AA', name: 'device1'}))
+store.dispatch(devices.add({mac: 'BB-BB-BB-BB-BB-BB', name: 'device2'}))
+store.dispatch(devices.toggle('BB-BB-BB-BB-BB-BB', true))
+store.dispatch(devices.remove('AA-AA-AA-AA-AA-AA'))
+store.dispatch(devices.editName('BB-BB-BB-BB-BB-BB', 'changed'))
+store.dispatch(devices.refresh([
   {
     mac: 'BB-BB-BB-BB-BB-BB',
     name: 'device1',
