@@ -7,6 +7,7 @@ import App from './components/App'
 import reducer from './redux'
 
 import * as user from './redux/user'
+import * as devices from './redux/devices'
 
 const logger = createLogger()
 const store = createStore(reducer, applyMiddleware(logger))
@@ -21,6 +22,22 @@ AppRegistry.registerComponent('WifiUC', () => WifiUC)
 export default WifiUC
 
 store.dispatch(user.login({username: 'test', password: 'pass'}))
+store.dispatch(user.logout())
 store.dispatch(user.login({username: 'test2', password: 'pass2'}))
-store.dispatch(user.logout({username: 'test2', password: 'pass2'}))
-console.log(user)
+
+store.dispatch(devices.deviceAdd({mac: 'AA-AA-AA-AA-AA-AA', name: 'device1'}))
+store.dispatch(devices.deviceAdd({mac: 'BB-BB-BB-BB-BB-BB', name: 'device2'}))
+store.dispatch(devices.deviceToggle('BB-BB-BB-BB-BB-BB', true))
+store.dispatch(devices.deviceRemove('AA-AA-AA-AA-AA-AA'))
+store.dispatch(devices.deviceEditName('BB-BB-BB-BB-BB-BB', 'changed'))
+store.dispatch(devices.devicesRefresh([
+  {
+    mac: 'BB-BB-BB-BB-BB-BB',
+    name: 'device1',
+    active: false
+  }, {
+    mac: 'CC-CC-CC-CC-CC-CC',
+    name: 'device3',
+    active: true
+  }
+]))
