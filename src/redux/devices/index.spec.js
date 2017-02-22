@@ -9,12 +9,6 @@ const device1 = {
 const device2 = {
   mac: 'BB-BB-BB-BB-BB-BB',
   name: 'device2',
-  active: false
-}
-
-const device3 = {
-  mac: 'CC-CC-CC-CC-CC-CC',
-  name: 'device3',
   active: true
 }
 
@@ -36,9 +30,56 @@ describe('devices actions', () => {
   })
 
   it('devicesRefresh should create DEVICES_REFRESH action', () => {
-    expect(devices.devicesRefresh([device1, device3])).toEqual({
+    expect(devices.devicesRefresh([device1, device2])).toEqual({
       type: devices.DEVICES_REFRESH,
-      devices: [device1, device3]
+      devices: [device1, device2]
+    })
+  })
+})
+
+describe('devices reducer', () => {
+  it('should handle initial state', () => {
+    expect(devices.default(undefined, {})).toEqual(devices.initialState)
+  })
+
+  it('should handle DEVICE_TOGGLE', () => {
+    expect(devices.default({
+      [device1.mac]: device1
+    }, devices.deviceToggle(device1.mac, true))).toEqual({
+      [device1.mac]: {
+        ...device1,
+        active: true
+      }
+    })
+  })
+
+  it('should handle DEVICE_ADD', () => {
+    expect(devices.default({}, devices.deviceAdd(device1))).toEqual({
+      [device1.mac]: device1
+    })
+  })
+
+  it('should handle DEVICE_EDIT_NAME', () => {
+    expect(devices.default({
+      [device1.mac]: device1
+    }, devices.deviceEditName(device1.mac, 'changed'))).toEqual({
+      [device1.mac]: {
+        ...device1,
+        name: 'changed'
+      }
+    })
+  })
+
+  it('should handle DEVICE_REMOVE', () => {
+    expect(devices.default({
+      [device1.mac]: device1
+    }, devices.deviceRemove(device1.mac))).toEqual({})
+  })
+
+  it('should handle DEVICES_REFRESH', () => {
+    expect(devices.default({}, devices.devicesRefresh([device1, device2]))).toEqual({
+      [device1.mac]: device1,
+      [device2.mac]: device2
     })
   })
 })

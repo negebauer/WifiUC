@@ -25,9 +25,9 @@ export const devicesRefresh = devices => {
 }
 
 /* id: {device} */
-export const initialDevices = {}
+export const initialState = {}
 
-const reducer = (state = initialDevices, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case DEVICE_TOGGLE:
       return {
