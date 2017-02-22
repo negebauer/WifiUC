@@ -6,7 +6,7 @@ import createLogger from 'redux-logger'
 import App from './components/App'
 import reducer from './redux'
 
-import * as actions from './actions'
+import * as user from './redux/user'
 
 const logger = createLogger()
 const store = createStore(reducer, applyMiddleware(logger))
@@ -20,7 +20,7 @@ const WifiUC = () => (
 AppRegistry.registerComponent('WifiUC', () => WifiUC)
 export default WifiUC
 
-store.dispatch(actions.login({username: 'test', password: 'pass'}))
-store.dispatch(actions.login({username: 'test2', password: 'pass2'}))
-store.dispatch(actions.logout({username: 'test2', password: 'pass2'}))
-console.log(actions)
+store.dispatch(user.login({username: 'test', password: 'pass'}))
+store.dispatch(user.login({username: 'test2', password: 'pass2'}))
+store.dispatch(user.logout({username: 'test2', password: 'pass2'}))
+console.log(user)
