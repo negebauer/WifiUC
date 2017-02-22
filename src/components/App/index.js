@@ -6,10 +6,7 @@ export default class App extends Component {
   render() {
     return (
       <View>
-        <Text>Hola</Text>
-        <Text>Hola</Text>
-        <Text>Hola</Text>
-        <Text>Hola</Text>
+        <Text>Hello world</Text>
       </View>
     )
   }
