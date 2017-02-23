@@ -9,8 +9,8 @@ machine:
 dependencies:
   pre:
     # Homebrew
-    - brew install node, android-sdk, imagemagick
-    - brew link node, android-sdk, imagemagick
+    - brew install node android-sdk imagemagick
+    - brew link node android-sdk imagemagick
     # Project
     - npm install
     - npm install -g react-native-cli
