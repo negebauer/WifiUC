@@ -3,8 +3,15 @@ import {View, Text, Button, ActivityIndicator, StyleSheet} from 'react-native'
 import Config from 'react-native-config'
 
 class Home extends Component {
-  componentDidMount() {
-    this.props.login(this.props.user)
+
+  componentWillReceiveProps(nextProps) {
+    if (!this.props.user.rehydrated && nextProps.user.rehydrated) {
+      this.props.login(nextProps.user).catch(this.showLogin)
+    }
+  }
+
+  showLogin = () => {
+    console.log('SHOW LOGIN')
   }
 
   render() {
@@ -19,7 +26,7 @@ class Home extends Component {
       </View>
     }
     return (
-      <View>
+      <View style={styles.container}>
         {Object.keys(user).map(key => <Text key={key}>{`${key}: ${user[key]}`}</Text>)}
         <Button title='Login bad' onPress={() => login({username: 'nope', password: 'wrong'})}/>
         <Button title='Login good' onPress={() => login({username: Config.WIFIUC_USER, password: Config.WIFIUC_PASS})}/>

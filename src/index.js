@@ -1,18 +1,17 @@
-import React, {Component} from 'react'
-import {AppRegistry} from 'react-native'
-import {applyMiddleware, createStore} from 'redux'
+import React from 'react'
+import {AsyncStorage, AppRegistry} from 'react-native'
+import {compose, applyMiddleware, createStore} from 'redux'
 import {Provider} from 'react-redux'
 import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
+import {persistStore, autoRehydrate} from 'redux-persist'
 import Root from './containers/Root'
 import reducer from './redux'
 
-import * as user from './redux/user'
-import * as devices from './redux/devices'
-import * as newDevice from './redux/newDevice'
-
 const loggerMiddleware = createLogger()
-const store = createStore(reducer, applyMiddleware(thunkMiddleware, loggerMiddleware))
+const enhancer = compose(applyMiddleware(thunkMiddleware, loggerMiddleware), autoRehydrate())
+const store = createStore(reducer, undefined, enhancer)
+persistStore(store, {storage: AsyncStorage})
 
 const WifiUC = () => (
   <Provider store={store}>

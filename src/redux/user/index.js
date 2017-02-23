@@ -1,5 +1,6 @@
 import Session from '../../utils/session'
 import Format from '../../utils/format'
+import {REHYDRATE} from 'redux-persist/constants'
 
 const session = user => new Session(user.username, user.password)
 
@@ -18,6 +19,7 @@ export const fetchLogin = user => {
       dispatch(login(user, false, ''))
     }).catch(err => {
       dispatch(login(user, false, err.message))
+      throw {}
     })
   }
 }
@@ -41,7 +43,8 @@ export const initialState = {
   username: '',
   password: '',
   loading: false,
-  error: ''
+  error: '',
+  rehydrated: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -65,6 +68,27 @@ const reducer = (state = initialState, action) => {
         ...state,
         ...initialState
       }
+    case REHYDRATE:
+      console.log(REHYDRATE)
+      //
+      console.log(action.payload)
+      // New user
+      if (Object.keys(action.payload).length === 0 && action.payload.constructor === Object) {
+        return {
+          ...state,
+          rehydrated: true
+        }
+      }
+      // Returning user
+      const incoming = action.payload.user
+      if (incoming) {
+        return {
+          ...state,
+          ...incoming,
+          rehydrated: true
+        }
+      }
+      return state
     default:
       return state
   }
