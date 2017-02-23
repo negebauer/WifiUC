@@ -25,6 +25,7 @@ dependencies:
     # Fastlane
     - sudo gem update fastlane
     - brew install imagemagick
+    - brew link imagemagick
   cache_directories:
     - node_modules
     - /usr/local/opt/android-sdk
