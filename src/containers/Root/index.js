@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import {userUpdate} from '../../redux/user'
+import {login, userUpdate} from '../../redux/user'
 import Home from '../../components/Home'
 
 const mapStateToProps = (state, ownProps) => {
@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    userUpdate: user => dispatch(userUpdate(user))
+    userUpdate: user => dispatch(userUpdate(user)),
+    login: user => dispatch(login(user))
   }
 }
 

@@ -1,8 +1,8 @@
-import * as Keychain from 'react-native-keychain'
+// import * as Keychain from 'react-native-keychain'
 let cheerio = require('cheerio')
 
-import Url from '../../utils/url'
-import Fetcher from '../../utils/fetcher'
+import Url from './url'
+import Fetcher from './fetcher'
 
 export const err = {
   network: 0,
@@ -15,27 +15,27 @@ export default class Session {
     this.password = password
   }
 
-  static load = () => {
-    return Keychain.getGenericPassword().then(credentials => {
-      const {username, password} = credentials
-      if (!username || !password) {
-        return null
-      }
-      return new Session(credentials.username, credentials.password)
-    })
-  }
+  // static load = () => {
+  //   return Keychain.getGenericPassword().then(credentials => {
+  //     const {username, password} = credentials
+  //     if (!username || !password) {
+  //       return null
+  //     }
+  //     return new Session(credentials.username, credentials.password)
+  //   })
+  // }
 
-  static save = (username, password) => {
-    return Keychain.setGenericPassword(username, password)
-  }
+  // static save = (username, password) => {
+  //   return Keychain.setGenericPassword(username, password)
+  // }
 
   static logout = () => {
     Fetcher.post(Url.logout)
   }
 
-  static clear = () => {
-    Keychain.resetGenericPassword()
-  }
+  // static clear = () => {
+  //   Keychain.resetGenericPassword()
+  // }
 
   login = () => {
     return this.loginCredentialsGenerate()
