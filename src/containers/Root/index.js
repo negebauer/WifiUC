@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import {userUpdate} from '../../redux/user'
-import App from '../../components/App'
+import Home from '../../components/Home'
 
 const mapStateToProps = (state, ownProps) => {
   return {devices: state.devices, user: state.user}
@@ -12,6 +12,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
 }
 
-const Root = connect(mapStateToProps, mapDispatchToProps)(App)
+const Root = connect(mapStateToProps, mapDispatchToProps)(Home)
 
 export default Root
