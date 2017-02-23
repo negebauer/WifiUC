@@ -4,14 +4,16 @@ const device1 = {
   mac: 'AA-AA-AA-AA-AA-AA',
   name: 'device1',
   active: false,
-  lodaing: false
+  loading: false,
+  error: ''
 }
 
 const device2 = {
   mac: 'BB-BB-BB-BB-BB-BB',
   name: 'device2',
   active: true,
-  loading: false
+  loading: false,
+  error: ''
 }
 
 describe('devices actions', () => {
