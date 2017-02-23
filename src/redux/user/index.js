@@ -1,3 +1,5 @@
+import Format from '../../utils/format'
+
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const USER_UPDATE = 'USER_UPDATE'
@@ -34,7 +36,8 @@ const reducer = (state = initialState, action) => {
     case USER_UPDATE:
       return {
         ...state,
-        ...action.user
+        ...action.user,
+        username: Format.cleanUsername(action.user.username)
       }
     case LOGOUT:
       return {
