@@ -1,5 +1,5 @@
 import {connect} from 'react-redux'
-import {login, userUpdate} from '../../redux/user'
+import {fetchLogin, fetchLogout, userUpdate} from '../../redux/user'
 import Home from '../../components/Home'
 
 const mapStateToProps = (state, ownProps) => {
@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     userUpdate: user => dispatch(userUpdate(user)),
-    login: user => dispatch(login(user))
+    login: user => dispatch(fetchLogin(user)),
+    logout: user => dispatch(fetchLogout(user))
   }
 }
 

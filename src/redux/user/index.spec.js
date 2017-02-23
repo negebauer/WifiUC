@@ -9,11 +9,11 @@ const userData = {
 
 describe('user actions', () => {
   it('login should create LOGIN action', () => {
-    expect(user.loginAction(userData, true, 'Test')).toEqual({type: user.LOGIN, user: userData, loading: true, error: 'Test'})
+    expect(user.login(userData, true, 'Test')).toEqual({type: user.LOGIN, user: userData, loading: true, error: 'Test'})
   })
 
   it('logout should create LOGOUT action', () => {
-    expect(user.logoutAction()).toEqual({type: user.LOGOUT})
+    expect(user.logout()).toEqual({type: user.LOGOUT})
   })
 
   it('update should create UPDATE action', () => {
@@ -27,7 +27,7 @@ describe('user reducer', () => {
   })
 
   it('should handle LOGIN', () => {
-    expect(user.default({}, user.loginAction(userData, true, 'Test'))).toEqual({
+    expect(user.default({}, user.login(userData, true, 'Test'))).toEqual({
       ...userData,
       loading: true,
       error: 'Test'
@@ -35,7 +35,7 @@ describe('user reducer', () => {
   })
 
   it('should handle LOGOUT', () => {
-    expect(user.default({}, user.logoutAction(userData))).toEqual(user.initialState)
+    expect(user.default({}, user.logout(userData))).toEqual(user.initialState)
   })
 
   it('should handle UPDATE', () => {

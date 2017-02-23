@@ -7,29 +7,29 @@ export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const UPDATE = 'UPDATE'
 
-export const loginAction = (user, loading, error) => {
+export const login = (user, loading, error) => {
   return {type: LOGIN, user, loading, error}
 }
 
-export const login = user => {
+export const fetchLogin = user => {
   return dispatch => {
-    dispatch(loginAction(user, true, ''))
+    dispatch(login(user, true, ''))
     return session(user).login().then(() => {
-      dispatch(loginAction(user, false, ''))
+      dispatch(login(user, false, ''))
     }).catch(err => {
-      dispatch(loginAction(user, false, err.message))
+      dispatch(login(user, false, err.message))
     })
   }
 }
 
-export const logoutAction = () => {
+export const logout = () => {
   return {type: LOGOUT}
 }
 
-export const logout = user => {
+export const fetchLogout = () => {
   return dispatch => {
-    dispatch(logoutAction())
-    return session(user).logout()
+    dispatch(logout())
+    return Session.logout()
   }
 }
 

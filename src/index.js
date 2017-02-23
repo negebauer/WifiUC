@@ -22,11 +22,3 @@ const WifiUC = () => (
 
 AppRegistry.registerComponent('WifiUC', () => WifiUC)
 export default WifiUC
-
-const login = store.dispatch(user.login({username: 'test', password: 'pass'})).then(console.log('LOGIN FINISHED')).catch(err => {
-  console.log('LOGIN FAILED')
-  console.log(err)
-})
-//
-// console.log('login')
-// console.log(login)
