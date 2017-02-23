@@ -16,8 +16,8 @@ describe('user actions', () => {
     expect(user.logout()).toEqual({type: user.LOGOUT})
   })
 
-  it('userUpdate should create USER_UPDATE action', () => {
-    expect(user.userUpdate(userData)).toEqual({type: user.USER_UPDATE, user: userData})
+  it('update should create UPDATE action', () => {
+    expect(user.update(userData)).toEqual({type: user.UPDATE, user: userData})
   })
 })
 
@@ -38,7 +38,7 @@ describe('user reducer', () => {
     expect(user.default({}, user.logout(userData))).toEqual(user.initialState)
   })
 
-  it('should handle USER_UPDATE', () => {
-    expect(user.default({}, user.userUpdate(userData))).toEqual(userData)
+  it('should handle UPDATE', () => {
+    expect(user.default({}, user.update(userData))).toEqual(userData)
   })
 })

@@ -24,7 +24,7 @@ export default WifiUC
 // store.dispatch(user.login({username: 'test', password: 'pass'}))
 // store.dispatch(user.logout())
 // store.dispatch(user.login({username: 'test2', password: 'pass2'}))
-// store.dispatch(user.userUpdate({username: 'negebauer@uc.cl', password: 'asd'}))
+// store.dispatch(user.update({username: 'negebauer@uc.cl', password: 'asd'}))
 //
 // store.dispatch(devices.add({mac: 'AA-AA-AA-AA-AA-AA', name: 'device1'}))
 // store.dispatch(devices.add({mac: 'BB-BB-BB-BB-BB-BB', name: 'device2'}))
