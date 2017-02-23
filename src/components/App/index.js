@@ -1,14 +1,18 @@
 import React, {Component} from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, Button} from 'react-native'
 
-export default class App extends Component {
+const App = ({devices, user, userUpdate}) => (
+  <View>
+    <Text>{`username: ${user.username}`}</Text>
+    <Text>{`password: ${user.password}`}</Text>
+    <Button title='Change user' onPress={() => userUpdate({username: 'AJA', password: 'pass'})}/>
+  </View>
+)
 
-  render() {
-    return (
-      <View>
-        <Text>Hello world</Text>
-      </View>
-    )
-  }
-
+App.propTypes = {
+  devices: React.PropTypes.object.isRequired,
+  user: React.PropTypes.object.isRequired,
+  userUpdate: React.PropTypes.func.isRequired
 }
+
+export default App
