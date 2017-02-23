@@ -8,6 +8,7 @@ import reducer from './redux'
 
 import * as user from './redux/user'
 import * as devices from './redux/devices'
+import * as newDevice from './redux/newDevice'
 
 const logger = createLogger()
 const store = createStore(reducer, applyMiddleware(logger))
@@ -42,3 +43,4 @@ export default WifiUC
 //     active: true
 //   }
 // ]))
+// store.dispatch(newDevice.newDeviceUpdate({name: 'Test', mac: 'cc-Ac-Bd-De:ad cs'}))

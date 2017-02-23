@@ -11,4 +11,10 @@ export default class Format {
     }
     return username
   }
+
+  static mac = macRaw => {
+    const mac = macRaw.replace(/[&\/ \\:-]/g, '').toLowerCase()
+    const macArray = mac.match(/.{1,2}/g)
+    return macArray.join(':')
+  }
 }
