@@ -15,6 +15,7 @@ dependencies:
     - npm run generate_env
     # Android
     - brew install android-sdk
+    - brew link android-sdk
     - echo y | android update sdk --no-ui --all --filter android-23
     - echo y | android update sdk --no-ui --all --filter build-tools-23.0.1
     - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
