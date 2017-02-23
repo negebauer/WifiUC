@@ -2,8 +2,8 @@ export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const USER_UPDATE = 'USER_UPDATE'
 
-export const login = user => {
-  return {type: LOGIN, user}
+export const login = (user, loading, error) => {
+  return {type: LOGIN, user, loading, error}
 }
 
 export const logout = user => {
@@ -17,14 +17,20 @@ export const userUpdate = user => {
 export const initialState = {
   username: '',
   password: '',
-  isLogged: false,
-  isLogging: false,
+  loading: false,
   error: ''
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN:
+      const {loading, error} = action
+      return {
+        ...state,
+        ...action.user,
+        loading,
+        error
+      }
     case USER_UPDATE:
       return {
         ...state,

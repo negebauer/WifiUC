@@ -3,18 +3,20 @@ import * as devices from './'
 const device1 = {
   mac: 'AA-AA-AA-AA-AA-AA',
   name: 'device1',
-  active: false
+  active: false,
+  lodaing: false
 }
 
 const device2 = {
   mac: 'BB-BB-BB-BB-BB-BB',
   name: 'device2',
-  active: true
+  active: true,
+  loading: false
 }
 
 describe('devices actions', () => {
   it('toggle should create TOGGLE action', () => {
-    expect(devices.toggle(device1.mac, true)).toEqual({type: devices.TOGGLE, mac: device1.mac, active: true})
+    expect(devices.toggle(device1.mac, true, true, 'Test')).toEqual({type: devices.TOGGLE, mac: device1.mac, active: true, loading: true, error: 'Test'})
   })
 
   it('add should create ADD action', () => {
@@ -45,10 +47,12 @@ describe('devices reducer', () => {
   it('should handle TOGGLE', () => {
     expect(devices.default({
       [device1.mac]: device1
-    }, devices.toggle(device1.mac, true))).toEqual({
+    }, devices.toggle(device1.mac, true, true, 'Test'))).toEqual({
       [device1.mac]: {
         ...device1,
-        active: true
+        active: true,
+        loading: true,
+        error: 'Test'
       }
     })
   })
@@ -77,9 +81,13 @@ describe('devices reducer', () => {
   })
 
   it('should handle REFRESH', () => {
-    expect(devices.default({}, devices.refresh([device1, device2]))).toEqual({
+    expect(devices.default({}, devices.refresh([
+      device1, device2
+    ], true, 'Test'))).toEqual({
       [device1.mac]: device1,
-      [device2.mac]: device2
+      [device2.mac]: device2,
+      loading: true,
+      error: 'Test'
     })
   })
 })

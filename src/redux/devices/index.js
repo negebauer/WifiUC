@@ -4,8 +4,8 @@ export const EDIT_NAME = 'EDIT_NAME'
 export const REMOVE = 'REMOVE'
 export const REFRESH = 'REFRESH'
 
-export const toggle = (mac, active) => {
-  return {type: TOGGLE, mac, active}
+export const toggle = (mac, active, loading, error) => {
+  return {type: TOGGLE, mac, active, loading, error}
 }
 
 export const add = device => {
@@ -20,12 +20,24 @@ export const remove = mac => {
   return {type: REMOVE, mac}
 }
 
-export const refresh = devices => {
-  return {type: REFRESH, devices}
+export const refresh = (devices, loading, error) => {
+  return {type: REFRESH, devices, loading, error}
 }
 
-/* id: {device} */
-export const initialState = {}
+export const initialState = {
+  /* id: {device} */
+  loading: false,
+  error: ''
+}
+/* Device
+{
+  mac: String,
+  name: String,
+  active: Bool,
+  loading: Bool,
+  error: String
+}
+*/
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -34,7 +46,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         [action.mac]: {
           ...state[action.mac],
-          active: action.active
+          loading: action.loading,
+          active: action.active,
+          error: action.error
         }
       }
     case ADD:
@@ -60,10 +74,14 @@ const reducer = (state = initialState, action) => {
       delete devices[action.mac]
       return devices
     case REFRESH:
-      return action.devices.reduce((devices, device) => {
-        devices[device.mac] = device
-        return devices
-      }, {})
+      return {
+        ...action.devices.reduce((devices, device) => {
+          devices[device.mac] = device
+          return devices
+        }, {}),
+        loading: action.loading,
+        error: action.error
+      }
     default:
       return state
   }
