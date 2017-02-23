@@ -8,14 +8,14 @@ machine:
 
 dependencies:
   pre:
+    # Homebrew
+    - brew install node, android-sdk, imagemagick
+    - brew link node, android-sdk, imagemagick
     # Project
-    - brew reinstall node
     - npm install
     - npm install -g react-native-cli
     - npm run generate_env
     # Android
-    - brew install android-sdk
-    - brew link android-sdk
     - echo y | android update sdk --no-ui --all --filter android-23
     - echo y | android update sdk --no-ui --all --filter build-tools-23.0.1
     - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
@@ -24,10 +24,9 @@ dependencies:
     - scripts/android_get_keystore.sh
     # Fastlane
     - sudo gem update fastlane
-    - brew install imagemagick
-    - brew link imagemagick
   cache_directories:
     - node_modules
+    - /usr/local/Cellar/node
     - /usr/local/opt/android-sdk
     - /usr/local/Cellar/android-sdk
     - /usr/local/Cellar/imagemagick
