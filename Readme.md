@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/negebauer/WifiUC/tree/dev.svg?style=svg)](https://circleci.com/gh/negebauer/WifiUC/tree/dev)
+[![Dependency Status](https://dependencyci.com/github/negebauer/WifiUC/badge)](https://dependencyci.com/github/negebauer/WifiUC)
 
 ## Testing
 
