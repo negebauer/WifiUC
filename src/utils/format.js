@@ -17,4 +17,10 @@ export default class Format {
     const macArray = mac.match(/.{1,2}/g)
     return macArray.join(':')
   }
+
+  /* Assumes Format.mac() format */
+  static macValidate = mac => {
+    const regex = /^(?!(?:ff:ff:ff:ff:ff:ff|00:00:00:00:00:00))(?:[\da-f]{2}:){5}[\da-f]{2}$/i
+    return regex.test(mac.toLowerCase())
+  }
 }
