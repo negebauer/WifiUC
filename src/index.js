@@ -5,7 +5,7 @@ import {Provider} from 'react-redux'
 import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import {persistStore, autoRehydrate} from 'redux-persist'
-import Root from './containers/Root'
+import App from './components/App'
 import reducer from './redux'
 
 const loggerMiddleware = createLogger()
@@ -15,7 +15,7 @@ persistStore(store, {storage: AsyncStorage})
 
 const WifiUC = () => (
   <Provider store={store}>
-    <Root/>
+    <App/>
   </Provider>
 )
 

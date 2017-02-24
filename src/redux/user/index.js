@@ -41,8 +41,8 @@ export const update = user => {
 export const initialState = {
   username: '',
   password: '',
-  loading: false,
   error: '',
+  loading: false,
   rehydrated: false
 }
 
@@ -64,13 +64,10 @@ const reducer = (state = initialState, action) => {
       }
     case LOGOUT:
       return {
-        ...state,
-        ...initialState
+        ...initialState,
+        rehydrated: true
       }
     case REHYDRATE:
-      console.log(REHYDRATE)
-      //
-      console.log(action.payload)
       // New user
       if (Object.keys(action.payload).length === 0 && action.payload.constructor === Object) {
         return {
