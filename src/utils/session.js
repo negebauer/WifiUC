@@ -81,11 +81,18 @@ export default class Session {
   }
 
   loginPostParse = html => {
+    // console.log('loginPostParse')
+    // console.log(html)
     const errorTexts = ['El Servicio de Autentificación Central UC', 'No sé cual es mi Usuario UC', 'UC Authentication Service']
     const errorResults = errorTexts.filter(text => html.indexOf(text) !== -1)
-    if (errorTexts !== []) {
+    // console.log('errorResults')
+    // console.log(errorResults)
+    if (errorResults.length > 0) {
       throw {message: 'No se pudo conectar\nRevisa tus credenciales', id: err.credentials}
     }
+    const name = html.split('<li class="greeting">')[1].split('</li>')[0]
+    // console.log('name')
+    // console.log(name)
     return this.loginRender()
   }
 
