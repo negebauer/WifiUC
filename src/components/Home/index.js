@@ -6,7 +6,7 @@ class Home extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (!this.props.user.rehydrated && nextProps.user.rehydrated) {
-      this.props.login(nextProps.user).catch(this.showLogin)
+      this.props.login(nextProps.user).catch(err => this.showLogin())
     }
   }
 
