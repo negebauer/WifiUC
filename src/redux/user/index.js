@@ -19,7 +19,6 @@ export const fetchLogin = user => {
       dispatch(login(user, false, ''))
     }).catch(err => {
       dispatch(login(user, false, err.message))
-      throw {}
     })
   }
 }

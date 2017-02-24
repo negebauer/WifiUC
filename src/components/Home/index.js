@@ -6,7 +6,7 @@ class Home extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (!this.props.user.rehydrated && nextProps.user.rehydrated) {
-      this.props.login(nextProps.user).catch(err => this.showLogin())
+      this.props.login(nextProps.user).then(() => this.props.user.error && this.showLogin())
     }
   }
 
@@ -20,10 +20,12 @@ class Home extends Component {
       return <View style={styles.containerCentered}><ActivityIndicator/></View>
     }
     if (user.error) {
-      return <View style={styles.container}>
-        <Text>YOU SHOULD LOGIN</Text>
-        <Button title='Login good' onPress={() => login({username: Config.WIFIUC_USER, password: Config.WIFIUC_PASS})}/>
-      </View>
+      return (
+        <View style={styles.container}>
+          <Text>YOU SHOULD LOGIN</Text>
+          <Button title='Login good' onPress={() => login({username: Config.WIFIUC_USER, password: Config.WIFIUC_PASS})}/>
+        </View>
+      )
     }
     return (
       <View style={styles.container}>
