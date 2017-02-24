@@ -35,8 +35,10 @@ describe('user reducer', () => {
   })
 
   it('should handle LOGOUT', () => {
-    expect(user.default({}, user.logout(userData))).toEqual({
+    expect(user.default({}, user.logout(true, 'message'))).toEqual({
       ...user.initialState,
+      loading: true,
+      error: 'message',
       rehydrated: true
     })
   })
