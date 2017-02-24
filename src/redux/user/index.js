@@ -23,14 +23,14 @@ export const fetchLogin = user => {
   }
 }
 
-export const logout = () => {
-  return {type: LOGOUT}
+export const logout = (loading, error) => {
+  return {type: LOGOUT, loading, error}
 }
 
 export const fetchLogout = () => {
   return dispatch => {
-    dispatch(logout())
-    return Session.logout()
+    dispatch(logout(true))
+    return Session.logout().then(() => dispatch(logout(false, 'Ingresa tus crendenciales')))
   }
 }
 
@@ -53,8 +53,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         ...action.user,
-        loading,
-        error
+        loading: action.loading,
+        error: action.error
       }
     case UPDATE:
       return {
@@ -65,6 +65,8 @@ const reducer = (state = initialState, action) => {
     case LOGOUT:
       return {
         ...initialState,
+        loading: action.loading,
+        error: action.error,
         rehydrated: true
       }
     case REHYDRATE:

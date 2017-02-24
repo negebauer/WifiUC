@@ -30,7 +30,7 @@ export default class Session {
   // }
 
   static logout = () => {
-    Fetcher.post(Url.logout)
+    return Fetcher.post(Url.logout)
   }
 
   // static clear = () => {

@@ -4,6 +4,9 @@ export default class Format {
   })
 
   static cleanUsername = username => {
+    if (!username) {
+      return username
+    }
     const ucSuffix = '@uc.cl'
     const index = username.indexOf(ucSuffix, username.length - ucSuffix.length)
     if (index !== -1) {

@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
-import {View, StyleSheet} from 'react-native'
+import {View, StyleSheet, StatusBar} from 'react-native'
 import Session from '../../containers/Session'
 import Devices from '../../containers/Devices'
 import Options from '../../containers/Options'
 
+// <StatusBar backgroundColor="blue" barStyle="default" networkActivityIndicatorVisible={false}/>
 const App = () => (
   <View style={styles.app}>
     <Session>
