@@ -19,6 +19,7 @@
     "generate_env": "./scripts/generate_env.sh"
   },
   "dependencies": {
+    "apsl-react-native-button": "^3.0.2",
     "buffer": "^5.0.5",
     "cheerio": "^0.22.0",
     "events": "^1.1.1",

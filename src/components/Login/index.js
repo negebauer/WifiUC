@@ -1,15 +1,34 @@
 import React from 'react'
-import {View, ActivityIndicator, Text, Button, StyleSheet} from 'react-native'
-import Config from 'react-native-config'
+import {View, ActivityIndicator, Text, StyleSheet} from 'react-native'
+import FormHelper from 'tcomb-form-native'
+import Button from 'apsl-react-native-button'
+import Colors from '../../utils/colors'
+
+const Form = FormHelper.form.Form
+UCUserStruct = {
+  username: FormHelper.String,
+  password: FormHelper.String
+}
+const UCUser = FormHelper.struct(UCUserStruct)
+const formOptions = {
+  fields: {
+    username: {
+      label: 'Usuario UC',
+      autoCapitalize: 'none',
+      autoCorrect: false
+    },
+    password: {
+      label: 'Contraseña',
+      secureTextEntry: true
+    }
+  }
+}
 
 const Login = ({user, login, userUpdate}) => (
   <View style={styles.container}>
-    <Text>AJAJAJAJ</Text>
-    <Text>SOME SHOW LOGIN BUTTON</Text>
-    <Text>{user.error}</Text>
-    <Button title='Login bad' onPress={() => login({username: 'nope', password: 'wrong'})}/>
-    <Button title='Login good' onPress={() => login({username: Config.WIFIUC_USER, password: Config.WIFIUC_PASS})}/>
-    <Button title='Logout' onPress={() => logout()}/>
+    <Form type={UCUser} options={formOptions} value={user} onChange={userUpdate}/>
+    <Button style={styles.button} onPress={() => login(user)}>Ingresar</Button>
+    <Text style={styles.message}>{user.error}</Text>
   </View>
 )
 
@@ -22,8 +41,16 @@ Login.propTypes = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignSelf: 'center',
-    justifyContent: 'center'
+    // alignSelf: 'center',
+    // justifyContent: 'center',
+    backgroundColor: 'transparent'
+  },
+  button: {
+    borderColor: Colors.main
+  },
+  message: {
+    marginTop: 12,
+    textAlign: 'center'
   }
 })
 

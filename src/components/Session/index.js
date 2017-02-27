@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {View, Text, Button, ActivityIndicator, StyleSheet} from 'react-native'
 import Login from '../Login'
+import Loading from './Loading'
 
 class Session extends Component {
 
@@ -8,7 +9,7 @@ class Session extends Component {
     const {user} = this.props
     const rehydrated = !user.rehydrated && nextProps.user.rehydrated
     if (rehydrated && (!user.username && !user.password)) {
-      return this.props.userUpdate({error: 'Ingresa tus credenciales'})
+      return this.props.userUpdate({username: '', password: '', error: 'Ingresa tus credenciales'})
     } else if (rehydrated) {
       this.props.login(nextProps.user)
     }
@@ -17,7 +18,7 @@ class Session extends Component {
   render() {
     const {user, login, logout, userUpdate} = this.props
     if (user.loading || !user.rehydrated) {
-      return <View style={styles.loading}><ActivityIndicator/></View>
+      return <Loading/>
     }
     if (user.error) {
       return <Login user={user} userUpdate={userUpdate} login={login}/>
@@ -37,11 +38,6 @@ Session.propTypes = {
 const styles = StyleSheet.create({
   container: {
     flex: 1
-  },
-  loading: {
-    flex: 1,
-    justifyContent: 'center',
-    alignSelf: 'center'
   }
 })
 

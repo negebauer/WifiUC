@@ -1,5 +1,5 @@
 const Colors = {
-  main: '#20d0ff'
+  main: '#20ccff'
 }
 
 export default Colors
