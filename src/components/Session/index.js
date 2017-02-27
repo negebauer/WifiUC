@@ -8,7 +8,7 @@ class Session extends Component {
   componentWillReceiveProps(nextProps) {
     const {user} = this.props
     const rehydrated = !user.rehydrated && nextProps.user.rehydrated
-    if (rehydrated && (!user.username && !user.password)) {
+    if (rehydrated && (!nextProps.user.username && !nextProps.user.password)) {
       return this.props.userUpdate({username: '', password: '', error: 'Ingresa tus credenciales'})
     } else if (rehydrated) {
       this.props.login(nextProps.user)
