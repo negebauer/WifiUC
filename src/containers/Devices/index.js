@@ -1,14 +1,11 @@
 import {connect} from 'react-redux'
 import {fetchLogin, fetchLogout, userUpdate} from '../../redux/user'
+import {devicesList} from '../../redux/selectors'
 import Devices from '../../components/Devices'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    devices: Object.values({
-      ...state.devices,
-      loading: null,
-      error: null
-    }).filter(Boolean),
+    devices: devicesList(state),
     ready: !state.user.loading && !state.user.error
   }
 }
