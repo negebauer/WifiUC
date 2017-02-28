@@ -1,3 +1,4 @@
+import {REHYDRATE} from 'redux-persist/constants'
 import session from '../user'
 
 /* Action types */
@@ -105,6 +106,16 @@ const reducer = (state = initialState, action) => {
         loading: action.loading,
         error: action.error
       }
+    case REHYDRATE:
+      const incoming = action.payload.devices
+      if (incoming) {
+        return {
+          ...state,
+          ...incoming,
+          editing: false
+        }
+      }
+      return state
     default:
       return state
   }

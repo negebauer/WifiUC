@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
   const map = {
     devices: devicesList(state),
     loading: state.loading,
-    devicesInteract: !state.user.loading && !state.devices.loading
+    devicesInteract: !state.user.loading && !state.devices.loading,
+    editMode: state.devices.editing
   }
   return map
 }

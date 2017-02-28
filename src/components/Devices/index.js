@@ -17,16 +17,19 @@ Option.propTypes = {
   children: React.PropTypes.any
 }
 
-const Devices = ({devices, devicesInteract, toggleEdit}) => (
+const Devices = ({devices, devicesInteract, toggleEdit, editMode}) => (
   <View style={styles.container}>
     <View style={styles.title}>
       <Text style={styles.titleText}>Dispositivos</Text>
-      <View style={styles.options}>
+      {!editMode && <View style={styles.options}>
         <Option name='refresh' onPress={() => {}}/>
         <Option name='plus' onPress={() => {}}/>
         <Option name='edit' onPress={toggleEdit}/>
         <Option name='sign-out' onPress={() => {}}/>
-      </View>
+      </View>}
+      {editMode && <View style={styles.options}>
+        <Option name='check' onPress={toggleEdit}/>
+      </View>}
     </View>
     <ScrollView style={styles.devices}>
       {devices.map(device => (
@@ -41,7 +44,8 @@ const Devices = ({devices, devicesInteract, toggleEdit}) => (
 Devices.propTypes = {
   devices: React.PropTypes.array.isRequired,
   devicesInteract: React.PropTypes.bool.isRequired,
-  toggleEdit: React.PropTypes.func.isRequired
+  toggleEdit: React.PropTypes.func.isRequired,
+  editMode: React.PropTypes.bool.isRequired
 }
 
 const styles = StyleSheet.create({
