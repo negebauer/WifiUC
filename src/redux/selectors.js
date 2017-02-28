@@ -12,7 +12,7 @@ const getDevicesOnly = createSelector(getDevices, getDevicesIgnoreKeys, (devices
   return obj
 }))
 export const devicesList = createSelector(getDevicesOnly, devices => Object.values(devices))
-export const devicesActivity = createSelector(getDevicesOnly, devices => devices.map(loading).length > 0)
+export const devicesActivity = createSelector(devicesList, devices => devices.map(device => device.loading).length > 0)
 
 const getUser = state => state.user
 export const userActivity = createSelector(getUser, user => user.loading || !user.rehydrated)
