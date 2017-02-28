@@ -3,9 +3,6 @@ import {createSelector} from 'reselect'
 const getDevices = state => state.devices
 const getDevicesIgnoreKeys = state => ['loading', 'error']
 const getDevicesOnly = createSelector(getDevices, getDevicesIgnoreKeys, (devices, ignore) => Object.keys(devices).reduce((obj, key) => {
-  console.log('REDUCE')
-  console.log(devices)
-  console.log(ignore)
   if (ignore.indexOf(key) === -1) {
     return {
       ...obj,
