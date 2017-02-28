@@ -2,6 +2,7 @@
 
 export const TOGGLE = 'TOGGLE'
 export const ADD = 'ADD'
+export const TOGGLE_EDIT = 'TOGGLE_EDIT'
 export const EDIT_NAME = 'EDIT_NAME'
 export const REMOVE = 'REMOVE'
 export const REFRESH = 'REFRESH'
@@ -14,6 +15,10 @@ export const toggle = (mac, active, loading, error) => {
 
 export const add = device => {
   return {type: ADD, device}
+}
+
+export const toggleEdit = () => {
+  return {type: TOGGLE_EDIT}
 }
 
 export const editName = (mac, name) => {
@@ -33,7 +38,8 @@ export const refresh = (devices, loading, error) => {
 export const initialState = {
   /* id: {device} */
   loading: false,
-  error: ''
+  error: '',
+  editing: false
 }
 /* Device
 {
@@ -66,6 +72,11 @@ const reducer = (state = initialState, action) => {
           ...action.device,
           active: false
         }
+      }
+    case TOGGLE_EDIT:
+      return {
+        ...state,
+        editing: !state.editing
       }
     case EDIT_NAME:
       return {

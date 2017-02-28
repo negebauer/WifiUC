@@ -1,7 +1,7 @@
 import {createSelector} from 'reselect'
 
 const getDevices = state => state.devices
-const getDevicesIgnoreKeys = state => ['loading', 'error']
+const getDevicesIgnoreKeys = state => ['loading', 'error', 'editing']
 const getDevicesOnly = createSelector(getDevices, getDevicesIgnoreKeys, (devices, ignore) => Object.keys(devices).reduce((obj, key) => {
   if (ignore.indexOf(key) === -1) {
     return {
