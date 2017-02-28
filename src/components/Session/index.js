@@ -32,7 +32,7 @@ Session.propTypes = {
   login: React.PropTypes.func.isRequired,
   logout: React.PropTypes.func.isRequired,
   userUpdate: React.PropTypes.func.isRequired,
-  children: React.PropTypes.array.isRequired
+  children: React.PropTypes.any.isRequired
 }
 
 const styles = StyleSheet.create({
