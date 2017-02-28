@@ -42,7 +42,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         ...action.device,
         mac: mac.toUpperCase(),
-        error: (valid && ' ') || 'Dirección mac inválida'
+        error: (!valid && 'Dirección mac inválida') || ''
       }
     case RESET:
       return initialState

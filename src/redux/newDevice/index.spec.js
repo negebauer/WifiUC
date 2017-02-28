@@ -2,12 +2,13 @@ import * as newDevice from './'
 
 const newDeviceData = {
   name: 'Test',
-  mac: 'AA:AA:AA:AA:AA:CC'
+  mac: 'AA:AA:AA:AA:AA:CC',
+  error: ''
 }
 
 describe('newDevice actions', () => {
-  it('newDeviceUpdate should create NEW_DEVICE_UPDATE action', () => {
-    expect(newDevice.newDeviceUpdate(newDeviceData)).toEqual({type: newDevice.NEW_DEVICE_UPDATE, device: newDeviceData})
+  it('update should create NEW_DEVICE_UPDATE action', () => {
+    expect(newDevice.update(newDeviceData)).toEqual({type: newDevice.UPDATE, device: newDeviceData})
   })
 })
 
@@ -17,6 +18,8 @@ describe('newDevice reducer', () => {
   })
 
   it('should handle NEW_DEVICE_UPDATE', () => {
-    expect(newDevice.default({}, newDevice.newDeviceUpdate(newDeviceData))).toEqual(newDeviceData)
+    expect(newDevice.default({}, newDevice.update(newDeviceData))).toEqual({
+      ...newDeviceData
+    })
   })
 })

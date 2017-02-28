@@ -1,7 +1,7 @@
 import * as devices from './'
 
 const device1 = {
-  mac: 'AA-AA-AA-AA-AA-AA',
+  mac: 'aa:aa:aa:aa:aa:aa',
   name: 'device1',
   active: false,
   loading: false,
@@ -9,7 +9,7 @@ const device1 = {
 }
 
 const device2 = {
-  mac: 'BB-BB-BB-BB-BB-BB',
+  mac: 'bb:bb:bb:bb:bb:bb',
   name: 'device2',
   active: true,
   loading: false,
@@ -61,6 +61,7 @@ describe('devices reducer', () => {
 
   it('should handle ADD', () => {
     expect(devices.default({}, devices.add(device1))).toEqual({
+      ...devices.initialState,
       [device1.mac]: device1
     })
   })

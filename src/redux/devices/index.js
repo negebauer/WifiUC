@@ -85,17 +85,18 @@ const reducer = (state = initialState, action) => {
           adding: false
         }
       }
+      const mac = Format.mac(action.device.mac)
+      //
       return {
+        ...initialState,
         ...state,
-        [action.device.mac]: {
+        [mac]: {
           name: action.device.name,
           active: false,
           loading: false,
           error: '',
-          mac: Format.mac(action.device.mac)
-        },
-        adding: false,
-        error: ''
+          mac: mac
+        }
       }
     case TOGGLE_EDIT:
       return {
