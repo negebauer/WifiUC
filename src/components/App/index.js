@@ -13,9 +13,6 @@ const App = () => (
     <StatusBar/>
     <View style={styles.box}>
       <Session>
-        <View style={styles.options}>
-          <Options style={styles.options}/>
-        </View>
         <View style={styles.devices}>
           <Devices/>
         </View>
@@ -42,10 +39,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.main,
     height: 24
   },
-  options: {
-    backgroundColor: 'red'
-  },
   devices: {
+    flex: 1,
     backgroundColor: 'blue'
   }
 })
