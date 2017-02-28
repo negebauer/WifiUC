@@ -1,8 +1,8 @@
 // import * as Keychain from 'react-native-keychain'
 let cheerio = require('cheerio')
 
-import Url from './url'
-import Fetcher from './fetcher'
+import Url from '../../utils/url'
+import Fetcher from '../../utils/fetcher'
 
 export const err = {
   network: 0,

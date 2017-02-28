@@ -1,8 +1,11 @@
 import {createSelector} from 'reselect'
 
 const getDevices = state => state.devices
-const getDevicesIgnoreKeys = () => ['loading', 'error']
+const getDevicesIgnoreKeys = state => ['loading', 'error']
 const getDevicesOnly = createSelector(getDevices, getDevicesIgnoreKeys, (devices, ignore) => Object.keys(devices).reduce((obj, key) => {
+  console.log('REDUCE')
+  console.log(devices)
+  console.log(ignore)
   if (ignore.indexOf(key) === -1) {
     return {
       ...obj,
@@ -10,7 +13,7 @@ const getDevicesOnly = createSelector(getDevices, getDevicesIgnoreKeys, (devices
     }
   }
   return obj
-}))
+}, {}))
 export const devicesList = createSelector(getDevicesOnly, devices => Object.values(devices))
 export const devicesActivity = createSelector(devicesList, devices => devices.map(device => device.loading).length > 0)
 

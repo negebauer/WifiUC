@@ -1,4 +1,4 @@
-import Session from '../../utils/session'
+import Session from './session'
 import Format from '../../utils/format'
 import {REHYDRATE} from 'redux-persist/constants'
 
