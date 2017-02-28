@@ -1,8 +1,12 @@
+/* Action types */
+
 export const TOGGLE = 'TOGGLE'
 export const ADD = 'ADD'
 export const EDIT_NAME = 'EDIT_NAME'
 export const REMOVE = 'REMOVE'
 export const REFRESH = 'REFRESH'
+
+/* Action creators */
 
 export const toggle = (mac, active, loading, error) => {
   return {type: TOGGLE, mac, active, loading, error}
@@ -24,6 +28,8 @@ export const refresh = (devices, loading, error) => {
   return {type: REFRESH, devices, loading, error}
 }
 
+/* Initial state */
+
 export const initialState = {
   /* id: {device} */
   loading: false,
@@ -38,6 +44,8 @@ export const initialState = {
   error: String
 }
 */
+
+/* Reducer */
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

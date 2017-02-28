@@ -4,9 +4,13 @@ import {REHYDRATE} from 'redux-persist/constants'
 
 const session = user => new Session(user.username, user.password)
 
+/* Action types */
+
 export const LOGIN = 'LOGIN'
 export const LOGOUT = 'LOGOUT'
 export const UPDATE = 'UPDATE'
+
+/* Action creators */
 
 export const login = (user, loading, error) => {
   return {type: LOGIN, user, loading, error}
@@ -38,6 +42,8 @@ export const update = user => {
   return {type: UPDATE, user}
 }
 
+/* Initial state */
+
 export const initialState = {
   username: '',
   password: '',
@@ -45,6 +51,8 @@ export const initialState = {
   loading: false,
   rehydrated: false
 }
+
+/* Reducer */
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
