@@ -23,7 +23,7 @@ class Session extends Component {
     if (user.error) {
       return <Login user={user} userUpdate={userUpdate} login={login}/>
     }
-    return <View style={styles.container}><Button title='Logout' onPress={() => logout()}/>{this.props.children}</View>
+    return <View style={styles.container}>{this.props.children}</View>
   }
 }
 

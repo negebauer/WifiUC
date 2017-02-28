@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
   loadingText: {
     textAlign: 'center',
     margin: 12,
-    fontSize: 24
+    fontSize: 24,
+    color: 'black'
   }
 })
 
