@@ -40,8 +40,7 @@ const styles = StyleSheet.create({
     height: 24
   },
   devices: {
-    flex: 1,
-    backgroundColor: 'blue'
+    flex: 1
   }
 })
 
