@@ -1,11 +1,20 @@
 import {createSelector} from 'reselect'
 
-export const devicesList = state => Object.values({
-  ...state.devices,
-  loading: null,
-  error: null
-}).filter(Boolean)
+const getDevices = state => state.devices
+const getDevicesIgnoreKeys = () => ['loading', 'error']
+const getDevicesOnly = createSelector(getDevices, getDevicesIgnoreKeys, (devices, ignore) => Object.keys(devices).reduce((obj, key) => {
+  if (ignore.indexOf(key) === -1) {
+    return {
+      ...obj,
+      [key]: devices[key]
+    }
+  }
+  return obj
+}))
+export const devicesList = createSelector(getDevicesOnly, devices => Object.values(devices))
+export const devicesActivity = createSelector(getDevicesOnly, devices => devices.map(loading).length > 0)
 
-export const devicesActivity = state => state.devices.loading || devicesList(state).map(device => device.loading).length > 0
-export const userActivity = state => state.user.loading || !state.user.rehydrated
-export const networkActivity = state => userActivity(state) || devicesActivity(state)
+const getUser = state => state.user
+export const userActivity = createSelector(getUser, user => user.loading || !user.rehydrated)
+
+export const networkActivity = createSelector(userActivity, devicesActivity, (userA, devicesA) => userA || devicesA)
