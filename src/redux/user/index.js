@@ -2,7 +2,7 @@ import Session from './session'
 import Format from '../../utils/format'
 import {REHYDRATE} from 'redux-persist/constants'
 
-const session = user => new Session(user.username, user.password)
+export const session = user => new Session(user)
 
 /* Action types */
 

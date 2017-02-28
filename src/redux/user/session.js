@@ -10,9 +10,9 @@ export const err = {
 }
 
 export default class Session {
-  constructor(username, password) {
-    this.username = username
-    this.password = password
+  constructor(user) {
+    this.username = user.username
+    this.password = user.password
   }
 
   // static load = () => {
