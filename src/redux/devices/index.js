@@ -1,3 +1,4 @@
+import Format from '../../utils/format'
 import {REHYDRATE} from 'redux-persist/constants'
 import session from '../user'
 
@@ -6,6 +7,7 @@ import session from '../user'
 export const TOGGLE = 'TOGGLE'
 export const ADD = 'ADD'
 export const TOGGLE_EDIT = 'TOGGLE_EDIT'
+export const TOGGLE_ADD = 'TOGGLE_ADD'
 export const EDIT_NAME = 'EDIT_NAME'
 export const REMOVE = 'REMOVE'
 export const REFRESH = 'REFRESH'
@@ -22,6 +24,10 @@ export const add = device => {
 
 export const toggleEdit = () => {
   return {type: TOGGLE_EDIT}
+}
+
+export const toggleAdd = () => {
+  return {type: TOGGLE_ADD}
 }
 
 export const editName = (mac, name) => {
@@ -44,7 +50,8 @@ export const initialState = {
   /* id: {device} */
   loading: false,
   error: '',
-  editing: false
+  editing: false,
+  adding: false
 }
 /* Device
 {
@@ -71,17 +78,34 @@ const reducer = (state = initialState, action) => {
         }
       }
     case ADD:
+      if (state[action.device.mac]) {
+        return {
+          ...state,
+          error: 'Intentaste agregar un dispositivo con una dirección mac existente',
+          adding: false
+        }
+      }
       return {
         ...state,
         [action.device.mac]: {
-          ...action.device,
-          active: false
-        }
+          name: action.device.name,
+          active: false,
+          loading: false,
+          error: '',
+          mac: Format.mac(action.device.mac)
+        },
+        adding: false,
+        error: ''
       }
     case TOGGLE_EDIT:
       return {
         ...state,
         editing: !state.editing
+      }
+    case TOGGLE_ADD:
+      return {
+        ...state,
+        adding: !state.adding
       }
     case EDIT_NAME:
       return {
@@ -112,7 +136,9 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           ...incoming,
-          editing: false
+          editing: false,
+          adding: false,
+          error: ''
         }
       }
       return state

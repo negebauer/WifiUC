@@ -16,6 +16,9 @@ export default class Format {
   }
 
   static mac = macRaw => {
+    if (!macRaw) {
+      return ''
+    }
     const mac = macRaw.replace(/[&\/ \\:-]/g, '').toLowerCase()
     const macArray = mac.match(/.{1,2}/g)
     return macArray.join(':')
