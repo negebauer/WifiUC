@@ -3,7 +3,10 @@ import {fetchLogin, fetchLogout, update} from '../../redux/user'
 import Session from '../../components/Session'
 
 const mapStateToProps = (state, ownProps) => {
-  return {user: state.user}
+  const map = {
+    user: state.user
+  }
+  return map
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

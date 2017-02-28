@@ -4,10 +4,11 @@ import {devicesList} from '../../redux/selectors'
 import Devices from '../../components/Devices'
 
 const mapStateToProps = (state, ownProps) => {
-  return {
+  const map = {
     devices: devicesList(state),
-    ready: !state.user.loading && !state.user.error
+    loading: state.loading
   }
+  return map
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

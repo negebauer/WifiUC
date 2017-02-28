@@ -3,9 +3,10 @@ import {fetchLogin, fetchLogout, userUpdate} from '../../redux/user'
 import Options from '../../components/Options'
 
 const mapStateToProps = (state, ownProps) => {
-  return {
+  const map = {
     ready: !state.user.loading && !state.user.error
   }
+  return map
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {

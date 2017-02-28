@@ -4,7 +4,12 @@ import {networkActivity} from '../../redux/selectors'
 import Colors from '../../utils/colors'
 
 const mapStateToProps = (state, ownProps) => {
-  return {backgroundColor: Colors.main, barStyle: 'dark-content', networkActivityIndicatorVisible: networkActivity(state)}
+  const map = {
+    backgroundColor: Colors.main,
+    barStyle: 'dark-content',
+    networkActivityIndicatorVisible: networkActivity(state)
+  }
+  return map
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
