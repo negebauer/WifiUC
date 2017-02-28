@@ -10,14 +10,14 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 const Option = props => (
-  <Icon size={18} style={styles.option} {...props}>{props.children}</Icon>
+  <Icon size={16} style={styles.option} {...props}>{props.children}</Icon>
 )
 
 Option.propTypes = {
   children: React.PropTypes.any
 }
 
-const Devices = ({devices, devicesInteract, toggleEdit, editMode}) => (
+const Devices = ({devices, devicesInteract, toggleEdit, editMode, logout}) => (
   <View style={styles.container}>
     <View style={styles.title}>
       <Text style={styles.titleText}>Dispositivos</Text>
@@ -25,7 +25,7 @@ const Devices = ({devices, devicesInteract, toggleEdit, editMode}) => (
         <Option name='refresh' onPress={() => {}}/>
         <Option name='plus' onPress={() => {}}/>
         <Option name='edit' onPress={toggleEdit}/>
-        <Option name='sign-out' onPress={() => {}}/>
+        <Option name='sign-out' onPress={logout}/>
       </View>}
       {editMode && <View style={styles.options}>
         <Option name='check' onPress={toggleEdit}/>
@@ -45,7 +45,8 @@ Devices.propTypes = {
   devices: React.PropTypes.array.isRequired,
   devicesInteract: React.PropTypes.bool.isRequired,
   toggleEdit: React.PropTypes.func.isRequired,
-  editMode: React.PropTypes.bool.isRequired
+  editMode: React.PropTypes.bool.isRequired,
+  logout: React.PropTypes.func.isRequired
 }
 
 const styles = StyleSheet.create({
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   titleText: {
-    fontSize: 24,
+    fontSize: 22,
     color: 'black',
     fontWeight: 'bold'
   },
