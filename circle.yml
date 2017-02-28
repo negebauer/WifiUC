@@ -36,7 +36,7 @@ test:
     - npm run lint
   override:
     - npm run generate_env $WIFIUC_USER $WIFIUC_PASS
-    - npm run test
+    - npm test
     - npm run generate_env
   post:
     # Build signed apk and ipa. Don't build in here if it's a deploy
