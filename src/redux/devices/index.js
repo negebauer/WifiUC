@@ -1,3 +1,5 @@
+import session from '../user'
+
 /* Action types */
 
 export const TOGGLE = 'TOGGLE'
@@ -32,6 +34,8 @@ export const remove = mac => {
 export const refresh = (devices, loading, error) => {
   return {type: REFRESH, devices, loading, error}
 }
+
+export const fetchRefresh = (user, devices) => {}
 
 /* Initial state */
 
