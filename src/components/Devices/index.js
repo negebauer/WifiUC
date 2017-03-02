@@ -1,5 +1,11 @@
 import React, {Component} from 'react'
-import {View, ScrollView, Text, ActivityIndicator, StyleSheet} from 'react-native'
+import {
+  View,
+  ScrollView,
+  Text,
+  ActivityIndicator,
+  StyleSheet,
+} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Button from 'apsl-react-native-button'
 import FormHelper from 'tcomb-form-native'
@@ -11,38 +17,49 @@ const Option = props => (
 )
 
 Option.propTypes = {
-  children: React.PropTypes.any
+  children: React.PropTypes.any,
 }
 
 const Form = FormHelper.form.Form
-DeviceStruct = {
+FormDeviceStruct = {
   name: FormHelper.String,
-  mac: FormHelper.String
+  mac: FormHelper.String,
 }
-const Device = FormHelper.struct(DeviceStruct)
+const FormDevice = FormHelper.struct(FormDeviceStruct)
 const formOptions = {
   fields: {
     name: {
       label: 'Nombre',
       autoCapitalize: 'sentences',
       autoCorrect: false,
-      error: 'Falta nombre'
+      error: 'Falta nombre',
     },
     mac: {
       label: 'MAC',
       autoCorrect: false,
       autoCapitalize: 'none',
-      error: 'Mac no válido'
-    }
-  }
+      error: 'Mac no válido',
+    },
+  },
 }
 
 const AddDevice = ({newDevice, newDeviceUpdate, deviceAdd, toggleAdd}) => (
   <View style={styles.addDevice}>
-    <Form type={Device} options={formOptions} value={newDevice} onChange={newDeviceUpdate}/>
-    <Button style={styles.newDeviceButton} onPress={() => deviceAdd(newDevice)}>Agregar</Button>
-    <Button style={styles.newDeviceButtonCancel} onPress={toggleAdd}>Cancelar</Button>
-    <Text style={styles.newDeviceMessage}>{newDevice.showError && newDevice.error}</Text>
+    <Form
+      type={FormDevice}
+      options={formOptions}
+      value={newDevice}
+      onChange={newDeviceUpdate}
+    />
+    <Button style={styles.newDeviceButton} onPress={() => deviceAdd(newDevice)}>
+      Agregar
+    </Button>
+    <Button style={styles.newDeviceButtonCancel} onPress={toggleAdd}>
+      Cancelar
+    </Button>
+    <Text style={styles.newDeviceMessage}>
+      {newDevice.showError && newDevice.error}
+    </Text>
   </View>
 )
 
@@ -50,43 +67,61 @@ AddDevice.propTypes = {
   newDevice: React.PropTypes.object.isRequired,
   newDeviceUpdate: React.PropTypes.func.isRequired,
   deviceAdd: React.PropTypes.func.isRequired,
-  toggleAdd: React.PropTypes.func.isRequired
+  toggleAdd: React.PropTypes.func.isRequired,
 }
 
-const Devices = ({
-  devices,
-  deviceAdd,
-  devicesInteract,
-  toggleEdit,
-  toggleAdd,
-  editMode,
-  addMode,
-  logout,
-  newDevice,
-  newDeviceUpdate
-}) => (
+const Device = ({name, mac, active, loading, error}) => (
+  <View>
+    <Text>{mac}</Text>
+    <Text>{name}</Text>
+  </View>
+)
+
+Device.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  mac: React.PropTypes.string.isRequired,
+  active: React.PropTypes.bool.isRequired,
+  loading: React.PropTypes.bool.isRequired,
+  error: React.PropTypes.string.isRequired,
+}
+
+const Devices = (
+  {
+    devices,
+    deviceAdd,
+    devicesInteract,
+    toggleEdit,
+    toggleAdd,
+    editMode,
+    addMode,
+    logout,
+    newDevice,
+    newDeviceUpdate,
+  },
+) => (
   <View style={styles.container}>
     <View style={styles.title}>
       <Text style={styles.titleText}>Dispositivos</Text>
-      {!editMode && !addMode && <View style={styles.options}>
-        <Option name='refresh' onPress={() => {}}/>
-        <Option name='plus' onPress={toggleAdd}/>
-        <Option name='edit' onPress={toggleEdit}/>
-        <Option name='sign-out' onPress={logout}/>
-      </View>}
-      {(editMode || addMode) && <View style={styles.options}>
-        {editMode && <Option name='check' onPress={toggleEdit}/>}
-        {addMode && <Option name='ban' onPress={toggleAdd}/>}
-      </View>}
+      {!editMode &&
+        !addMode &&
+        <View style={styles.options}>
+          <Option name="refresh" onPress={() => {}} />
+          <Option name="plus" onPress={toggleAdd} />
+          <Option name="edit" onPress={toggleEdit} />
+          <Option name="sign-out" onPress={logout} />
+        </View>}
+      {(editMode || addMode) &&
+        <View style={styles.options}>
+          {editMode && <Option name="check" onPress={toggleEdit} />}
+          {addMode && <Option name="ban" onPress={toggleAdd} />}
+        </View>}
     </View>
-    {!addMode && <ScrollView style={styles.devices}>
-      {devices.map(device => (
-        <View key={device.mac}>
-          <Text key={device.mac}>{`Mac: ${device.mac} Name: ${device.name}`}</Text>
-        </View>
-      ))}
-    </ScrollView>}
-    {addMode && <AddDevice {...{newDevice, newDeviceUpdate,deviceAdd, toggleAdd}}/>}
+    {!addMode &&
+      <ScrollView style={styles.devices}>
+        {devices.map(device => <Device key={device.mac} {...device} />)}
+      </ScrollView>}
+    {addMode &&
+      <AddDevice {...{newDevice, newDeviceUpdate, deviceAdd, toggleAdd}} />}
   </View>
 )
 
@@ -100,51 +135,51 @@ Devices.propTypes = {
   addMode: React.PropTypes.bool.isRequired,
   logout: React.PropTypes.func.isRequired,
   newDevice: React.PropTypes.object.isRequired,
-  newDeviceUpdate: React.PropTypes.func.isRequired
+  newDeviceUpdate: React.PropTypes.func.isRequired,
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   title: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   titleText: {
     fontSize: 22,
     color: 'black',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   options: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   option: {
     padding: 12,
-    color: 'gray'
+    color: 'gray',
   },
   devices: {
-    flex: 1
+    flex: 1,
   },
   addDevice: {
     flex: 1,
-    paddingTop: 12
+    paddingTop: 12,
   },
   newDeviceButton: {
-    borderColor: Colors.main
+    borderColor: Colors.main,
   },
 
   newDeviceButtonCancel: {
-    borderColor: 'red'
+    borderColor: 'red',
   },
   newDeviceMessage: {
     marginTop: 12,
     textAlign: 'center',
-    color: 'red'
-  }
+    color: 'red',
+  },
 })
 
 export default Devices
