@@ -51,7 +51,7 @@ export const initialState = {
   loading: false,
   error: '',
   editing: false,
-  adding: false
+  adding: false,
 }
 /* Device
 {
@@ -74,62 +74,65 @@ const reducer = (state = initialState, action) => {
           ...state[action.mac],
           loading: action.loading,
           active: action.active,
-          error: action.error
-        }
+          error: action.error,
+        },
       }
     case ADD:
       if (state[action.device.mac]) {
         return {
           ...state,
           error: 'Intentaste agregar un dispositivo con una dirección mac existente',
-          adding: false
+          adding: false,
         }
       }
       const mac = Format.mac(action.device.mac)
       //
       return {
-        ...initialState,
         ...state,
         [mac]: {
           name: action.device.name,
           active: false,
           loading: false,
           error: '',
-          mac: mac
-        }
+          mac: mac,
+        },
+        adding: false,
       }
     case TOGGLE_EDIT:
       return {
         ...state,
-        editing: !state.editing
+        editing: !state.editing,
       }
     case TOGGLE_ADD:
       return {
         ...state,
-        adding: !state.adding
+        adding: !state.adding,
       }
     case EDIT_NAME:
       return {
         ...state,
         [action.mac]: {
           ...state[action.mac],
-          name: action.name
-        }
+          name: action.name,
+        },
       }
     case REMOVE:
       const devices = {
-        ...state
+        ...state,
       }
       delete devices[action.mac]
       return devices
     case REFRESH:
       return {
-        ...action.devices.reduce((devices, device) => {
-          devices[device.mac] = device
-          return devices
-        }, {}),
+        ...action.devices.reduce(
+          (devices, device) => {
+            devices[device.mac] = device
+            return devices
+          },
+          {},
+        ),
         loading: action.loading,
-        error: action.error
+        error: action.error,
       }
     case REHYDRATE:
       const incoming = action.payload.devices
@@ -139,7 +142,7 @@ const reducer = (state = initialState, action) => {
           ...incoming,
           editing: false,
           adding: false,
-          error: ''
+          error: '',
         }
       }
       return state
