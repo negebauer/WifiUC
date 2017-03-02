@@ -71,10 +71,10 @@ AddDevice.propTypes = {
   toggleAdd: React.PropTypes.func.isRequired,
 }
 
-const Device = ({name, mac, active, loading, error, toggle}) => (
+const Device = ({name, mac, active, loading, error, toggle, index}) => (
   <View>
     <TouchableWithoutFeedback onPress={toggle}>
-      <View style={styles.device}>
+      <View style={(index % 2 === 0 && styles.device) || styles.device2}>
         <View style={styles.deviceToggle}>
           {!loading &&
             <Icon
@@ -102,6 +102,7 @@ Device.propTypes = {
   loading: React.PropTypes.bool.isRequired,
   error: React.PropTypes.string.isRequired,
   toggle: React.PropTypes.func.isRequired,
+  index: React.PropTypes.number.isRequired,
 }
 
 const DeviceEdit = ({name, mac, active, loading, error}) => (!active &&
@@ -161,9 +162,10 @@ const Devices = (
     {!addMode &&
       <ScrollView style={styles.devices}>
         {devices.map(
-          device =>
-            (!editMode && <Device key={device.mac} {...device} />) ||
-            <DeviceEdit key={device.mac} {...device} />,
+          (device, index) =>
+            (!editMode &&
+              <Device key={device.mac} {...device} index={index} />) ||
+            <DeviceEdit key={device.mac} {...device} index={index} />,
         )}
       </ScrollView>}
     {addMode &&
@@ -234,6 +236,19 @@ const styles = StyleSheet.create({
     padding: 12,
     flexDirection: 'row',
     justifyContent: 'space-around',
+    borderColor: 'black',
+    // borderTopWidth: 0.5,
+    // borderBottomWidth: 0.5,
+  },
+  device2: {
+    padding: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    borderColor: 'black',
+    // borderTopWidth: 0.5,
+    // borderBottomWidth: 0.5,
+    backgroundColor: 'lightgray',
+    borderRadius: 20,
   },
   deviceToggle: {
     paddingRight: 6,
