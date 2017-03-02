@@ -119,6 +119,9 @@ const reducer = (state = initialState, action) => {
         adding: false,
       }
     case TOGGLE_EDIT:
+      if (state.loading) {
+        return state
+      }
       return {
         ...state,
         editing: !state.editing,
