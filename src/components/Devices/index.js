@@ -104,6 +104,29 @@ Device.propTypes = {
   toggle: React.PropTypes.func.isRequired,
 }
 
+const DeviceEdit = ({name, mac, active, loading, error}) => (!active &&
+  <View>
+    <TouchableWithoutFeedback>
+      <View style={styles.device}>
+        <View style={styles.deviceData}>
+          <Text>{name}</Text>
+          <Text>{Format.mac(mac).toUpperCase()}</Text>
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
+    {(error && <Text style={styles.deviceError}>{error}</Text>) || null}
+  </View>) ||
+null
+
+DeviceEdit.propTypes = {
+  name: React.PropTypes.string.isRequired,
+  mac: React.PropTypes.string.isRequired,
+  active: React.PropTypes.bool.isRequired,
+  loading: React.PropTypes.bool.isRequired,
+  error: React.PropTypes.string.isRequired,
+  toggle: React.PropTypes.func.isRequired,
+}
+
 const Devices = (
   {
     devices,
@@ -137,7 +160,11 @@ const Devices = (
     </View>
     {!addMode &&
       <ScrollView style={styles.devices}>
-        {devices.map(device => <Device key={device.mac} {...device} />)}
+        {devices.map(
+          device =>
+            (!editMode && <Device key={device.mac} {...device} />) ||
+            <DeviceEdit key={device.mac} {...device} />,
+        )}
       </ScrollView>}
     {addMode &&
       <AddDevice {...{newDevice, newDeviceUpdate, deviceAdd, toggleAdd}} />}
