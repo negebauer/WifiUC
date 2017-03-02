@@ -34,15 +34,18 @@ export const editName = (mac, name) => {
   return {type: EDIT_NAME, mac, name}
 }
 
-export const remove = mac => {
-  return {type: REMOVE, mac}
-}
+export const remove = mac => ({type: REMOVE, mac})
 
-export const refresh = (devices, loading, error) => {
-  return {type: REFRESH, devices, loading, error}
-}
+export const refresh = (devices, loading, error) => ({
+  type: REFRESH,
+  devices,
+  loading,
+  error,
+})
 
-export const fetchRefresh = (user, devices) => {}
+export const fetchRefresh = (user, devices) => dispatch => {
+  dispatch(refresh([], true, ''))
+}
 
 /* Initial state */
 
@@ -125,6 +128,8 @@ const reducer = (state = initialState, action) => {
       return devices
     case REFRESH:
       return {
+        ...initialState,
+        ...state,
         ...action.devices.reduce(
           (devices, device) => {
             devices[device.mac] = device
@@ -144,6 +149,7 @@ const reducer = (state = initialState, action) => {
           editing: false,
           adding: false,
           error: '',
+          loading: false,
         }
       }
       return state

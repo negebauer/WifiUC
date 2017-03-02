@@ -133,6 +133,7 @@ const Devices = (
     devices,
     deviceAdd,
     devicesInteract,
+    devicesRefresh,
     toggleEdit,
     toggleAdd,
     editMode,
@@ -140,6 +141,8 @@ const Devices = (
     logout,
     newDevice,
     newDeviceUpdate,
+    loading,
+    error,
   },
 ) => (
   <View style={styles.container}>
@@ -148,7 +151,7 @@ const Devices = (
       {!editMode &&
         !addMode &&
         <View style={styles.options}>
-          <Option name="refresh" onPress={() => {}} />
+          <Option name="refresh" onPress={devicesRefresh} />
           <Option name="plus" onPress={toggleAdd} />
           <Option name="edit" onPress={toggleEdit} />
           <Option name="sign-out" onPress={logout} />
@@ -159,6 +162,23 @@ const Devices = (
           {addMode && <Option name="ban" onPress={toggleAdd} />}
         </View>}
     </View>
+    {((loading || error) &&
+      <View style={styles.devicesMessage}>
+        {(loading &&
+          <View style={styles.devicesMessageLoading}>
+            <ActivityIndicator style={styles.devicesMessageLoadingItem} />
+            <Text style={styles.devicesMessageLoadingItem}>
+              Cargando dispositivos...
+            </Text>
+          </View>) ||
+          null}
+        {(error &&
+          <View style={styles.devicesMessageError}>
+            <Text>{error}</Text>
+          </View>) ||
+          null}
+      </View>) ||
+      null}
     {!addMode &&
       <ScrollView style={styles.devices}>
         {devices.map(
@@ -177,13 +197,16 @@ Devices.propTypes = {
   devices: React.PropTypes.array.isRequired,
   deviceAdd: React.PropTypes.func.isRequired,
   devicesInteract: React.PropTypes.bool.isRequired,
+  devicesRefresh: React.PropTypes.func.isRequired,
   toggleEdit: React.PropTypes.func.isRequired,
   toggleAdd: React.PropTypes.func.isRequired,
   editMode: React.PropTypes.bool.isRequired,
   addMode: React.PropTypes.bool.isRequired,
+  loading: React.PropTypes.bool.isRequired,
   logout: React.PropTypes.func.isRequired,
   newDevice: React.PropTypes.object.isRequired,
   newDeviceUpdate: React.PropTypes.func.isRequired,
+  error: React.PropTypes.string.isRequired,
 }
 
 const styles = StyleSheet.create({
@@ -260,6 +283,17 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  devicesMessage: {},
+  devicesMessageLoading: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 5,
+  },
+  devicesMessageLoadingItem: {
+    margin: 5,
+  },
+  devicesMessageError: {},
 })
 
 export default Devices
