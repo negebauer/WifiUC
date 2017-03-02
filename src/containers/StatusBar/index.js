@@ -6,7 +6,7 @@ import Colors from '../../utils/colors'
 const mapStateToProps = (state, ownProps) => {
   const map = {
     backgroundColor: Colors.main,
-    barStyle: 'dark-content',
+    barStyle: 'light-content',
     networkActivityIndicatorVisible: networkActivity(state)
   }
   return map
