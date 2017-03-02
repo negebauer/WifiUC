@@ -32,6 +32,7 @@ class Session extends Component {
       this.props.children,
       child => React.cloneElement(child, {
         devicesRefresh: () => this.props.devicesRefresh(user),
+        user: user,
       }),
     )
     return <View style={styles.container}>{childrenWithProps}</View>

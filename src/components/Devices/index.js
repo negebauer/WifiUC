@@ -143,6 +143,7 @@ const Devices = (
     newDeviceUpdate,
     loading,
     error,
+    toggle,
   },
 ) => (
   <View style={styles.container}>
@@ -184,7 +185,12 @@ const Devices = (
         {devices.map(
           (device, index) =>
             (!editMode &&
-              <Device key={device.mac} {...device} index={index} />) ||
+              <Device
+                key={device.mac}
+                {...device}
+                index={index}
+                toggle={() => !loading && !device.loading && toggle(device)}
+              />) ||
             <DeviceEdit key={device.mac} {...device} index={index} />,
         )}
       </ScrollView>}
@@ -207,6 +213,7 @@ Devices.propTypes = {
   newDevice: React.PropTypes.object.isRequired,
   newDeviceUpdate: React.PropTypes.func.isRequired,
   error: React.PropTypes.string.isRequired,
+  toggle: React.PropTypes.func.isRequired,
 }
 
 const styles = StyleSheet.create({

@@ -3,6 +3,7 @@ import Device from './device'
 import Format from '../../utils/format'
 import {REHYDRATE} from 'redux-persist/constants'
 import Session from '../user/session'
+import {devicesList} from '../selectors'
 
 const session = user => new Session(user)
 
@@ -20,6 +21,14 @@ export const REFRESH = 'DEVICES_REFRESH'
 
 export const toggle = (mac, active, loading, error) => {
   return {type: TOGGLE, mac, active, loading, error}
+}
+
+export const fetchToggle = (user, device) => dispatch => {
+  dispatch(toggle(device.mac, device.active, true, ''))
+  Device.toggle(session(user), device)
+    .then(() => dispatch(toggle(device.mac, !device.active, false, '')))
+    .catch(err =>
+      dispatch(toggle(device.mac, device.active, false, err.message)))
 }
 
 export const add = device => {
@@ -150,9 +159,23 @@ const reducer = (state = initialState, action) => {
     case REHYDRATE:
       const incoming = action.payload.devices
       if (incoming) {
+        const devices = devicesList(action.payload)
+          .map(device => ({
+            ...device,
+            loading: false,
+            error: '',
+            active: false,
+          }))
+          .reduce(
+            (object, device) => {
+              object[device.mac] = device
+              return object
+            },
+            {},
+          )
         return {
           ...state,
-          ...incoming,
+          ...devices,
           editing: false,
           adding: false,
           error: '',
