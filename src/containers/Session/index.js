@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   userUpdate: user => dispatch(update(user)),
   login: user => dispatch(fetchLogin(user)),
   logout: () => dispatch(fetchLogout()),
-  devicesRefresh: user => dispatch(fetchRefresh()),
+  devicesRefresh: user => dispatch(fetchRefresh(user)),
 })
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Session)

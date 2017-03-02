@@ -1,6 +1,10 @@
+import Devices from './devices'
+import Device from './device'
 import Format from '../../utils/format'
 import {REHYDRATE} from 'redux-persist/constants'
-import session from '../user'
+import Session from '../user/session'
+
+const session = user => new Session(user)
 
 /* Action types */
 
@@ -45,6 +49,9 @@ export const refresh = (devices, loading, error) => ({
 
 export const fetchRefresh = user => dispatch => {
   dispatch(refresh([], true, ''))
+  Devices.loadDevicesRemote(session(user))
+    .then(devices => dispatch(refresh(devices, false, '')))
+    .catch(err => dispatch(refresh([], false, err.message)))
 }
 
 /* Initial state */
@@ -132,7 +139,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         ...action.devices.reduce(
           (devices, device) => {
-            devices[device.mac] = device
+            devices[device.mac] = {...device, loading: false, error: ''}
             return devices
           },
           {},
