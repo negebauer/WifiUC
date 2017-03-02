@@ -88,6 +88,7 @@ const reducer = (state = initialState, action) => {
       const mac = Format.mac(action.device.mac)
       //
       return {
+        ...initialState,
         ...state,
         [mac]: {
           name: action.device.name,
