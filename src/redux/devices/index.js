@@ -97,24 +97,17 @@ const reducer = (state = initialState, action) => {
         },
       }
     case ADD:
-      if (state[action.device.mac]) {
-        return {
-          ...state,
-          error: 'Intentaste agregar un dispositivo con una dirección mac existente',
-          adding: false,
-        }
-      }
       const mac = Format.mac(action.device.mac)
-      //
       return {
         ...initialState,
         ...state,
         [mac]: {
-          name: action.device.name,
           active: false,
           loading: false,
           error: '',
           mac: mac,
+          ...state[mac],
+          name: action.device.name,
         },
         adding: false,
       }

@@ -105,7 +105,9 @@ Device.propTypes = {
   index: React.PropTypes.number.isRequired,
 }
 
-const DeviceEdit = ({name, mac, active, loading, error, index, remove}) =>
+const DeviceEdit = (
+  {name, mac, active, loading, error, index, remove, deviceEditName},
+) =>
   (!active &&
     <View>
       <TouchableWithoutFeedback>
@@ -117,7 +119,7 @@ const DeviceEdit = ({name, mac, active, loading, error, index, remove}) =>
             <Text>{Format.mac(mac).toUpperCase()}</Text>
           </View>
           <View style={styles.deviceEditOptions}>
-            <Option name="edit" onPress={null} />
+            <Option name="edit" onPress={deviceEditName} />
             <Option name="ban" onPress={() => remove(mac)} />
           </View>
         </View>
@@ -134,6 +136,7 @@ DeviceEdit.propTypes = {
   error: React.PropTypes.string.isRequired,
   index: React.PropTypes.number.isRequired,
   remove: React.PropTypes.func.isRequired,
+  deviceEditName: React.PropTypes.func.isRequired,
 }
 
 const Devices = (
@@ -153,6 +156,7 @@ const Devices = (
     error,
     toggle,
     remove,
+    deviceEditName,
   },
 ) => (
   <View style={styles.container}>
@@ -210,11 +214,14 @@ const Devices = (
               {...device}
               index={index}
               remove={remove}
+              deviceEditName={() => deviceEditName(device)}
             />,
         )}
       </ScrollView>}
     {addMode &&
-      <AddDevice {...{newDevice, newDeviceUpdate, deviceAdd, toggleAdd}} />}
+      <AddDevice
+        {...{newDevice, newDeviceUpdate, deviceAdd, toggleAdd, editMode}}
+      />}
   </View>
 )
 
@@ -234,6 +241,7 @@ Devices.propTypes = {
   error: React.PropTypes.string.isRequired,
   toggle: React.PropTypes.func.isRequired,
   remove: React.PropTypes.func.isRequired,
+  deviceEditName: React.PropTypes.func.isRequired,
 }
 
 const styles = StyleSheet.create({
