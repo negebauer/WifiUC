@@ -125,7 +125,6 @@ DeviceEdit.propTypes = {
   active: React.PropTypes.bool.isRequired,
   loading: React.PropTypes.bool.isRequired,
   error: React.PropTypes.string.isRequired,
-  toggle: React.PropTypes.func.isRequired,
 }
 
 const Devices = (
