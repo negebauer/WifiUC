@@ -5,6 +5,7 @@ import {
   Text,
   ActivityIndicator,
   StyleSheet,
+  TouchableWithoutFeedback,
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Button from 'apsl-react-native-button'
@@ -70,10 +71,27 @@ AddDevice.propTypes = {
   toggleAdd: React.PropTypes.func.isRequired,
 }
 
-const Device = ({name, mac, active, loading, error}) => (
+const Device = ({name, mac, active, loading, error, toggle}) => (
   <View>
-    <Text>{mac}</Text>
-    <Text>{name}</Text>
+    <TouchableWithoutFeedback onPress={toggle}>
+      <View style={styles.device}>
+        <View style={styles.deviceToggle}>
+          {!loading &&
+            <Icon
+              name={(active && 'toggle-on') || 'toggle-off'}
+              onPress={toggle}
+              size={30}
+            />}
+          {loading &&
+            <ActivityIndicator size="small" style={styles.deviceActivity} />}
+        </View>
+        <View style={styles.deviceData}>
+          <Text>{name}</Text>
+          <Text>{Format.mac(mac).toUpperCase()}</Text>
+        </View>
+      </View>
+    </TouchableWithoutFeedback>
+    {(error && <Text style={styles.deviceError}>{error}</Text>) || null}
   </View>
 )
 
@@ -83,6 +101,7 @@ Device.propTypes = {
   active: React.PropTypes.bool.isRequired,
   loading: React.PropTypes.bool.isRequired,
   error: React.PropTypes.string.isRequired,
+  toggle: React.PropTypes.func.isRequired,
 }
 
 const Devices = (
@@ -179,6 +198,29 @@ const styles = StyleSheet.create({
     marginTop: 12,
     textAlign: 'center',
     color: 'red',
+  },
+  deviceError: {
+    color: 'red',
+    textAlign: 'center',
+  },
+  device: {
+    padding: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  deviceToggle: {
+    paddingRight: 6,
+  },
+  deviceActivity: {
+    height: 30,
+    width: 34,
+    marginRight: 1,
+  },
+  deviceData: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 })
 
