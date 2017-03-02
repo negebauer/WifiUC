@@ -6,6 +6,7 @@ import {
   toggleAdd,
   fetchRefresh,
   fetchToggle,
+  remove,
 } from '../../redux/devices'
 import {
   update as newDeviceUpdate,
@@ -39,6 +40,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   newDeviceUpdate: device => dispatch(newDeviceUpdate(device)),
   devicesRefresh: () => ownProps.devicesRefresh(),
   toggle: device => dispatch(fetchToggle(ownProps.user, device)),
+  remove: mac => dispatch(remove(mac)),
 })
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Devices)

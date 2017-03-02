@@ -105,19 +105,26 @@ Device.propTypes = {
   index: React.PropTypes.number.isRequired,
 }
 
-const DeviceEdit = ({name, mac, active, loading, error}) => (!active &&
-  <View>
-    <TouchableWithoutFeedback>
-      <View style={styles.device}>
-        <View style={styles.deviceData}>
-          <Text>{name}</Text>
-          <Text>{Format.mac(mac).toUpperCase()}</Text>
+const DeviceEdit = ({name, mac, active, loading, error, index, remove}) =>
+  (!active &&
+    <View>
+      <TouchableWithoutFeedback>
+        <View
+          style={(index % 2 === 0 && styles.deviceEdit) || styles.deviceEdit2}
+        >
+          <View style={styles.deviceEditData}>
+            <Text>{name}</Text>
+            <Text>{Format.mac(mac).toUpperCase()}</Text>
+          </View>
+          <View style={styles.deviceEditOptions}>
+            <Option name="edit" onPress={null} />
+            <Option name="ban" onPress={() => remove(mac)} />
+          </View>
         </View>
-      </View>
-    </TouchableWithoutFeedback>
-    {(error && <Text style={styles.deviceError}>{error}</Text>) || null}
-  </View>) ||
-null
+      </TouchableWithoutFeedback>
+      {(error && <Text style={styles.deviceError}>{error}</Text>) || null}
+    </View>) ||
+  null
 
 DeviceEdit.propTypes = {
   name: React.PropTypes.string.isRequired,
@@ -125,6 +132,8 @@ DeviceEdit.propTypes = {
   active: React.PropTypes.bool.isRequired,
   loading: React.PropTypes.bool.isRequired,
   error: React.PropTypes.string.isRequired,
+  index: React.PropTypes.number.isRequired,
+  remove: React.PropTypes.func.isRequired,
 }
 
 const Devices = (
@@ -143,6 +152,7 @@ const Devices = (
     loading,
     error,
     toggle,
+    remove,
   },
 ) => (
   <View style={styles.container}>
@@ -190,7 +200,12 @@ const Devices = (
                 index={index}
                 toggle={() => !loading && !device.loading && toggle(device)}
               />) ||
-            <DeviceEdit key={device.mac} {...device} index={index} />,
+            <DeviceEdit
+              key={device.mac}
+              {...device}
+              index={index}
+              remove={remove}
+            />,
         )}
       </ScrollView>}
     {addMode &&
@@ -213,6 +228,7 @@ Devices.propTypes = {
   newDeviceUpdate: React.PropTypes.func.isRequired,
   error: React.PropTypes.string.isRequired,
   toggle: React.PropTypes.func.isRequired,
+  remove: React.PropTypes.func.isRequired,
 }
 
 const styles = StyleSheet.create({
@@ -300,6 +316,24 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   devicesMessageError: {},
+  deviceEdit: {
+    padding: 12,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
+  deviceEdit2: {
+    padding: 12,
+    justifyContent: 'space-between',
+    borderRadius: 80,
+    backgroundColor: Colors.mainClear,
+    flexDirection: 'row',
+  },
+  deviceEditData: {
+    flexDirection: 'column',
+  },
+  deviceEditOptions: {
+    flexDirection: 'row',
+  },
 })
 
 export default Devices
