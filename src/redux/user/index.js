@@ -6,9 +6,9 @@ export const session = user => new Session(user)
 
 /* Action types */
 
-export const LOGIN = 'LOGIN'
-export const LOGOUT = 'LOGOUT'
-export const UPDATE = 'UPDATE'
+export const LOGIN = 'USER_LOGIN'
+export const LOGOUT = 'USER_LOGOUT'
+export const UPDATE = 'USER_UPDATE'
 
 /* Action creators */
 
