@@ -1,5 +1,6 @@
 import {connect} from 'react-redux'
 import {fetchLogin, fetchLogout, update} from '../../redux/user'
+import {fetchRefresh} from '../../redux/devices'
 import Session from '../../components/Session'
 
 const mapStateToProps = (state, ownProps) => ({
@@ -10,6 +11,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   userUpdate: user => dispatch(update(user)),
   login: user => dispatch(fetchLogin(user)),
   logout: () => dispatch(fetchLogout()),
+  devicesRefresh: user => dispatch(fetchRefresh()),
 })
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Session)

@@ -9,13 +9,11 @@ import Project from '../../utils/project'
 
 const App = () => (
   <View style={styles.app}>
-    {Project.ios && <View style={styles.statusBar}/>}
-    <StatusBar/>
+    {Project.ios && <View style={styles.statusBar} />}
+    <StatusBar />
     <View style={styles.box}>
       <Session>
-        <View style={styles.devices}>
-          <Devices/>
-        </View>
+        <Devices />
       </Session>
     </View>
   </View>
@@ -24,7 +22,7 @@ const App = () => (
 const styles = StyleSheet.create({
   app: {
     flex: 1,
-    backgroundColor: Colors.main
+    backgroundColor: Colors.main,
   },
   box: {
     flex: 1,
@@ -33,15 +31,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
     backgroundColor: 'white',
     borderRadius: 16,
-    padding: 16
+    padding: 16,
   },
   statusBar: {
     backgroundColor: Colors.main,
-    height: 24
+    height: 24,
   },
-  devices: {
-    flex: 1
-  }
 })
 
 export default App

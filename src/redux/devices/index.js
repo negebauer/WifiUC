@@ -43,7 +43,7 @@ export const refresh = (devices, loading, error) => ({
   error,
 })
 
-export const fetchRefresh = (user, devices) => dispatch => {
+export const fetchRefresh = user => dispatch => {
   dispatch(refresh([], true, ''))
 }
 

@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   toggleEdit: () => dispatch(toggleEdit()),
   toggleAdd: () => dispatch(newDeviceReset()) && dispatch(toggleAdd()),
   newDeviceUpdate: device => dispatch(newDeviceUpdate(device)),
-  devicesRefresh: () => dispatch(fetchRefresh()),
+  devicesRefresh: () => ownProps.devicesRefresh(),
 })
 
 const Container = connect(mapStateToProps, mapDispatchToProps)(Devices)
