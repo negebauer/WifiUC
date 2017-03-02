@@ -11,10 +11,10 @@ const session = user => new Session(user)
 
 export const TOGGLE = 'DEVICE_TOGGLE'
 export const ADD = 'DEVICE_ADD'
-export const TOGGLE_EDIT = 'DEVICE_TOGGLE_EDIT'
-export const TOGGLE_ADD = 'DEVICE_TOGGLE_ADD'
-export const EDIT_NAME = 'DEVICE_EDIT_NAME'
 export const REMOVE = 'DEVICE_REMOVE'
+export const EDIT_NAME = 'DEVICE_EDIT_NAME'
+export const TOGGLE_EDIT = 'DEVICES_TOGGLE_EDIT'
+export const TOGGLE_ADD = 'DEVICES_TOGGLE_ADD'
 export const REFRESH = 'DEVICES_REFRESH'
 
 /* Action creators */
