@@ -190,6 +190,11 @@ const Devices = (
       </View>) ||
       null}
     {!addMode &&
+      editMode &&
+      <View style={styles.devicesEditMessage}>
+        <Text>Solo puedes editar dispositivos desactivados</Text>
+      </View>}
+    {!addMode &&
       <ScrollView style={styles.devices}>
         {devices.map(
           (device, index) =>
@@ -333,6 +338,10 @@ const styles = StyleSheet.create({
   },
   deviceEditOptions: {
     flexDirection: 'row',
+  },
+  devicesEditMessage: {
+    marginTop: 12,
+    marginBottom: 12,
   },
 })
 
