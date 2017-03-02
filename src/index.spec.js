@@ -3,3 +3,7 @@ import React from 'react'
 beforeAll(() => require('isomorphic-fetch'))
 
 it('set fetch function', () => expect(1).toBe(1))
+
+it('waits for async', done => {
+  done()
+})
