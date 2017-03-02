@@ -1,5 +1,6 @@
 import Url from '../../utils/url'
 import Fetcher from '../../utils/fetcher'
+import Format from '../../utils/format'
 let cheerio = require('cheerio')
 
 export default class Devices {
@@ -28,7 +29,7 @@ export default class Devices {
               .split('-')
               .join('')
               .toLowerCase()
-            devices.push({mac, name, active: true})
+            devices.push({mac: Format.mac(mac), name, active: true})
           })
         }
         console.log('devices remote')
