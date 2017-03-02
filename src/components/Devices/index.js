@@ -151,7 +151,7 @@ const Devices = (
       {!editMode &&
         !addMode &&
         <View style={styles.options}>
-          <Option name="refresh" onPress={devicesRefresh} />
+          <Option name="refresh" onPress={() => !loading && devicesRefresh()} />
           <Option name="plus" onPress={toggleAdd} />
           <Option name="edit" onPress={toggleEdit} />
           <Option name="sign-out" onPress={logout} />
