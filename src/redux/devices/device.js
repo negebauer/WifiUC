@@ -1,10 +1,9 @@
 import Devices from '../devices'
-import Fetcher from '../../../utils/fetcher'
-import Url from '../../../utils/url'
+import Fetcher from '../../utils/fetcher'
+import Url from '../../utils/url'
 let cheerio = require('cheerio')
 
 export default class Device {
-
   static formattedMac = mac => mac.toUpperCase().match(/.{1,2}/g).join(':')
 
   static toggle = (session, device) => {
@@ -39,9 +38,10 @@ export default class Device {
     return session.login().then(() => {
       const body = {
         mac: device.mac,
-        nombreDispositivo: device.name
+        nombreDispositivo: device.name,
       }
-      return Fetcher.post(Url.add, body, true).then(res => Device.validate(res, retry, true))
+      return Fetcher.post(Url.add, body, true)
+        .then(res => Device.validate(res, retry, true))
     })
   }
 
@@ -49,9 +49,10 @@ export default class Device {
     const retry = () => Device.removeDevice(device)
     return session.login().then(_ => {
       const body = {
-        mac: device.mac
+        mac: device.mac,
       }
-      return Fetcher.post(Url.remove, body, true).then(res => Device.validate(res, retry, false))
+      return Fetcher.post(Url.remove, body, true)
+        .then(res => Device.validate(res, retry, false))
     })
   }
 
@@ -62,11 +63,11 @@ export default class Device {
         macAntes: deviceOld.mac,
         macDespues: deviceNew.mac,
         nombreDispositivoAntes: deviceOld.name,
-        nombreDispositivoDespues: deviceNew.name
+        nombreDispositivoDespues: deviceNew.name,
       }
       deviceNew.active = deviceOld.active
-      return Fetcher.post(Url.edit, body, true).then(res => Device.validate(res, retry, deviceNew))
+      return Fetcher.post(Url.edit, body, true)
+        .then(res => Device.validate(res, retry, deviceNew))
     })
   }
-
 }

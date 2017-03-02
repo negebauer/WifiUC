@@ -39,6 +39,7 @@
         "sourceType": "module"
     },
     "plugins": [
+      "babel",
         "react",
         "react-native"
     ],
@@ -59,6 +60,10 @@
             "single"
         ],
         "semi": [
+            "error",
+            "never"
+        ],
+        "babel/semi": [
             "error",
             "never"
         ],
