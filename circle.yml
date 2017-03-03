@@ -9,9 +9,7 @@ machine:
 dependencies:
   pre:
     # Homebrew
-    - brew reinstall node
-    - brew install android-sdk imagemagick
-    - brew link node android-sdk imagemagick
+    - brew reinstall node android-sdk imagemagick
     # Project
     - npm install
     - npm install -g react-native-cli
@@ -27,9 +25,9 @@ dependencies:
     - sudo gem update fastlane
   cache_directories:
     - node_modules
-    - /usr/local/Cellar/node
-    - /usr/local/Cellar/android-sdk
-    - /usr/local/Cellar/imagemagick
+    # - /usr/local/Cellar/node
+    # - /usr/local/Cellar/android-sdk
+    # - /usr/local/Cellar/imagemagick
 
 test:
   pre:
