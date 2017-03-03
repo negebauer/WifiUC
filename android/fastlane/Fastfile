@@ -26,9 +26,8 @@ end
 desc 'Build and sign apk'
 lane :build do
   mynotification('Building...')
-  gradle(
-    task: 'assembleRelease',
-  )
+  gradle(task: 'clean')
+  gradle(task: 'assemble', build_type: 'Release')
 end
 
 lane :distribute do
