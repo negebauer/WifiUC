@@ -58,6 +58,11 @@ Submit a new Beta Build to Crashlytics Beta
 fastlane store
 ```
 Deploy a new version to the Google Play
+### store_prep
+```
+fastlane store_prep
+```
+
 ### metadata
 ```
 fastlane metadata

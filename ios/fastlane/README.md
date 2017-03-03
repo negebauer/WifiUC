@@ -58,6 +58,11 @@ Submit a new Beta Build to Apple TestFlight
 fastlane store
 ```
 Deploy a new version to the App Store
+### store_prep
+```
+fastlane store_prep
+```
+
 ### metadata
 ```
 fastlane metadata

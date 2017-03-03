@@ -38,21 +38,22 @@ test:
     - npm run generate_env
   post:
     # Build signed apk and ipa. Don't build in here if it's a deploy
-    # - cd ios; fastlane match appstore
-    # - cd ios; fastlane build
-    # - cd android; fastlane build
-
-deployment:
-  development:
-    branch: dev
-    commands:
-      - scripts/ci/deploy_android.sh
-      - scripts/ci/deploy_ios.sh
-      - scripts/ci/copy_artifacts.sh
-  store:
-    tag: /v[0-9]+(\.[0-9]+)*/
-    owner: negebauer
-    commands:
-      - cd android; fastlane store_prep
-      - cd ios; fastlane store_prep
-      - scripts/ci/copy_artifacts.sh
+    - cd ios; fastlane match appstore
+    - cd ios; fastlane build
+    - cd android; fastlane build
+    - scripts/ci/copy_artifacts.sh
+    
+# deployment:
+#   development:
+#     branch: dev
+#     commands:
+#       - scripts/ci/deploy_android.sh
+#       - scripts/ci/deploy_ios.sh
+#       - scripts/ci/copy_artifacts.sh
+#   store:
+#     tag: /v[0-9]+(\.[0-9]+)*/
+#     owner: negebauer
+#     commands:
+#       - cd android; fastlane store_prep
+#       - cd ios; fastlane store_prep
+#       - scripts/ci/copy_artifacts.sh
