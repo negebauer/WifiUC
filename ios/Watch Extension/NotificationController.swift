@@ -3,7 +3,7 @@
 //  Watch Extension
 //
 //  Created by Nicolás Gebauer on 03-02-17.
-//  Copyright © 2017 Facebook. All rights reserved.
+//  . All rights reserved.
 //
 
 import WatchKit

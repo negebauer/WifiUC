@@ -3,7 +3,7 @@
 //  WifiUC
 //
 //  Created by Nicolás Gebauer on 18-02-17.
-//  Copyright © 2017 Facebook. All rights reserved.
+//  . All rights reserved.
 //
 
 import WatchKit
@@ -19,15 +19,12 @@ class DeviceRowController: NSObject {
       guard let device = device else { return }
       name.setText(device.name)
       mac.setText(device.mac)
-      active.setColor(activeColor(active: device.active))
+      active.setColor(activeColor(device: device))
     }
   }
   
-  internal func toggle(active: Bool) {
-    self.active.setColor(activeColor(active: active))
-  }
-  
-  private func activeColor(active: Bool) -> UIColor {
-    return active ? .green : .red
+  private func activeColor(device: Device) -> UIColor {
+    if device.loading { return .gray }
+    return device.active ? .green : .red
   }
 }

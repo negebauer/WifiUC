@@ -4,6 +4,7 @@ import Session from '../../containers/Session'
 import Devices from '../../containers/Devices'
 import Options from '../../containers/Options'
 import StatusBar from '../../containers/StatusBar'
+import Watch from '../../containers/Watch'
 import Colors from '../../utils/colors'
 import Project from '../../utils/project'
 
@@ -16,6 +17,7 @@ const App = () => (
         <Devices />
       </Session>
     </View>
+    {Project.ios && <Watch />}
   </View>
 )
 

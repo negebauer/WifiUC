@@ -3,7 +3,7 @@ import Device from './device'
 import Format from '../../utils/format'
 import {REHYDRATE} from 'redux-persist/constants'
 import Session from '../user/session'
-import {devicesList} from '../selectors'
+import {getDevicesIgnoreKeys, devicesList} from '../selectors'
 
 const session = user => new Session(user)
 
@@ -139,12 +139,24 @@ const reducer = (state = initialState, action) => {
       delete devices[action.mac]
       return devices
     case REFRESH:
+      const devicesRefresh = {}
+      Object.keys(state).forEach(mac => {
+        if (!state[mac].mac) {
+          return
+        }
+        devicesRefresh[mac] = {...state[mac], active: false}
+      })
       return {
         ...initialState,
         ...state,
+        ...devicesRefresh,
         ...action.devices.reduce(
           (devices, device) => {
-            devices[device.mac] = {...device, loading: false, error: ''}
+            devices[device.mac] = {
+              ...device,
+              loading: false,
+              error: '',
+            }
             return devices
           },
           {},

@@ -14,7 +14,13 @@
             <objects>
                 <controller identifier="Devices" id="AgC-eL-Hgc" customClass="DevicesInterfaceController" customModule="Watch_Extension">
                     <items>
-                        <table alignment="left" hidden="YES" id="Dvo-4U-dTP" userLabel="Devices Table">
+                        <button height="24" alignment="center" title="Recargar" id="Zli-NJ-tS2">
+                            <fontDescription key="font" type="system" pointSize="10"/>
+                            <connections>
+                                <action selector="reloadDevices" destination="AgC-eL-Hgc" id="qKF-c3-w45"/>
+                            </connections>
+                        </button>
+                        <table alignment="left" id="Dvo-4U-dTP" userLabel="Devices Table">
                             <items>
                                 <tableRow identifier="DeviceRow" id="xjh-xV-BcA" customClass="DeviceRowController" customModule="Watch_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="zm5-qo-8hQ">
@@ -54,7 +60,7 @@
                         </table>
                         <group alignment="center" verticalAlignment="center" id="W1X-b2-TM7">
                             <items>
-                                <label width="80" alignment="center" verticalAlignment="center" text="Inicia sesión en tu Iphaone" textAlignment="center" numberOfLines="0" id="egt-vY-xzK">
+                                <label width="1" alignment="center" verticalAlignment="center" text="Inicia sesión en tu iPhone" textAlignment="center" numberOfLines="0" id="egt-vY-xzK">
                                     <color key="textColor" red="0.1333333333" green="0.76470588240000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="18"/>
                                 </label>
@@ -62,7 +68,7 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="devicesTable" destination="Dvo-4U-dTP" id="5wP-Ft-Lgt"/>
+                        <outlet property="devicesTable" destination="Dvo-4U-dTP" id="NvF-Th-fTV"/>
                         <outlet property="message" destination="egt-vY-xzK" id="Jv2-Vy-SwU"/>
                     </connections>
                 </controller>

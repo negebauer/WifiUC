@@ -30,6 +30,7 @@
     "react-native-config": "^0.3.1",
     "react-native-vector-icons": "^4.0.0",
     "react-native-version": "^2.3.0",
+    "react-native-watch-connectivity": "^0.1.7",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
