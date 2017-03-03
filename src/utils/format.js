@@ -24,6 +24,8 @@ export default class Format {
     return macArray.join(':')
   }
 
+  static macClean = mac => mac.replace(/[&\/ \\:-]/g, '').toLowerCase()
+
   /* Assumes Format.mac() format */
   static macValidate = mac => {
     const regex = /^(?!(?:ff:ff:ff:ff:ff:ff|00:00:00:00:00:00))(?:[\da-f]{2}:){5}[\da-f]{2}$/i

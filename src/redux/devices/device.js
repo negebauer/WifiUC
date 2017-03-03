@@ -1,5 +1,6 @@
 import Devices from '../devices'
 import Fetcher from '../../utils/fetcher'
+import Format from '../../utils/format'
 import Url from '../../utils/url'
 let cheerio = require('cheerio')
 
@@ -7,11 +8,12 @@ export default class Device {
   static formattedMac = mac => mac.toUpperCase().match(/.{1,2}/g).join(':')
 
   static toggle = (session, device) => {
+    const deviceData = {...device, mac: Format.macClean(device.mac)}
     switch (device.active) {
       case true:
-        return Device.removeDevice(session, device)
+        return Device.removeDevice(session, deviceData)
       case false:
-        return Device.addDevice(session, device)
+        return Device.addDevice(session, deviceData)
     }
   }
 
