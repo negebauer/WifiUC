@@ -1251,7 +1251,7 @@
 				CODE_SIGN_ENTITLEMENTS = WifiUC/WifiUC.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Nicolas Gebauer (PQZ5PQ5MK4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Gebauer (PQZ5PQ5MK4)";
-				CURRENT_PROJECT_VERSION = 75;
+				CURRENT_PROJECT_VERSION = 76;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = BJJKE72WM4;
 				INFOPLIST_FILE = WifiUC/Info.plist;
@@ -1283,7 +1283,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 75;
+				CURRENT_PROJECT_VERSION = 76;
 				DEVELOPMENT_TEAM = BJJKE72WM4;
 				INFOPLIST_FILE = WifiUC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
