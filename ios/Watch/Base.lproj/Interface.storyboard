@@ -54,7 +54,7 @@
                         </table>
                         <group alignment="center" verticalAlignment="center" id="W1X-b2-TM7">
                             <items>
-                                <label width="80" alignment="center" verticalAlignment="center" text="Inicia sesión en tu Iphone" textAlignment="center" numberOfLines="0" id="egt-vY-xzK">
+                                <label width="80" alignment="center" verticalAlignment="center" text="Inicia sesión en tu Iphaone" textAlignment="center" numberOfLines="0" id="egt-vY-xzK">
                                     <color key="textColor" red="0.1333333333" green="0.76470588240000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="font" type="system" pointSize="18"/>
                                 </label>
