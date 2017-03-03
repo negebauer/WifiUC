@@ -70,6 +70,19 @@ lane :store do
   mynotification('Finished uploading App Store version')
 end
 
+lane :store_prep do
+  match
+  build
+  deliver(
+    skip_screenshots: true,
+    skip_metadata: true,
+    submit_for_review: false,
+    force: true,
+    automatic_release: false,
+  )
+  mynotification('Finished uploading App Store version')
+end
+
 desc 'Upload metada and screenshots'
 lane :metadata do
   mynotification('Uploading metadata')

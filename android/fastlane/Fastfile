@@ -59,6 +59,12 @@ lane :store do
   mynotification('Finished uploading Google Play version')
 end
 
+lane :store_prep do
+  build
+  upload('alpha')
+  mynotification('Finished uploading Google Play version to alpha')
+end
+
 desc 'Upload metada and screenshots'
 lane :metadata do
   supply(
