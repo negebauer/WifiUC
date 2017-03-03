@@ -1,4 +1,3 @@
 - Nueva interfaz
 - Se puede editar el nombre de un dispositivo activo
-- App para Apple Watch. Cambia tu dispositivo activo desde tu reloj
 - Icono
