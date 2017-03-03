@@ -34,9 +34,9 @@ end
 desc 'Submit a new Alpha Build to Apple TestFlight'
 lane :alpha do
   match
-  badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
+  # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: true, dark: false)
   build
-  checkout_images
+  # checkout_images
   mynotification('Uploading alpha version...')
   pilot
   distribute
@@ -46,9 +46,9 @@ end
 desc 'Submit a new Beta Build to Apple TestFlight'
 lane :beta do
   match
-  badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
+  # badge(shield: "#{VERSION}-#{BUILD}-blue", shield_no_resize: true, alpha: false, dark: true)
   build
-  checkout_images
+  # checkout_images
   mynotification('Uploading beta version...')
   pilot
   distribute

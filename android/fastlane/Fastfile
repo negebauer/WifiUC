@@ -36,18 +36,18 @@ end
 
 desc 'Submit a new Alpha Build to Crashlytics Beta'
 lane :alpha do
-  badge(shield: "#{VERSION}-#{BUILD}-blue", alpha: true, dark: false, glob: '/app/src/main/res/**/*.png', shield_no_resize: true)
+  # badge(shield: "#{VERSION}-#{BUILD}-blue", alpha: true, dark: false, glob: '/app/src/main/res/**/*.png', shield_no_resize: true)
   build
-  checkout_images
+  # checkout_images
   upload('alpha')
   mynotification('Finished uploading alpha version')
 end
 
 desc 'Submit a new Beta Build to Crashlytics Beta'
 lane :beta do
-  badge(shield: "#{VERSION}-#{BUILD}-blue", alpha: false, dark: true, glob: '/app/src/main/res/**/*.png', shield_no_resize: true)
+  # badge(shield: "#{VERSION}-#{BUILD}-blue", alpha: false, dark: true, glob: '/app/src/main/res/**/*.png', shield_no_resize: true)
   build
-  checkout_images
+  # checkout_images
   upload('beta')
   mynotification('Finished uploading beta version')
 end
