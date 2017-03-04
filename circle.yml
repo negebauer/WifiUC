@@ -48,7 +48,8 @@ deployment:
     branch: dev
     commands:
       - scripts/ci/deploy_ios.sh
-      - scripts/ci/deploy_android.sh
+      # - scripts/ci/deploy_android.sh
+      - cd android; fastlane build
       - scripts/ci/copy_artifacts.sh
 #   store:
 #     tag: /v[0-9]+(\.[0-9]+)*/
