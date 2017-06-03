@@ -1144,7 +1144,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2b28dab5-9b51-47eb-9f6f-8ce4fe1ae44f";
+				PROVISIONING_PROFILE = "1260516d-7e4f-412e-a893-a47c741335bc";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.negebauer.Wifi-UC.watchkitapp";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1163,8 +1163,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicolas Gebauer (BJJKE72WM4)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Nicolas Gebauer (BJJKE72WM4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BJJKE72WM4;
@@ -1177,7 +1177,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "504f2a4d-9b75-470b-a8c5-b80709302676";
+				PROVISIONING_PROFILE = "95b2ab00-3de7-4426-97e1-e86080fa07bf";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.negebauer.Wifi-UC.watchkitapp";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1203,7 +1203,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "b5b178dd-5339-4bac-8256-1660f8c19bbf";
+				PROVISIONING_PROFILE = "b9a642b8-eb07-4bd4-813c-9c5220a22835";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.negebauer.Wifi-UC.watchkitapp.watchkitextension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1222,8 +1222,8 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicolas Gebauer (BJJKE72WM4)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Nicolas Gebauer (BJJKE72WM4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = BJJKE72WM4;
@@ -1231,7 +1231,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "e03c20f9-44b7-48c9-afad-88101e759c33";
+				PROVISIONING_PROFILE = "c080be90-0329-4ec6-a032-a51d816b402f";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.negebauer.Wifi-UC.watchkitapp.watchkitextension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1250,7 +1250,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = WifiUC/WifiUC.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Nicolas Gebauer (PQZ5PQ5MK4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicolas Gebauer (PQZ5PQ5MK4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 79;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = BJJKE72WM4;
@@ -1264,7 +1264,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC";
 				PRODUCT_NAME = WifiUC;
-				PROVISIONING_PROFILE = "838bc835-7e64-4ac7-98f8-db13e004a6f6";
+				PROVISIONING_PROFILE = "c8faa06e-7746-4567-b923-c8c9546bc04e";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.negebauer.Wifi-UC";
 				SWIFT_OBJC_BRIDGING_HEADER = "WifiUC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1281,7 +1281,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = WifiUC/WifiUC.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 79;
 				DEVELOPMENT_TEAM = BJJKE72WM4;
@@ -1295,7 +1295,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.negebauer.Wifi-UC";
 				PRODUCT_NAME = WifiUC;
-				PROVISIONING_PROFILE = "15621c07-03f8-4c5e-a3f0-a8deba8f3ce5";
+				PROVISIONING_PROFILE = "4be3f8a6-1f20-4e2e-9483-ccc3a2298441";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.negebauer.Wifi-UC";
 				SWIFT_OBJC_BRIDGING_HEADER = "WifiUC-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

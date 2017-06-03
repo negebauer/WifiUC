@@ -19,7 +19,6 @@ lane :build do
   gym(
     scheme: 'WifiUC',
     clean: true,
-    codesigning_identity: 'iPhone Distribution: Nicolás Gebauer (BJJKE72WM4)'
   )
 end
 
