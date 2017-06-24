@@ -3,6 +3,8 @@
 
 ## Testing
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/negebauer/WifiUC.svg)](https://greenkeeper.io/)
+
 - Run `npm run generate_env YOUR_USER YOUR_PASS`
 
 Or
