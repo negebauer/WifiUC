@@ -1,6 +1,12 @@
 [![CircleCI](https://circleci.com/gh/negebauer/WifiUC/tree/dev.svg?style=svg)](https://circleci.com/gh/negebauer/WifiUC/tree/dev)
+[![dependencies](https://david-dm.org/negebauer/wifiuc.svg)](https://david-dm.org/negebauer/wifiuc)
+
+[![codebeat badge](https://codebeat.co/badges/fc382fcd-26dc-4fc7-aad5-b9566183554a)](https://codebeat.co/projects/github-com-negebauer-wifiuc-dev)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dd6c8cbbe4354480a1bbc49cc6e0511d)](https://www.codacy.com/app/negebauer/WifiUC?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=negebauer/WifiUC&amp;utm_campaign=Badge_Grade)
 [![BCH compliance](https://bettercodehub.com/edge/badge/negebauer/WifiUC?branch=dev)](https://bettercodehub.com/)
-[![Dependency Status](https://dependencyci.com/github/negebauer/WifiUC/badge)](https://dependencyci.com/github/negebauer/WifiUC)
+[![Code Climate](https://codeclimate.com/github/negebauer/WifiUC/badges/gpa.svg)](https://codeclimate.com/github/negebauer/WifiUC)
+[![Test Coverage](https://codeclimate.com/github/negebauer/WifiUC/badges/coverage.svg)](https://codeclimate.com/github/negebauer/WifiUC/coverage)
+[![Issue Count](https://codeclimate.com/github/negebauer/WifiUC/badges/issue_count.svg)](https://codeclimate.com/github/negebauer/WifiUC)
 
 ## Testing
 
