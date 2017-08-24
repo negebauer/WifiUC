@@ -2,6 +2,10 @@
 
 [![CircleCI](https://circleci.com/gh/negebauer/WifiUC/tree/dev.svg?style=svg)](https://circleci.com/gh/negebauer/WifiUC/tree/dev)
 
+Wifi UC te permite manejar tus dispositivos del Portal UC para usar con la red de  
+wifi de la Pontificia Universidad Católica de Chile. Cambia los dispositivos activos  
+desde la comodidad de tu celular!
+
 ### [Descargala iOS](https://itunes.apple.com/cl/app/wifi-uc/id1099843623?mt=8)
 
 ### [Descargala Android](https://play.google.com/store/apps/details?id=com.negebauer.wifiuc&hl=en)
